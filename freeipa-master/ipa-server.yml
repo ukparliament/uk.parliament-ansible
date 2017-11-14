@@ -1,0 +1,6 @@
+- hosts: common-freeipa-master-1
+  user: fedora
+  become: yes
+  become_method: sudo
+  roles:
+    - server

@@ -1,0 +1,6 @@
+- hosts: common-nginx-proxy-1
+  user: ubuntu
+  become: yes
+  become_method: sudo
+  roles:
+    - role: nginxinc.nginx-oss

@@ -1,0 +1,6 @@
+inventory_hostname: freeipa-master-1.access.parliament.uk
+domain: access.parliament.uk
+realm: ACCESS.PARLIAMENT.UK
+directory_manager_password: Red:bishop02102017
+principal_user_password: Red:bishop02102017
+dns_forwarder_1: 172.16.40.2
