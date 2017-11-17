@@ -1,0 +1,8 @@
+# amend freeip virtual hosts file to change proxy_pass http:// to proxy_pass https://
+
+-  lineinfile:
+       path: /etc/nginx/sites-available/freeipa.conf
+       regexp: 'proxy_pass'
+       line: 'proxy_pass https://172.16.40.36;'
+   notify:
+      - Test nginx and reload

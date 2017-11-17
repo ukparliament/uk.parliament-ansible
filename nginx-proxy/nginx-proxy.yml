@@ -2,5 +2,22 @@
   user: ubuntu
   become: yes
   become_method: sudo
+  vars:
+    nginx_sites:
+      gocd-pdswebops:
+        domains: ['gocd-pdswebops.parliament.uk']
+        default_server: True
+        upstreams:
+          - name: 'gocd-pdswebops'
+            servers: ['172.16.248.226:8153']
+      freeipa:
+        domains: ['freeipa-access.parliament.uk']
+        upstreams:
+           - name: 'freeipa-master-1'
+             servers: ['172.16.40.36']
+    proxy_pass_https:
+      freeipa:
   roles:
     - role: nginxinc.nginx-oss
+    - role: ansible-nginx
+    - role: misc

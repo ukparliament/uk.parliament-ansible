@@ -1,6 +1,7 @@
 all:
 
   hosts:
-    common-freeipa-master-1: 
+    common-freeipa-master-1:
+      ansible_host: 172.16.40.36
     common-nginx-proxy-1: 
-      ansible_host: 172.16.40.71
+      ansible_host: 172.16.40.251
