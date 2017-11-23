@@ -4,6 +4,11 @@
   become_method: sudo
   vars:
     nginx_sites:
+      gocd-common:
+        domains: ['gocd-common.parliament.uk']
+        upstreams:
+          - name: 'gocd-common'
+            servers: ['172.16.40.54:8153']
       gocd-pdswebops:
         domains: ['gocd-pdswebops.parliament.uk']
         default_server: True
