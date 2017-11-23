@@ -10,6 +10,16 @@
         upstreams:
           - name: 'gocd-pdswebops'
             servers: ['172.16.248.226:8153']
+      gocd-web1devci:
+        domains: ['gocd-webdevci.parliament.uk']
+        upstreams:
+          - name: 'gocd-webdevci'
+            servers: ['172.16.128.93:8153']
+      gocd-web1live:
+        domains: ['gocd-web1live.parliament.uk']
+        upstreams:
+          - name: 'gocd-web1live'
+            servers: ['172.16.136.102:8153']
       freeipa:
         domains: ['freeipa-access.parliament.uk']
         upstreams:

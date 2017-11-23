@@ -1,0 +1,77 @@
+---
+
+- name: Add new repository definition to the APT sources configuration directory
+  shell: echo "deb https://download.gocd.org /" | sudo tee /etc/apt/sources.list.d/gocd.list
+  args:
+    creates: gocd.list
+
+- name: Add the GoCD GPG key to APT
+  shell:  https://download.gocd.org/GOCD-GPG-KEY.asc | apt-key add -
+  args: 
+   chdir: /home/ubuntu/
+   creates: GOCD-GPG-KEY.asc
+
+
+- name: Install Pckages
+  apt: state=present name={{ item }}
+  with_items: 
+    - python-pip
+    - python-setuptools
+    - python-dev
+    - build-essential
+    - default-jre
+    - go-server
+    - go-agent
+    - apache2-utils
+
+
+# pip install bcrypt for htpasswd
+- pip: 
+    name: bcrypt
+  
+
+
+- name: Apt Update
+  shell: apt -u update   
+
+- name: Create Directory
+  file: 
+    path: /mnt/artifact-storage 
+    state: directory
+    owner: go
+    group: go 
+
+- parted:
+    device: /dev/xvdh
+    number: 1
+    state: present
+
+# Format drive
+- filesystem:
+    fstype: ext4
+    dev: /dev/xvdh1
+
+- name: Mount Directory
+  mount:
+   path: /mnt/artifact-storage
+   src: /dev/xvdh1
+   fstype: ext4
+   opts: defaults
+   state: mounted  
+
+# add Initial admin user
+- htpasswd:
+    path: /etc/go/gocd-passwd
+    name: admin
+    password: 'Red:bishop02102017'
+    crypt_scheme: bcrypt     
+
+# Start up GoCD Server and Agent
+
+- service:
+    name: go-server
+    state: started
+
+- service:
+    name: go-agent
+    state: started

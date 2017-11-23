@@ -1,0 +1,7 @@
+- hosts: common-gocd-server-ansible-1
+  user: ubuntu
+  become: yes
+  become_method: sudo
+  vars:
+  roles:
+    - role: gocd-server
