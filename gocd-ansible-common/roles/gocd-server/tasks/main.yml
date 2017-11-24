@@ -81,5 +81,5 @@
     name: go-agent
     state: started
 
--name: "Credstash lookup core_instances key"
- debug: core_instances_key="Credstash lookup! {{ lookup('credstash', 'ssh/core-instances')}}"
+- name: "Credstash lookup core_instances key"
+  debug: core_instances_key="Credstash lookup! {{ lookup('credstash', 'ssh/core-instances')}}"
