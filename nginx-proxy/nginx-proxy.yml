@@ -4,6 +4,11 @@
   become_method: sudo
   vars:
     nginx_sites:
+      big-test:
+        domains: ['big-test.parliament.uk']
+        upstreams:
+          - name: 'big-test'
+            servers: ['172.16.40.55']
       gocd-common:
         domains: ['gocd-common.parliament.uk']
         upstreams:
