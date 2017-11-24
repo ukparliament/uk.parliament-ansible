@@ -36,6 +36,8 @@
 # pip install bcrypt for htpasswd
 - pip:
     name: bcrypt
+- pip;
+    name: credstash
 
 
 
