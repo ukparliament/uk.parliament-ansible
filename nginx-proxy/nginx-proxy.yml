@@ -33,6 +33,5 @@
     proxy_pass_https:
       freeipa:
   roles:
-    - role: nginxinc.nginx-oss
     - role: ansible-nginx
     - role: misc
