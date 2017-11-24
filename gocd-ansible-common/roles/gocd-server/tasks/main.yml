@@ -17,7 +17,7 @@
   shell: apt-add-repository ppa:ansible/ansible
 
 - name: Apt Update
-    shell: apt -y update
+  shell: apt -y update
 
 - name: Install Pckages
   apt: state=present name={{ item }}
