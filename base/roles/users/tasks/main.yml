@@ -10,6 +10,7 @@
     state: directory
     owner: deployer
     group: deployer
+    mode: 0600
 
 - file:
     path: /home/deployer/.ssh/authorized_keys
