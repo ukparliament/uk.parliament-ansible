@@ -4,3 +4,9 @@
 
 - user:
     name: deployer
+
+- file:
+    path: /home/deployer/.ssh
+    state: directory
+    owner: deployer
+    group: deployer
