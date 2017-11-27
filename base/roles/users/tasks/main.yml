@@ -17,4 +17,4 @@
     group: deployer
 
 - name: place public key in authorized_keys
-  command: {{ deployer_key_pub }} > /home/deployer/.ssh/authorized_keys
+  command: "{{ deployer_key_pub }}" > /home/deployer/.ssh/authorized_keys
