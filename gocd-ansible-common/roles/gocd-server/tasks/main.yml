@@ -84,4 +84,4 @@
     state: started
 
 - name: place private deployer key in go home directory
-    shell: credstash -r eu-west-1 get deployer_id_rsa > /var/go/.ssh/id_rsa
+  shell: credstash -r eu-west-1 get deployer_id_rsa > /var/go/.ssh/id_rsa
