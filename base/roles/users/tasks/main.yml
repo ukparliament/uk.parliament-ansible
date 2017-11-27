@@ -17,4 +17,4 @@
     group: deployer
 
 - name: place public key in authorized_keys
-  shell: echo {{ deployer_key_pub }} > /home/deployer/.ssh/authorized_keys
+  shell: credstash -r eu-west-1 get deployer_id_rsa_pub > /home/deployer/.ssh/authorized_keys
