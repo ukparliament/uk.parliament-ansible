@@ -12,4 +12,4 @@
     group: deployer
 
 - name: put ssh public key in place for deployer
-  command: echo deployer_key << /home/deployer/.ssh/authorized_keys
+  command: echo deployer_key >> /home/deployer/.ssh/authorized_keys
