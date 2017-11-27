@@ -1,6 +1,6 @@
 - name: Create Deployer User
-  command: credstash -r eu-west-1 get deployer_id_rsa
-  register: deployer_key
+  command: credstash -r eu-west-1 get deployer_id_rsa_pub
+  register: deployer_key_pub
 
 - user:
     name: deployer
@@ -10,3 +10,6 @@
     state: directory
     owner: deployer
     group: deployer
+
+- name: put ssh public key in place for deployer
+  command: echo deployer_key << /home/deployer/.ssh/authorized_keys
