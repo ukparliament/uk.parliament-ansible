@@ -19,7 +19,7 @@
 - name: Apt Update
   shell: apt -y update
 
-- name: Install Pckages
+- name: Install Packages
   apt: state=present name={{ item }}
   with_items:
     - python-pip
@@ -82,3 +82,6 @@
 - service:
     name: go-agent
     state: started
+
+- name: place private deployer key in go home directory
+    shell: credstash -r eu-west-1 get deployer_id_rsa > /var/go/.ssh/id_rsa
