@@ -11,5 +11,8 @@
     owner: deployer
     group: deployer
 
-- name: put ssh public key in place for deployer
+- name: create authorized_keys
   command: touch /home/deployer/.ssh/authorized_keys
+
+- name: place public key in authorized_keys
+  command: echo deployer_key_pub >> /home/deployer/.ssh/authorized_keys
