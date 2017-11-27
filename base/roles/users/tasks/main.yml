@@ -1,4 +1,6 @@
-- name: Deploy GoCD key
+- name: Create Deployer User
   command: credstash -r eu-west-1 get deployer_id_rsa
   register: deployer_key
-- debug: deployer_key
+
+- user:
+    name: deployer

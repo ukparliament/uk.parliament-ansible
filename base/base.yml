@@ -1,7 +1,8 @@
-- hosts: gocd-common-ansible
+- hosts: common-nginx-proxy-1
   user: ubuntu
   become: yes
   become_method: sudo
 
   roles:
+    - role: packages
     - role: users

@@ -1,0 +1,42 @@
+- name: Apt Update
+  shell: apt -y update
+
+- name: Install python-pip
+  package: 
+    name: python-pip
+    state: latest
+- name: Install python-setuptools
+  package:
+    name: python-setuptools
+    state: latest
+- name: Install python-dev
+  package:
+    name: python-dev
+    state: latest
+- name: Install build-essential
+  package:
+    name: build-essential
+    state: latest
+- name: Install libssl-dev
+  package:
+    name: libssl-dev
+    state: latest
+- name: Install libffi-dev
+  package:
+    name: libffi-dev
+    state: latest
+- name: Install screen
+  package:
+    name: screen
+    state: latest
+- name: Install nano 
+  package:
+    name: nano
+    state: latest
+- name: Install iftop
+  package:
+    name: iftop
+    state: latest
+
+- pip:
+    name: credstash
