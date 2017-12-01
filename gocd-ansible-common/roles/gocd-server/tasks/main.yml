@@ -67,10 +67,14 @@
    state: mounted
 
 # add Initial admin user
+- name: Get Admin Password
+  command: credstash -r eu-west-1 get gocd_admin
+  register: gocd_admin
+
 - htpasswd:
     path: /etc/go/gocd-passwd
     name: admin
-    password: 'Red:bishop02102017'
+    password: gocd_admin
     crypt_scheme: bcrypt
 
 # Start up GoCD Server and Agent
