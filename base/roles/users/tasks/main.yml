@@ -14,6 +14,7 @@
 
 - file:
     path: /home/deployer/.ssh/authorized_keys
+    state: touch
     owner: deployer
     group: deployer
 

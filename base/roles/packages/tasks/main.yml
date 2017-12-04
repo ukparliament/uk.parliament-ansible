@@ -37,6 +37,9 @@
   package:
     name: iftop
     state: latest
-
+- name: Install tree
+  package:
+    name: tree
+    state: latest
 - pip:
     name: credstash
