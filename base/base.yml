@@ -1,4 +1,4 @@
-- hosts: common-gocd-server-ansible-1
+- hosts: common 
   user: ubuntu
   become: yes
   become_method: sudo
@@ -7,11 +7,10 @@
     - role: packages-ubuntu
     - role: users
 
-- hosts: common-freeipa-master-1
-  user: fedora
+- hosts: common-redhat
   become: yes
   become_method: sudo
 
   roles:
-    - role: packages-centos
-    - role: users
+     - role: packages-centos
+     - role: users
