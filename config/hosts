@@ -6,4 +6,4 @@ all:
     common-nginx-proxy-1: 
       ansible_host: 172.16.40.251
     common-gocd-server-ansible-1:
-      ansible_host: 172.16.40.54
+      ansible_host: 172.16.40.70
