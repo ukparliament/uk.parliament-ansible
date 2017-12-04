@@ -6,7 +6,7 @@
     creates: gocd.list
 
 - name: Add the GoCD GPG key to APT
-  shell:  https://download.gocd.org/GOCD-GPG-KEY.asc | apt-key add -
+  shell: curl  https://download.gocd.org/GOCD-GPG-KEY.asc | apt-key add -
   args:
    chdir: /home/ubuntu/
    creates: GOCD-GPG-KEY.asc
@@ -23,6 +23,7 @@
   apt: state=present name={{ item }}
   with_items:
     - python-pip
+    - python-passlib
     - python-setuptools
     - python-dev
     - build-essential
