@@ -4,5 +4,14 @@
   become_method: sudo
 
   roles:
-    - role: packages
+    - role: packages-ubuntu
+    - role: users
+
+- hosts: common-freeipa-master-1
+  user: fedora
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: packages-centos
     - role: users

@@ -1,0 +1,26 @@
+- name: Install ntpdate
+  package:
+    name: ntpdate
+    state: latest
+- name: Install python-pip
+  package: 
+    name: python-pip
+    state: latest
+- name: Install screen
+  package:
+    name: screen
+    state: latest
+- name: Install nano 
+  package:
+    name: nano
+    state: latest
+- name: Install iftop
+  package:
+    name: iftop
+    state: latest
+- name: Install tree
+  package:
+    name: tree
+    state: latest
+- pip:
+    name: credstash

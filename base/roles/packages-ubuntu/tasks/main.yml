@@ -1,6 +1,7 @@
-- name: Apt Update
-  shell: apt -y update
-
+- name: Install ntpdate
+  package:
+    name: ntpdate
+    state: latest
 - name: Install python-pip
   package: 
     name: python-pip
