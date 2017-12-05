@@ -5,11 +5,11 @@
   become_method: sudo
   tasks:
     - file: 
-        src: config/hosts
+        src: hosts
         dest: /etc/ansible/hosts
         state: link
     - file: 
-        src: config ansible.cfg
+        src: ../config/ansible.cfg
         dest: /etc/ansible/ansible.cfg
         state: link
   
