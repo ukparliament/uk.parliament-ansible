@@ -1,5 +1,5 @@
 - hosts: common-gocd-server-ansible-1
-  user: ubuntu
+  user: deployer
   become: yes
   become_method: sudo
   vars:
