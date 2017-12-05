@@ -1,4 +1,4 @@
-- hosts: common 
+- hosts: common
   user: deployer
   become: yes
   become_method: sudo
@@ -14,3 +14,4 @@
   roles:
      - role: packages-centos
      - role: users
+     - role: datadog-agent
