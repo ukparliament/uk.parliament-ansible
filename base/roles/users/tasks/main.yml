@@ -22,7 +22,7 @@
   path: /etc/sudoers.d/sudoers
   state: touch
   owner: root
-  owner: root
+  group: root
 
 - name: Place sudoers rule for deployer users
   shell: echo '# User rules\ndeployer ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/sudoers
