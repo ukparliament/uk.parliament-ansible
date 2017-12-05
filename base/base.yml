@@ -1,5 +1,5 @@
 - hosts: common 
-  user: ubuntu
+  user: deployer
   become: yes
   become_method: sudo
 

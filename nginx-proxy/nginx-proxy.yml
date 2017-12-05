@@ -1,5 +1,5 @@
 - hosts: common-nginx-proxy-1
-  user: deloyer
+  user: deployer
   become: yes
   become_method: sudo
   vars:
