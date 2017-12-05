@@ -19,10 +19,10 @@
     group: deployer
 
 - file:
-  path: /etc/sudoers.d/sudoers
-  state: touch
-  owner: root
-  group: root
+    path: /etc/sudoers.d/sudoers
+    state: touch
+    owner: root
+    group: root
 
 - name: Place sudoers rule for deployer users
   shell: echo '# User rules\ndeployer ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/sudoers
