@@ -1,2 +1,4 @@
 - name: install Datadog agent
   shell: DD_API_KEY=aaa2b680f8f7b986a18be7de54bb922e bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)"
+  args:
+    creates: /etc/dd-agent/datadog.conf

@@ -1,13 +1,14 @@
 - hosts: common
-  user: deployer
+  user: ubuntu
   become: yes
   become_method: sudo
 
   roles:
     - role: packages-ubuntu
     - role: users
-
+    - role: datadog-agent
 - hosts: common-redhat
+  user: fedora
   become: yes
   become_method: sudo
 
