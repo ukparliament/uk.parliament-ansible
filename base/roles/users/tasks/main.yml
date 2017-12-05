@@ -25,6 +25,6 @@
   owner: root
 
 - name: Place sudoers rule for deployer users
-  shell: echo "# User rules\ndeployer ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/sudoers
+  shell: echo '# User rules\ndeployer ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/sudoers
   args:
     creates: /etc/sudoers.d/sudoers
