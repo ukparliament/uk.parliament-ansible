@@ -5,7 +5,7 @@ all:
         common-gocd-server-ansible-1:
           ansible_host: 172.16.40.70
           ansible_user: deployer
-         common-nginx-proxy-1:
+        common-nginx-proxy-1:
           ansible_host: 172.16.40.251
           ansible_user: deployer
     common-redhat:
