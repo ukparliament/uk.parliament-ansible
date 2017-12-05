@@ -10,3 +10,7 @@ all:
       hosts:
         common-freeipa-master-1:
           ansible_host: 172.16.40.36
+    pdswebops:
+      hosts:
+        pdswebops-core-gocd-server:
+          ansible_host: 172.16.248.226
