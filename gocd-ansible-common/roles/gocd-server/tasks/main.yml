@@ -105,3 +105,8 @@
     url: https://raw.github.com/ansible/ansible/devel/contrib/inventory/ec2.py
     dest: /etc/ansible/inventory/hosts
     mode: 0755
+
+    # Place ansible.cfg
+    - copy:
+      src: files/fishballs
+      dest: /etc/ansible/fishballs
