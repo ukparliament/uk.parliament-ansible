@@ -2,6 +2,10 @@
   package:
     name: ntpdate
     state: latest
+- name: Install python-minimal
+  package:
+    name: python-minimal
+    state: latest
 - name: Install python-pip
   package: 
     name: python-pip
