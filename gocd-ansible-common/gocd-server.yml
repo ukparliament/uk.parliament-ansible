@@ -1,4 +1,4 @@
-- hosts: ec2_tag_Name_core_nginx_proxy_1
+- hosts: tag_Name_core_gocd_server_ansible_1
   user: deployer
   become: yes
   become_method: sudo
