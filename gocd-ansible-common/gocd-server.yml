@@ -1,4 +1,4 @@
-- hosts: common-gocd-server-ansible-1
+- hosts: ec2_tag_Name_core_nginx_proxy_1
   user: deployer
   become: yes
   become_method: sudo
