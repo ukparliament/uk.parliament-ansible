@@ -1,0 +1,6 @@
+all:
+  children:
+    common:
+      hosts:
+        core-nginx-proxy-1:
+          ansible_host: 172.16.40.251

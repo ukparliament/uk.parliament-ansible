@@ -108,5 +108,24 @@
 
     # Place ansible.cfg
 - copy:
-    src: files/fishballs
-    dest: /etc/ansible/fishballs
+    src: files/ansible.cfg
+    dest: /etc/ansible/ansible.cfg
+    owner: root
+    group: root
+    mode: 0644
+
+# place ec2.ini
+- copy:
+    src: files/ec2.ini
+    dest: /etc/ansible/inventory/ec2.ini
+    owner: root
+    group: root
+    mode: 0644
+
+# place hosts_static
+- copy:
+    src: files/hosts_static
+    dest: /etc/ansible/inventory/hosts_static
+    owner: root
+    group: root
+    mode: 0644
