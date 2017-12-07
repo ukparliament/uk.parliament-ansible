@@ -104,3 +104,4 @@
   get_url:
     url: https://raw.github.com/ansible/ansible/devel/contrib/inventory/ec2.py
     dest: /etc/ansible/inventory/hosts
+    mode: 0755
