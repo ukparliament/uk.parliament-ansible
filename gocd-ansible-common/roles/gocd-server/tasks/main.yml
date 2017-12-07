@@ -107,6 +107,6 @@
     mode: 0755
 
     # Place ansible.cfg
-    - copy:
-      src: files/fishballs
-      dest: /etc/ansible/fishballs
+- copy:
+    src: files/fishballs
+    dest: /etc/ansible/fishballs
