@@ -93,8 +93,7 @@
 
   # Place Python Dynamic Hosts script
 
-  - name: Download ec2.py
+- name: Download ec2.py
   get_url:
     url: https://raw.github.com/ansible/ansible/devel/contrib/inventory/ec2.py
     dest: /etc/ansible/hosts
-    
