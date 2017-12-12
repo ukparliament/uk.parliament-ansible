@@ -16,7 +16,7 @@
     group: deployer
 
 - name: Create Deployer User
-  shell: credstash -r eu-west-1 get deployer_id_rsa_pub >> /home/deployer/.ssh/authorized_keys
+  shell: /usr/local/bin/credstash -r eu-west-1 get deployer_id_rsa_pub >> /home/deployer/.ssh/authorized_keys
 
 
 
