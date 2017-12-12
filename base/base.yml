@@ -1,4 +1,4 @@
-- hosts: tag_Name_core_gocd_server_ansible_1 core-nginx-proxy-1 tag_Account_pdswebops tag_Name_core_bastion_host tag_Name_ecs_bastion_host
+- hosts: tag_Name_core_gocd_server_ansible_1 core-nginx-proxy-1 tag_Account_pdswebops 
   user: ubuntu
   become: yes
   become_method: sudo
