@@ -1,4 +1,4 @@
-- hosts: tag_Name_core_gocd_server_ansible_1 core-nginx-proxy-1 tag_Account_pdswebops 
+- hosts: tag_Name_core_gocd_server_ansible_1 core-nginx-proxy-1 key_core_instances
   user: ubuntu
   become: yes
   become_method: sudo
@@ -7,6 +7,17 @@
     - role: packages-ubuntu
     - role: users
     - role: datadog-agent
+
+- hosts: key_ecs_instances
+  user: ec2-user
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: packages-ubuntu
+    - role: users
+    - role: datadog-agent
+
 
 - hosts: tag_Name_core_freeipa_master_1
   user: fedora
