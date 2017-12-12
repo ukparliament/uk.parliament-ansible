@@ -15,9 +15,11 @@
     owner: deployer
     group: deployer
 
-- name: Get deployer public key from credstash and place in authorized_keys
-  shell: sudo bash -c "credstash -r eu-west-1 get deployer_id_rsa_pub > /home/deployer/.ssh/authorized_keys"
-  
+- name: Create Deployer User
+  command: credstash -r eu-west-1 get deployer_id_rsa_pub
+  register: deployer_key_pub
+
+
 - file:
     path: /etc/sudoers.d/sudoers
     state: touch
