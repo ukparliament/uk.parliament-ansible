@@ -7,7 +7,7 @@
     name: python-minimal
     state: latest
 - name: Install python-pip
-  package: 
+  package:
     name: python-pip
     state: latest
 - name: Install python-setuptools
@@ -34,9 +34,13 @@
   package:
     name: screen
     state: latest
-- name: Install nano 
+- name: Install nano
   package:
     name: nano
+    state: latest
+- name: Install traceroute
+  package:
+    name: traceroute
     state: latest
 - name: Install iftop
   package:
