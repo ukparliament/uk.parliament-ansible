@@ -1,6 +1,3 @@
-- name: Create Deployer User
-  command: credstash -r eu-west-1 get deployer_id_rsa_pub
-  register: deployer_key_pub
 
 - user:
     name: deployer
@@ -26,4 +23,3 @@
 
 - name: Place sudoers rule for deployer users
   shell: echo '# User rules\ndeployer ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/sudoers
-  
