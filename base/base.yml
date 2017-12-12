@@ -14,7 +14,7 @@
   become_method: sudo
 
   roles:
-    - role: packages-ubuntu
+    - role: packages-centos
     - role: users
     - role: datadog-agent
 
