@@ -50,5 +50,9 @@
   package:
     name: tree
     state: latest
+- name: Install htop
+  package:
+    name: htop
+    state: latest
 - pip:
     name: credstash

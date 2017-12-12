@@ -1,4 +1,4 @@
-- hosts: tag_Name_core_gocd_server_ansible_1 core-nginx-proxy-1 key_core_instances
+- hosts: tag_Name_core_gocd_server_ansible_1 core-nginx-proxy-1 key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
   user: ubuntu
   become: yes
   become_method: sudo
