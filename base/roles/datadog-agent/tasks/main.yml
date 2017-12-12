@@ -2,3 +2,10 @@
   shell: DD_API_KEY=aaa2b680f8f7b986a18be7de54bb922e bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)"
   args:
     creates: /etc/dd-agent/datadog.conf
+
+- name: force hostname
+  shell: get_host="$(cat /etc/hostname)" | hostname="hostname: $get_host" | echo $hostname >> /etc/dd-agent/datadog.conf
+
+- service:
+    name: datadog-agent
+    state: restarted
