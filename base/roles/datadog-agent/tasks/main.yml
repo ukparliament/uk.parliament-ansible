@@ -4,7 +4,7 @@
     creates: /etc/dd-agent/datadog.conf
 
 - name: force hostname
-  shell: get_host="$(cat /etc/hostname)" | hostname="hostname{{ ":"}} $get_host" | echo $hostname >> /etc/dd-agent/datadog.conf
+  shell: get_host="$(cat /etc/hostname)" | hostname="hostname':' $get_host" | echo $hostname >> /etc/dd-agent/datadog.conf
 
 - service:
     name: datadog-agent
