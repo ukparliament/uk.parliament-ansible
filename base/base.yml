@@ -2,7 +2,7 @@
   vars:
     datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
     datadog_config:
-      hostname: "{{ inventory_hostname }}"
+      hostname: "{{ ec2_tag_Name }}"
   user: ubuntu
   become: yes
   become_method: sudo
@@ -17,7 +17,7 @@
   vars:
     datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
     datadog_config:
-      hostname: "{{ inventory_hostname }}"
+      hostname: "{{ ec2_tag_Name }}"
   user: ec2-user
   become: yes
   become_method: sudo
@@ -33,7 +33,7 @@
   vars:
     datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
     datadog_config:
-      hostname: "{{ inventory_hostname }}"
+      hostname: "{{ ec2_tag_Name }}"
   user: fedora
   become: yes
   become_method: sudo
