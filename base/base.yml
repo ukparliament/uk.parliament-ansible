@@ -1,4 +1,8 @@
 - hosts: tag_Name_core_gocd_server_ansible_1 core-nginx-proxy-1 key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
+  vars:
+    datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
+    datadog_config:
+      hostname: { host }
   user: ubuntu
   become: yes
   become_method: sudo
@@ -7,10 +11,7 @@
     - role: packages-ubuntu
     - role: users
     - role: Datadog.datadog
-  vars:
-    datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
-    datadog_config:
-      hostname: { host }
+
 
 - hosts: key_ecs_instances
   user: ec2-user
@@ -21,10 +22,7 @@
     - role: packages-centos
     - role: users
     - role: Datadog.datadog
-  vars:
-    datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
-    datadog_config:
-      hostname: { host }
+
 
 
 - hosts: tag_Name_core_freeipa_master_1
@@ -36,7 +34,4 @@
      - role: packages-centos
      - role: users
      - role: Datadog.datadog
-   vars:
-     datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
-     datadog_config:
-       hostname: { host }
+   
