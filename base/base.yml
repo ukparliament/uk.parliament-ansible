@@ -2,7 +2,7 @@
   vars:
     datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
     datadog_config:
-      hostname: { host }
+      hostname: { inventory_hostname }
   user: ubuntu
   become: yes
   become_method: sudo
@@ -10,7 +10,7 @@
   roles:
     - role: packages-ubuntu
     - role: users
-    - role: Datadog.datadog
+    - { role: Datadog.datadog, become: yes }
 
 
 - hosts: key_ecs_instances
@@ -21,7 +21,7 @@
   roles:
     - role: packages-centos
     - role: users
-    - role: Datadog.datadog
+    - { role: Datadog.datadog, become: yes }
 
 
 
@@ -33,5 +33,4 @@
   roles:
      - role: packages-centos
      - role: users
-     - role: Datadog.datadog
-   
+     - { role: Datadog.datadog, become: yes }
