@@ -14,6 +14,10 @@
 
 
 - hosts: key_ecs_instances
+  vars:
+    datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
+    datadog_config:
+      hostname: { inventory_hostname }
   user: ec2-user
   become: yes
   become_method: sudo
@@ -26,6 +30,10 @@
 
 
 - hosts: tag_Name_core_freeipa_master_1
+  vars:
+    datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
+    datadog_config:
+      hostname: { inventory_hostname }
   user: fedora
   become: yes
   become_method: sudo
