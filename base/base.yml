@@ -6,7 +6,11 @@
   roles:
     - role: packages-ubuntu
     - role: users
-    - role: datadog-agent
+    - role: Datadog.datadog
+  vars:
+    datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
+    datadog_config:
+      hostname: { host }
 
 - hosts: key_ecs_instances
   user: ec2-user
