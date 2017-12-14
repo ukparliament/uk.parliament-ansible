@@ -1,6 +1,18 @@
+- name: Make sure we have a 'wheel' group
+  group:
+    name: wheel
+    state: present
 
-- user:
-    name: deployer
+- name: Allow 'wheel' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
+- name: Add sudoers users to wheel group
+  user: name=deployer groups=wheel append=yes state=present createhome=yes
 
 - file:
     path: /home/deployer/.ssh
@@ -17,14 +29,3 @@
 
 - name: Create Deployer User
   shell: /usr/local/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub >> /home/deployer/.ssh/authorized_keys
-
-
-
-- file:
-    path: /etc/sudoers.d/sudoers
-    state: touch
-    owner: root
-    group: root
-
-- name: Place sudoers rule for deployer users
-  shell: echo '# User rules\ndeployer ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/sudoers
