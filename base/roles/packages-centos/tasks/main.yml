@@ -7,6 +7,10 @@
   when: ansible_os_family == "Fedora"
   shell: sudo dnf install python2-pip
 
+- name: Install python-pip
+  when: ansible_os_family == "Centos"
+  shell: sudo dnf install python27-pip
+
 - name: Install screen
   package:
     name: screen
