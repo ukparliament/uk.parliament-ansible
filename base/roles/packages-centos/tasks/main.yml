@@ -2,11 +2,11 @@
   package:
     name: ntpdate
     state: latest
+
 - name: Install python-pip
-  package:
-    name: python2-pip
-    state: latest
-    when: ansible_os_family == "Fedora"
+  when: ansible_os_family == "Fedora"
+  shell: sudo dnf install python2-pip
+
 - name: Install screen
   package:
     name: screen
