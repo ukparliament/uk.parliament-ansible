@@ -15,7 +15,7 @@
   user: name=deployer groups=wheel append=yes state=present createhome=yes
 
 # Create .ssh directory in deployer home
--  file:
+- file:
       path: /home/deployer/.ssh
       state: directory
       owner: deployer
@@ -23,7 +23,7 @@
       mode: 0700
 
 # create empty authorized_keys file
-  - file:
+- file:
       path: /home/deployer/.ssh/authorized_keys
       state: touch
       owner: deployer
