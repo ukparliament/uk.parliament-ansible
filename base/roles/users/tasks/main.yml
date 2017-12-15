@@ -14,14 +14,16 @@
 - name: Add sudoers users to wheel group
   user: name=deployer groups=wheel append=yes state=present createhome=yes
 
-- file:
+- name: Create .ssh directory in deployer home
+    file:
     path: /home/deployer/.ssh
     state: directory
     owner: deployer
     group: deployer
     mode: 0700
 
-- file:
+- name: create empty authorized_keys file
+    file:
     path: /home/deployer/.ssh/authorized_keys
     state: touch
     owner: deployer
