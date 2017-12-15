@@ -33,6 +33,6 @@
   when: ansible_os_family == "Ubuntu"
   shell: /usr/local/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub >> /home/deployer/.ssh/authorized_keys
 
-ame: Create Deployer User on Centos
+- name: Create Deployer User on Centos
   when: ansible_os_family == "Centos"
   shell: /usr/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub >> /home/deployer/.ssh/authorized_keys
