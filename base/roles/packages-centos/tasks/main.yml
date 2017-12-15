@@ -4,7 +4,7 @@
     state: latest
 - name: Install python-pip
   package:
-    name: python27-pip
+    name: python2-pip
     state: latest
 - name: Install screen
   package:
