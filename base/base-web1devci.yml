@@ -1,0 +1,13 @@
+- hosts: key_core_instances
+  vars:
+    datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
+    datadog_config:
+      hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: packages-ubuntu
+    - role: users
+    - { role: Datadog.datadog, become: yes }
