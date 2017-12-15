@@ -16,18 +16,18 @@
 
 - name: Create .ssh directory in deployer home
     file:
-    path: /home/deployer/.ssh
-    state: directory
-    owner: deployer
-    group: deployer
-    mode: 0700
+      path: /home/deployer/.ssh
+      state: directory
+      owner: deployer
+      group: deployer
+      mode: 0700
 
 - name: create empty authorized_keys file
     file:
-    path: /home/deployer/.ssh/authorized_keys
-    state: touch
-    owner: deployer
-    group: deployer
+      path: /home/deployer/.ssh/authorized_keys
+      state: touch
+      owner: deployer
+      group: deployer
 
 - name: Create Deployer User
   shell: /usr/local/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub >> /home/deployer/.ssh/authorized_keys
