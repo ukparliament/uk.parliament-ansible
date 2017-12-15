@@ -1,6 +1,6 @@
 - hosts: tag_Name_core_gocd_server_ansible_1 core-nginx-proxy-1
   vars:
-    datadog_api_key: "aaa2b680f8f7b986a18be7de54bb922e"
+    datadog_api_key: ""
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
   user: ubuntu

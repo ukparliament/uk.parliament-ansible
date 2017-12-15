@@ -9,7 +9,11 @@
 
 - name: Install python-pip
   when: ansible_os_family == "Centos"
-  shell: sudo dnf install python27-pip
+  shell: sudo yum install python27-pip
+
+- name: Install python-pip
+  when: ansible_os_family == "Ubuntu"
+  shell: sudo dnf install python-pip
 
 - name: Install screen
   package:
