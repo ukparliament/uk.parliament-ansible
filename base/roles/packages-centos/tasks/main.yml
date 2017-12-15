@@ -6,6 +6,7 @@
   package:
     name: python2-pip
     state: latest
+    when: ansible_os_family == "Fedora"
 - name: Install screen
   package:
     name: screen
