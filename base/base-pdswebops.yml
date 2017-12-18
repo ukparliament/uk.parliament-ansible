@@ -1,6 +1,6 @@
 - name: Get Datadog API key
-  command: credstash -r eu-west-1 get datadog/api_key
-  register: datadog_api_key
+  command: cat /etc/motd
+  register: mymotd
 
 
 - hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
