@@ -20,6 +20,10 @@
 
 
 - hosts: key_ecs_instances
+
+  tasks:
+    - shell: credstash -r eu-west-1 get datadog_api_key
+      register: datadog_api_key
   vars:
     datadog_api_key: "{{ "datadog_api_key" }}"
     datadog_config:
