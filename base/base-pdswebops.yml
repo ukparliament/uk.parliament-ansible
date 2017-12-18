@@ -1,11 +1,11 @@
-- name: Get Datadog API key
-  command: cat /etc/motd
-  register: mymotd
-
-
 - hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
+
+  tasks:
+    - shell: credstash -r eu-west-1 get datadog_api_key
+      register: datadog_api_key
+
   vars:
-    datadog_api_key: "{{ datadog_api_key }}"
+    datadog_api_key: "{{ datadog_api_key  }}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
   user: ubuntu
