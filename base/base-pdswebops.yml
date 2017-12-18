@@ -5,7 +5,7 @@
       register: datadog_api_key
 
   vars:
-    datadog_api_key: "{{ datadog_api_key  }}"
+    datadog_api_key: "{{ "datadog_api_key"  }}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
   user: ubuntu
@@ -20,7 +20,7 @@
 
 - hosts: key_ecs_instances
   vars:
-    datadog_api_key: "{{ datadog_api_key }}"
+    datadog_api_key: "{{ "datadog_api_key" }}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
   user: ec2-user
