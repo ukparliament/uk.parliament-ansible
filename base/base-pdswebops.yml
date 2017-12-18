@@ -22,7 +22,7 @@
 - hosts: key_ecs_instances
 
   tasks:
-    - shell: /user/local/bin/credstash -r eu-west-1 get datadog/api_key
+    - shell: /usr/local/bin/credstash -r eu-west-1 get datadog/api_key
       register: datadog_api_key
   vars:
     datadog_config:
