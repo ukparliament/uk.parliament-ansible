@@ -25,7 +25,6 @@
     - shell: credstash -r eu-west-1 get datadog_api_key
       register: datadog_api_key
   vars:
-    datadog_api_key: "{{ "datadog_api_key" }}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
   user: ec2-user
