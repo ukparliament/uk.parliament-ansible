@@ -16,7 +16,7 @@
   roles:
     - role: packages-ubuntu
     - role: users
-    - { role: Datadog.datadog, become: yes }
+    - role: datadog
 
 
 - hosts: key_ecs_instances
@@ -24,7 +24,7 @@
     - shell: credstash -r eu-west-1 get datadog/api_key
       register: apikey
   vars:
-    
+
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
   user: ubuntu
