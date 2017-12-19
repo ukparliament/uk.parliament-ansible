@@ -3,7 +3,7 @@
 - hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
 
   tasks:
-    - set-fact:
+    - set_fact:
          current_datadog_api_key: "{{ credstash -r eu-west-1 get datadog/api_key }}"
   vars:
     datadog_config:
@@ -22,7 +22,7 @@
 - hosts: key_ecs_instances
 
   tasks:
-    - set-fact:
+    - set_fact:
          current_datadog_api_key: "{{ credstash -r eu-west-1 get datadog/api_key }}"
   vars:
     datadog_config:
