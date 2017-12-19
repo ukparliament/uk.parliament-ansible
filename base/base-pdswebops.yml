@@ -2,10 +2,7 @@
 
 - hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
 
-- name: get datadog_api_key
-  shell: credstash -r eu-west-1 get datadog/datadog_api_key
-  register: query_api_key
-- debug: var=query
+
 
   vars:
     apikey: "{{ credstash -r eu-west-1 get datadog/api_key }}"
