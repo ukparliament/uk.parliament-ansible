@@ -1,7 +1,7 @@
 ---
 - shell: credstash -r eu-west-1 get datadog/api_key
-  register: api_key
-  
+  register: datadog_api_key 
+
 - name: Create main Datadog agent configuration file
   template:
     src: datadog.conf.j2
