@@ -9,7 +9,7 @@
 
   vars:
     apikey: {{ credstash -r eu-west-1 get datadog/api_key }}
-      datadog_config:
+    datadog_config:
         hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
         datadog_api_key: "{{ apikey }}"
   user: ubuntu
@@ -27,7 +27,7 @@
 
   vars:
     apikey: {{ credstash -r eu-west-1 get datadog/api_key }}
-      datadog_config:
+    datadog_config:
         hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
         datadog_api_key: "{{ apikey }}"
   user: ec2-user
