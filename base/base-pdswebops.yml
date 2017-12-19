@@ -7,7 +7,7 @@
   vars:
       datadog_config:
         hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-        datadog_api_key: "{{ credstash -r get datadog/api_key }}"
+        datadog_api_key: "{{ credstash -r eu-west-1 get datadog/api_key }}"
   user: ubuntu
   become: yes
   become_method: sudo
@@ -26,7 +26,7 @@
   vars:
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-      datadog_api_key: "fishballs"
+      datadog_api_key: "{{ credstash -r eu-west-1 get datadog/api_key }}"
   user: ec2-user
   become: yes
   become_method: sudo
