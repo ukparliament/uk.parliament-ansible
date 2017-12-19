@@ -10,7 +10,7 @@
 
     datadog_config:
         hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-        datadog_api_key: "{{ apikey }}"
+        datadog_api_key: apikey
   user: ubuntu
   become: yes
   become_method: sudo
@@ -28,10 +28,10 @@
       register: apikey
 
   vars:
-    
+
     datadog_config:
         hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-        datadog_api_key: "{{ apikey }}"
+        datadog_api_key:  apikey 
   user: ec2-user
   become: yes
   become_method: sudo
