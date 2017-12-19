@@ -1,6 +1,6 @@
 ---
 - shell: credstash -r eu-west-1 get datadog/api_key
-  register: query_output
+  register: credstash_query_output
 
 
 - name: Create main Datadog agent configuration file
