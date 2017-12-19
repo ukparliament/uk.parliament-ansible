@@ -2,12 +2,16 @@
 
 - hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
 
-
+- name: get datadog_api_key
+  shell: credstash -r eu-west-1 get datadog/datadog_api_key
+  register: query_api_key
+- debug: var=query
 
   vars:
+    apikey: {{ credstash -r eu-west-1 get datadog/api_key }}
       datadog_config:
         hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-        datadog_api_key: "{{ credstash -r eu-west-1 get datadog/api_key }}"
+        datadog_api_key: "{{ apikey }}"
   user: ubuntu
   become: yes
   become_method: sudo
@@ -20,13 +24,12 @@
 
 - hosts: key_ecs_instances
 
-  tasks:
-    - set_fact:
-         current_datadog_api_key: "{{ credstash -r eu-west-1 get datadog/api_key }}"
+
   vars:
-    datadog_config:
-      hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-      datadog_api_key: "{{ credstash -r eu-west-1 get datadog/api_key }}"
+    apikey: {{ credstash -r eu-west-1 get datadog/api_key }}
+      datadog_config:
+        hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
+        datadog_api_key: "{{ apikey }}"
   user: ec2-user
   become: yes
   become_method: sudo
