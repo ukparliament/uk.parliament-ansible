@@ -12,7 +12,7 @@
 
     datadog_config:
         hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-        datadog_api_key: 
+        datadog_api_key: "{{ apikey.stdout }}"
   user: ubuntu
   become: yes
   become_method: sudo
@@ -35,7 +35,7 @@
 
     datadog_config:
         hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-        datadog_api_key:
+        datadog_api_key: "{{ apikey.stdout }}"
   user: ec2-user
   become: yes
   become_method: sudo
