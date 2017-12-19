@@ -5,12 +5,14 @@
   tasks:
     - shell: credstash -r eu-west-1 get datadog/api_key
       register: apikey
+    - debug:
+        var: apikey
 
   vars:
 
     datadog_config:
         hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-        datadog_api_key: apikey
+        datadog_api_key: 
   user: ubuntu
   become: yes
   become_method: sudo
@@ -26,12 +28,14 @@
   tasks:
     - shell: credstash -r eu-west-1 get datadog/api_key
       register: apikey
+    - debug:
+        var: apikey
 
   vars:
 
     datadog_config:
         hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-        datadog_api_key:  apikey 
+        datadog_api_key:
   user: ec2-user
   become: yes
   become_method: sudo
