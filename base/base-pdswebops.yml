@@ -4,7 +4,7 @@
 
   tasks:
   - set_fact:
-     current_datadog_api_key="{{ credstash -r eu-west-1 get datadog/api_key }}"
+     current_datadog_api_key: "fishballs"
   vars:
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
@@ -23,11 +23,11 @@
 
   tasks:
     - set_fact:
-         current_datadog_api_key="{{ credstash -r eu-west-1 get datadog/api_key }}"
+         current_datadog_api_key: "{{ credstash -r eu-west-1 get datadog/api_key }}"
   vars:
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-      datadog_api_key: "{{ current_datadog_api_key }}"
+      datadog_api_key: "fishballs"
   user: ec2-user
   become: yes
   become_method: sudo
