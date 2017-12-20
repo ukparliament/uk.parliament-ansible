@@ -15,6 +15,10 @@
   when: ansible_os_family == "Ubuntu"
   shell: sudo dnf install python-pip
 
+- name: Install python27-pip
+  when: ansible_os_family == "OracleLinux"
+  shell: sudo yum install python27-pip
+
 - name: Install screen
   package:
     name: screen
