@@ -24,6 +24,10 @@
   package:
     name: tree
     state: latest
+- name: Install ncdu
+  package:
+    name: ncdu
+    state: latest
 - pip:
     name: credstash
 
