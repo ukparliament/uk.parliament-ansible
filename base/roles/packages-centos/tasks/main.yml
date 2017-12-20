@@ -30,7 +30,9 @@
 - file:
     src: /usr/bin/credstash
     dest: /usr/local/bin/credstash
+    state: link
 
 - file:
     src: /usr/bin/credstash.py
-    dest: /usr/local/bin/credstash.py       
+    dest: /usr/local/bin/credstash.py
+    state: link     
