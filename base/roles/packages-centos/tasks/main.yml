@@ -28,11 +28,11 @@
     name: credstash
 
 - file:
-    src: /usr/bin/credstash
-    dest: /usr/local/bin/credstash
+    src: /usr/local/bin/credstash
+    dest: /usr/bin/credstash
     state: link
 
 - file:
-    src: /usr/bin/credstash.py
-    dest: /usr/local/bin/credstash.py
-    state: link     
+    src: /usr/local/bin/credstash.py
+    dest: /usr/bin/credstash.py
+    state: link
