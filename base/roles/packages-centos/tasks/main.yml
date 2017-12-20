@@ -28,9 +28,9 @@
     name: credstash
 
 - file:
-    src: /usr/local/bin/credstash
-    dest: /usr/bin/credstash
+    src: /usr/bin/credstash
+    dest: /usr/local/bin/credstash
 
 - file:
-    src: /usr/local/bin/credstash.py
-    dest: /usr/bin/credstash.py       
+    src: /usr/bin/credstash.py
+    dest: /usr/local/bin/credstash.py       
