@@ -1,6 +1,6 @@
 - hosts: tag_Name_core_gocd_server_ansible_1 core-nginx-proxy-1
   vars:
-    datadog_api_key: ""
+    datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
   user: ubuntu
@@ -10,7 +10,7 @@
   roles:
     - role: packages-ubuntu
     - role: users
-    - { role: Datadog.datadog, become: yes }
+    - role: datadog
 
 
 
@@ -19,7 +19,7 @@
 
 - hosts: tag_Name_core_freeipa_master_1
   vars:
-    datadog_api_key: ""
+    datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
   user: fedora
@@ -29,4 +29,4 @@
   roles:
      - role: packages-centos
      - role: users
-     - { role: Datadog.datadog, become: yes }
+     - role: datadog
