@@ -3,11 +3,9 @@
     name: ntpdate
     state: latest
 
-- name: Install python2-pip
-  when: ansible_os_family == "Fedora"
-  shell: dnf install python2-pip
 
-- name: Install python27-pip
+
+- name: Install python*-pip
   when: ansible_os_family == "RedHat"
   shell: yum install python27-pip
 
