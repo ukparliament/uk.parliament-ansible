@@ -8,16 +8,12 @@
   shell: sudo dnf install python2-pip
 
 - name: Install python27-pip
-  when: ansible_os_family == "Centos"
+  when: ansible_os_family == "RedHat"
   shell: sudo yum install python27-pip
 
 - name: Install python-pip
   when: ansible_os_family == "Ubuntu"
   shell: sudo dnf install python-pip
-
-- name: Install python27-pip
-  when: ansible_os_family == "OracleLinux"
-  shell: sudo yum install python27-pip
 
 - name: Install screen
   package:
