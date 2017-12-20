@@ -1,6 +1,6 @@
 - hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
   vars:
-    datadog_api_key: ""
+    datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
   user: ubuntu
@@ -10,11 +10,11 @@
   roles:
     - role: packages-ubuntu
     - role: users
-    - { role: Datadog.datadog, become: yes }
+    - role: datadog
 
 - hosts: key_ecs_instances
   vars:
-    datadog_api_key: ""
+    datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
   user: ec2-user
@@ -24,4 +24,4 @@
   roles:
     - role: packages-centos
     - role: users
-    - { role: Datadog.datadog, become: yes }
+    - role: datadog
