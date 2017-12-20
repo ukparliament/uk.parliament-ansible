@@ -6,8 +6,9 @@
 
 
 - name: Install python*-pip
-  when: ansible_os_family == "RedHat"
-  shell: yum install python27-pip
+  package:
+    name: python*-pip
+    state: latest
 
 - name: Install screen
   package:
@@ -28,13 +29,3 @@
     state: latest
 - pip:
     name: credstash
-
-- file:
-    src: /usr/local/bin/credstash
-    dest: /usr/bin/credstash
-    state: link
-
-- file:
-    src: /usr/local/bin/credstash.py
-    dest: /usr/bin/credstash.py
-    state: link
