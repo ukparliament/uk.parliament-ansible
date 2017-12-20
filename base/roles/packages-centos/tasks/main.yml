@@ -26,3 +26,11 @@
     state: latest
 - pip:
     name: credstash
+
+- file:
+    src: /usr/local/bin/credstash
+    dest: /usr/bin/credstash
+
+- file:
+    src: /usr/local/bin/credstash.py
+    dest: /usr/bin/credstash.py       
