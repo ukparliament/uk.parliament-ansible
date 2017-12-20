@@ -1,7 +1,7 @@
 ---
 - shell: credstash -r eu-west-1 get datadog/api_key
-  register: credstash_query_output
-  
+  register: /usr/local/bin/credstash_query_output
+
 - name: Create main Datadog agent yaml configuration file (beta)
   template:
     src: datadog.yaml.j2
