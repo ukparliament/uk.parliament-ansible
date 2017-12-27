@@ -2,6 +2,10 @@ environments:
   Ansible:
     pipelines:
       - elkstack
+      - base
+      - gocd-server-ansible
+      - nginx-proxy
+
 pipelines:
   elkstack:
     group: Ansible
@@ -20,5 +24,62 @@ pipelines:
                     command: ansible-playbook
                     arguments:
                       - elkstack/main.yml
+                      - "-f"
+                      - 10
+  base:
+    group: ansible
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/uk.parliament-ansible.git
+        branch: master
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
+                    command: ansible-playbook
+                    arguments:
+                      - base/base-common.yml
+                      - "-f"
+                      - 10
+  gocd-server-ansible:
+    group: ansible
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/uk.parliament-ansible.git
+        branch: master
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
+                    command: ansible-playbook
+                    arguments:
+                      - gocd-ansible-common/gocd-server.yml
+                      - "-f"
+                      - 10
+  nginx-proxy:
+    group: ansible
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/uk.parliament-ansible.git
+        branch: master
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
+                    command: ansible-playbook
+                    arguments:
+                      - nginx-proxy/nginx-proxy.yml
                       - "-f"
                       - 10
