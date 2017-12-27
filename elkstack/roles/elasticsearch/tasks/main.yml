@@ -1,2 +1,8 @@
-- name: ecr-repository
-  ecs_ecr: name=elkstack/elasticsearch
+- shell: credstash -r eu-west-1 get ecr/password
+  register: ecr_password
+
+- name: Log into AWS Docker Repository
+  docker_login:
+    registry: https://438271037918.dkr.ecr.eu-west-1.amazonaws.com
+    username: AWS
+    password: ecr_password
