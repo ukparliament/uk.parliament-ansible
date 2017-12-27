@@ -1,5 +1,5 @@
-- hosts:
-  user: deployer
+- hosts: all
+  user: ubuntu
   become: yes
   become_method: sudo
 
