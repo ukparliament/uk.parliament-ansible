@@ -1,8 +1,10 @@
-- shell: credstash -r eu-west-1 get ecr/password
-  register: ecr_password
+- name: ECR login
+  shell: "$(aws ecr get-login --no-include-email --region eu-west-1)"
 
-- name: Log into AWS Docker Repository
-  docker_login:
-    registry: https://438271037918.dkr.ecr.eu-west-1.amazonaws.com
-    username: AWS
-    password: ecr_password
+
+- name: Build an image and push it to ECR
+  docker_image:
+    path: /var/lib/go-agent/pipelines/elkstack/elkstack/elasticsearch
+    name: 438271037918.dkr.ecr.eu-west-1.amazonaws.com/elasticsearch:latest
+    tag: elasticsearch:latest
+    push: yes
