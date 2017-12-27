@@ -39,6 +39,7 @@
     - apache2-utils
     - software-properties-common
     - ansible
+    - docker-ce
 
 # pip install bcrypt for htpasswd
 - pip:
