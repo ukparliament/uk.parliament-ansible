@@ -16,6 +16,12 @@
 - name: Update Ansible
   shell: apt-add-repository ppa:ansible/ansible
 
+- name: Get official Docker KEY
+  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+- name: Install Docker repository
+  shell: apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
+
 - name: Apt Update
   shell: apt -y update
 
