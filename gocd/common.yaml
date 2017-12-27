@@ -27,7 +27,7 @@ pipelines:
                       - "-f"
                       - 10
   base:
-    group: ansible
+    group: Ansible
     label_template: "${COUNT}"
     materials:
       mygit:
@@ -46,7 +46,7 @@ pipelines:
                       - "-f"
                       - 10
   gocd-server-ansible:
-    group: ansible
+    group: Ansible
     label_template: "${COUNT}"
     materials:
       mygit:
@@ -65,7 +65,7 @@ pipelines:
                       - "-f"
                       - 10
   nginx-proxy:
-    group: ansible
+    group: Ansible
     label_template: "${COUNT}"
     materials:
       mygit:
