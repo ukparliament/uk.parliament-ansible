@@ -39,6 +39,8 @@
     name: bcrypt
 - pip:
     name: credstash
+- pip:
+    name: awscli
 
 
 
