@@ -1,0 +1,7 @@
+- hosts:
+  user: deployer
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: elasticsearch
