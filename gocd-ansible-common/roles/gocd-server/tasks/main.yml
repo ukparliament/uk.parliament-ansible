@@ -106,7 +106,7 @@
   shell: credstash -r eu-west-1 get ssh/ecs-instances > /var/go/.ssh/ecs_instances.pem
 
 - lineinfile:
-    path: /etc/environment
+    path: /var/go/.ssh/config
     line: "IdentityFile ~/.ssh/ecs_instances.pem"
     state: present
 
