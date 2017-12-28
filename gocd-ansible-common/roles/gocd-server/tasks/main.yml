@@ -105,6 +105,11 @@
 - name: place ecs-instances key in go home Directory
   shell: credstash -r eu-west-1 get ssh/ecs-instances > /var/go/.ssh/ecs_instances.pem
 
+- lineinfile:
+    path: /etc/environment
+    line: "IdentityFile ~/.ssh/ecs_instances.pem"
+    state: present
+
   # Place Python Dynamic Hosts script
 
 - name: Create Inventory Directory
