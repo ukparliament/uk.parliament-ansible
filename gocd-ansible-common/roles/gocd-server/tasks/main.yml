@@ -102,6 +102,9 @@
 - name: place private deployer key in go home directory
   shell: credstash -r eu-west-1 get ssh/deployer_id_rsa > /var/go/.ssh/id_rsa
 
+- name: place ecs-instances key in go home Directory
+  shell: credstash -r eu-west-1 get ssh/ecs-instances > /var/go/.ssh/ecs_instances.pem
+
   # Place Python Dynamic Hosts script
 
 - name: Create Inventory Directory
