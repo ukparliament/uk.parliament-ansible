@@ -1,4 +1,6 @@
 ---
+
+# Added this command twice because could not amend path as credstash is in /usr/local/bin/ in ecs instances otherwise /usr/bin for all others
 - shell: credstash -r eu-west-1 get datadog/api_key
   register: credstash_query_output
   ignore_errors: yes
