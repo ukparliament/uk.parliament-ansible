@@ -18,6 +18,10 @@
   package:
     name: nano
     state: latest
+- name: Install htop
+  package:
+    name: htop
+    state: latest
 
 - name: Install tree
   package:
