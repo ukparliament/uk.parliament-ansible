@@ -1,7 +1,11 @@
 ---
 - shell: credstash -r eu-west-1 get datadog/api_key
   register: credstash_query_output
+  ignore_errors: yes
 
+- shell: /usr/local/bin/credstash -r eu-west-1 get datadog/api_key
+  register: credstash_query_output
+  ignore_errors: yes
 
 
 - name: Create main Datadog agent configuration file
