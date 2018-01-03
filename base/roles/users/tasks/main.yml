@@ -22,18 +22,15 @@
       group: deployer
       mode: 0700
 
-# create empty authorized_keys file
-- file:
-      path: /tmp/
-      state: absent
+
 
 
 - name: Create Deployer User on Ubuntu
-  shell: /usr/local/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub > /tmp/authorized_keys
+  shell: /usr/local/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub | sudo tee /tmp/authorized_keys
   ignore_errors: yes
 
 - name: Create Deployer User on Centos
-  shell: /usr/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub > /tmp/authorized_keys
+  shell: /usr/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub | sudo tee /tmp/authorized_keys
   ignore_errors: yes
 
 - copy:
