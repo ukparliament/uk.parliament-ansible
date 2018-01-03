@@ -25,17 +25,28 @@
 
 
 
-- name: Create Deployer User on Ubuntu
-  shell: /usr/local/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub | sudo tee /tmp/authorized_keys
+# Added this command twice because could not amend path as credstash is in /usr/local/bin/ in ecs instances otherwise /usr/bin for$
+- shell: credstash -r eu-west-1 get ssh/deployer_id_rsa_pub
+  register: credstash_query_output
   ignore_errors: yes
 
-- name: Create Deployer User on Centos
-  shell: /usr/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub | sudo tee /tmp/authorized_keys
+- shell: /usr/local/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub
+  register: credstash_query_output
   ignore_errors: yes
 
-- copy:
-    src: /tmp/authorized_keys
-    dest: /home/deployer/.ssh/authorized_keys
+- debug:
+    var: credstash_query_output
+
+- file:
+    path: /home/deployer/.ssh/authorized_keys
+    state: touch
     owner: deployer
     group: deployer
     mode: 0700
+
+- name: set authorized key for deployer user
+  authorized_key:
+    user: deployer
+    key: '{{credstash_query_output.stdout}}'
+    state: present
+    exclusive: True
