@@ -1,5 +1,5 @@
 - hosts: tag_cluster_elasticsearch_cluster
-  user: Deployer
+  user: deployer
   become: yes
   become_method: sudo
   vars:
