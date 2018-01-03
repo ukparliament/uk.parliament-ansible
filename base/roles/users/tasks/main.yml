@@ -28,6 +28,7 @@
       state: touch
       owner: deployer
       group: deployer
+      mode: 0700
 
 - name: Create Deployer User on Ubuntu
   shell: /usr/local/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub | tee /home/deployer/.ssh/authorized_keys
