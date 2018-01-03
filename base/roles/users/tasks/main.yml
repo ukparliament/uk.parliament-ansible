@@ -24,7 +24,7 @@
 
 # create empty authorized_keys file
 - file:
-      path: /tmp/authorized_keys
+      path: /tmp/
       state: absent
 
 
