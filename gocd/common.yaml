@@ -5,6 +5,7 @@ environments:
       - base
       - gocd-server-ansible
       - nginx-proxy
+      - elasticsearch-node
 
 pipelines:
   elkstack:
