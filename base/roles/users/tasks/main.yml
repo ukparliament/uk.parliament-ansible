@@ -24,9 +24,9 @@
 
 # create empty authorized_keys file
 - file:
-      path: /home/deployer/.ssh/authorized_keys
+      path: /tmp/authorized_keys
       state: absent
-      
+
 
 - name: Create Deployer User on Ubuntu
   shell: /usr/local/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub > /tmp/authorized_keys
