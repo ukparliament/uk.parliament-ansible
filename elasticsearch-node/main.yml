@@ -7,6 +7,7 @@
 
 
   roles:
+    - role: misc
     - { role: elasticsearch, es_instance_name: "node1", es_heap_size: "4g" }
     - { role: elasticsearch, es_instance_name: "node2", es_heap_size: "4g" }
     - { role: elasticsearch, es_instance_name: "node3", es_heap_size: "4g" }

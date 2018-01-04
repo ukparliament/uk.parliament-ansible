@@ -1,0 +1,24 @@
+- name: Create Directory
+  file:
+    path: /mnt/data
+    state: directory
+    owner: go
+    group: go
+
+- parted:
+    device: /dev/xvdh
+    number: 1
+    state: present
+
+# Format drive
+- filesystem:
+    fstype: ext4
+    dev: /dev/xvdh1
+
+- name: Mount Directory
+  mount:
+   path: /mnt/data
+   src: /dev/xvdh1
+   fstype: ext4
+   opts: defaults
+   state: mounted
