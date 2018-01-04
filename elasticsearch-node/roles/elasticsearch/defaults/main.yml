@@ -20,7 +20,7 @@ es_config: {}
 es_config_log4j2: log4j2.properties.j2
 #Need to provide default directories
 es_pid_dir: "/var/run/elasticsearch"
-es_data_dirs: "/var/lib/elasticsearch"
+es_data_dirs: "/mnt/data/elasticsearch"
 es_log_dir: "/var/log/elasticsearch"
 es_max_open_files: 65536
 es_max_threads: 2048
