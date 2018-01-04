@@ -2,8 +2,8 @@
   file:
     path: /mnt/data
     state: directory
-    owner: go
-    group: go
+    owner: root
+    group: root
 
 - parted:
     device: /dev/xvdh

@@ -8,8 +8,13 @@
 
   roles:
     - role: misc
-    - { role: elasticsearch, es_instance_name: "node1", es_heap_size: "4g" }
-    - { role: elasticsearch, es_instance_name: "node2", es_heap_size: "4g" }
-    - { role: elasticsearch, es_instance_name: "node3", es_heap_size: "4g" }
+    - { role: elasticsearch, es_instance_name: "node1" }
+    - { role: elasticsearch, es_instance_name: "node2" }
+    - { role: elasticsearch, es_instance_name: "node3" }
   vars:
     es_cluster_name: elasticsearch-cluster
+    es_scripts: false
+    es_templates: false
+    es_version_lock: false
+    es_heap_size: 1g
+    es_api_port: 9201
