@@ -37,6 +37,8 @@ pipelines:
     stages:
       - build:
           clean_workspace: true
+          approval:
+            type: manual
           jobs:
             default:
               tasks:
