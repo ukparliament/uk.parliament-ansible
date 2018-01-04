@@ -37,4 +37,4 @@
   service:
     name: datadog-agent
     state: restarted
-  when: datadog_enabled
+  
