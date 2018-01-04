@@ -7,9 +7,7 @@
 
 
   roles:
-    - { role: elasticsearch, es_instance_name: "node1", es_heap_size: "4g", es_config: {network.host: "_eth0_", discovery.zen.ping.unicast.hosts: "172.16.40.174:9300", http.port: 9200, transport.tcp.port: 9300, node.data: false, node.master: true } }
-    - { role: elasticsearch, es_instance_name: "node2", es_heap_size: "4g", es_config: {network.host: "_eth0_", discovery.zen.ping.unicast.hosts: "172.16.40.182:9300", http.port: 9201, transport.tcp.port: 9301, node.data: true, node.master: true } }
-    - { role: elasticsearch, es_instance_name: "node3", es_heap_size: "4g", es_config: {network.host: "_eth0_", discovery.zen.ping.unicast.hosts: "172.16.40.143:9300", http.port: 9201, transport.tcp.port: 9301, node.data: true, node.master: true } }
+    - { role: elasticsearch, es_instance_name: "node1", es_heap_size: "4g" }
 
   vars:
     es_cluster_name: elasticsearch-cluster
