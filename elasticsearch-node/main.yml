@@ -19,6 +19,7 @@
         bootstrap.memory_lock: true,
         }
     }
+    - { role: kibana } 
   vars:
     es_scripts: false
     es_templates: false
@@ -27,4 +28,3 @@
     es_api_port: 9200
     es_plugins:
       - plugin: ingest-geoip
-    - { role: kibana } 
