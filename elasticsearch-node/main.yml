@@ -8,7 +8,7 @@
 
   roles:
     - role: misc
-    -- { role: elasticsearch, es_instance_name: "node1", es_data_dirs: "/mnt/data/elasticsearch", es_log_dir: "/var/log/elasticsearch",
+    - { role: elasticsearch, es_instance_name: "node1", es_data_dirs: "/mnt/data/elasticsearch", es_log_dir: "/var/log/elasticsearch",
     es_config: {
         node.name: "node1",
         cluster.name: "custom-cluster",
