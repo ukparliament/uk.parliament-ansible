@@ -1,6 +1,6 @@
 ---
 
--- hosts: tag_cluster_elasticsearch_cluster
+- hosts: tag_cluster_elasticsearch_cluster
   user: deployer
   become: yes
   become_method: sudo
