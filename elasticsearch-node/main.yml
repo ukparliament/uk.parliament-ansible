@@ -8,6 +8,7 @@
 
   roles:
     - { role: misc }
+    - { role: kibana }
     - { role: elasticsearch, es_instance_name: "node1", es_data_dirs: "/mnt/data/elasticsearch", es_log_dir: "/var/log/elasticsearch",
     es_config: {
         cluster.name: "common-cluster",
@@ -19,7 +20,7 @@
         bootstrap.memory_lock: true,
         }
     }
-    - { role: kibana } 
+
   vars:
     es_scripts: false
     es_templates: false
