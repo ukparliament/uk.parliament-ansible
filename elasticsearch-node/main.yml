@@ -10,7 +10,6 @@
     - role: misc
     - { role: elasticsearch, es_instance_name: "node1", es_data_dirs: "/mnt/data/elasticsearch", es_log_dir: "/var/log/elasticsearch",
     es_config: {
-        node.name: ${HOSTNAME},
         cluster.name: "parliament-cluster",
         discovery.zen.ping.unicast.hosts: "tag_Name_core_elasticsearch_node_1:9300,tag_Name_core_elasticsearch_node_2:9300,tag_Name_core_elasticsearch_node_3:9300",
         http.port: 9200,
