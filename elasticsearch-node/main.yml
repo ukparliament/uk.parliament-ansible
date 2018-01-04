@@ -8,9 +8,9 @@
 
   roles:
     - role: misc
-    - { role: elasticsearch, es_instance_name: "node1" }
-    - { role: elasticsearch, es_instance_name: "node2" }
-    - { role: elasticsearch, es_instance_name: "node3" }
+    - { role: elasticsearch, es_instance_name: "node1", es_data_dirs: "/mnt/data/elasticsearch", es_log_dir: "/var/log/elasticsearch" }
+    - { role: elasticsearch, es_instance_name: "node2", es_data_dirs: "/mnt/data/elasticsearch", es_log_dir: "/var/log/elasticsearch" }
+    - { role: elasticsearch, es_instance_name: "node3", es_data_dirs: "/mnt/data/elasticsearch", es_log_dir: "/var/log/elasticsearch" }
   vars:
     es_cluster_name: elasticsearch-cluster
     es_scripts: false
