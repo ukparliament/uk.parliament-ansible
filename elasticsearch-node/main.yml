@@ -15,7 +15,7 @@
         discovery.zen.ping.unicast.hosts: "tag_Name_core_elasticsearch_node_1:9300,tag_Name_core_elasticsearch_node_2:9300,tag_Name_core_elasticsearch_node_3:9300",
         http.port: 9200,
         transport.tcp.port: 9300,
-        node.data: false,
+        node.data: true,
         node.master: true,
         bootstrap.memory_lock: true,
         }
