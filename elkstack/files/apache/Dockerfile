@@ -1,5 +1,7 @@
-FROM httpd:2.4
+FROM ubuntu:16.04
 ENV REGION eu-west-1
-COPY apache/public_html/ /usr/local/apache2/htdocs/
-COPY httpd.conf /usr/local/apache2/conf/httpd.conf
+RUN apt update
+RUN apt install -y apache2
+RUN echo "Welcome to my web site" > /var/www/html/index.html
+EXPOSE 80 443
 CMD /usr/sbin/apache2ctl -D FOREGROUND
