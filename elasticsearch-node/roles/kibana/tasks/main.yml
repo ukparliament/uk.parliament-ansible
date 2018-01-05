@@ -1,6 +1,6 @@
 - name: Adding Kibana APT repository
   apt_repository:
-   repo: deb http://packages.elastic.co/kib... stable main
+   repo: https://artifacts.elastic.co/downloads/kibana/kibana-6.1.1-amd64.deb
    state: present
 # Install Kibana
 - name: Update repositories cache and install Kibana
