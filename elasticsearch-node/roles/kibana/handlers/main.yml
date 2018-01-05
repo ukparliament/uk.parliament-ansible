@@ -1,0 +1,11 @@
+---
+
+- name: reload systemd configuration
+  command: systemctl daemon-reload
+
+- name: restart kibana
+  service:
+    name: kibana_{{kibana_instance}}
+    state: started
+    enabled: "{{kibana_enabled_on_boot}}"
+

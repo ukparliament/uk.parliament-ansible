@@ -1,0 +1,15 @@
+---
+
+kibana_conf_dir: "/etc/kibana/{{kibana_instance}}"
+kibana_log_dir: "/var/log/kibana/{{kibana_instance}}"
+kibana_data_dir: "/var/lib/kibana/{{kibana_instance}}"
+kibana_pid_dir: "/var/run/kibana/{{kibana_instance}}"
+kibana_home_dir: "/usr/share/kibana"
+
+kibana_conf_file: "{{kibana_conf_dir}}/kibana.yml"
+kibana_log_file: "{{kibana_log_dir}}/kibana.log"
+kibana_pid_file: "{{kibana_pid_dir}}/kibana.pid"
+
+kibana_service: "/lib/systemd/system/kibana_{{kibana_instance}}.service"
+kibana_environment: "/etc/default/kibana_{{kibana_instance}}"
+

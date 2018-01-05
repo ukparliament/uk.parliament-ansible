@@ -1,26 +1,23 @@
-- name: Adding Kibana APT repository
-  apt_repository:
-   repo: deb http://packages.elastic.co/kib... stable main
-   state: present
-# Install Kibana
-- name: Update repositories cache and install Kibana
-  apt:
-   name: kibana
-   update_cache: yes
-# Update kibana config file to only accept local connections
-- name: Updating the config file to restrict outside access
-  lineinfile:
-   destfile: /etc/kibana/kibana.yml
-   regexp: 'server.host:'
-   line: 'server.host: localhost'
-# Enable Kibana service
-- name: Enabling Kibana service
-  systemd:
-   name: kibana
-   enabled: yes
-   daemon_reload: yes
-# Start Kibana service
-- name: Starting Kibana service
-  systemd:
-   name: kibana
-   state: started
+---
+
+- name: os-specific vars
+  include_vars: "{{ansible_os_family}}.yml"
+  tags:
+    - always
+
+- name: Include optional user and group creation.
+  include_tasks: kibana-optional-user.yml
+  when: (kibana_group is defined) and (kibana_user is defined)
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+# This will always run
+
+- name: Enabling kibana service upon boot & restarting
+  debug: msg="Finished installing Kibana. Reloading systemd config & Restarting"
+  notify:
+    - reload systemd configuration
+    - restart kibana
+  changed_when: True
+

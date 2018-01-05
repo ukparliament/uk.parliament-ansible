@@ -1,0 +1,16 @@
+---
+
+- name: Ensure optional kibana group is created
+  group:
+    state: present
+    name: "{{ kibana_group }}"
+    system: yes
+
+- name: Ensure optional kibana user is created
+  user:
+    state: present
+    name: "{{ kibana_user }}"
+    comment: kibana system user
+    system: yes
+    createhome: no
+    group: "{{ kibana_group }}"

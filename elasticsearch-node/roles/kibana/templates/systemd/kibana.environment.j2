@@ -1,0 +1,26 @@
+################################
+# Kibana
+################################
+
+# Kibana home directory
+KIBANA_HOME={{kibana_home_dir}}
+
+# Kibana configuration directory
+CONF_DIR={{kibana_conf_dir}}
+
+# Kibana data directory
+DATA_DIR={{kibana_data_dir}}
+
+# Kibana logs directory
+LOG_DIR={{kibana_log_dir}}
+
+# Kibana PID directory
+PID_DIR={{kibana_pid_dir}}
+
+# For systemd service, the user is usually configured in file /usr/lib/systemd/system/elasticsearch.service
+
+{% if (kibana_user is defined) and (kibana_group is defined) %}
+KIBANA_USER={{kibana_user}}
+KIBANA_GROUP={{kibana_group}}
+{% endif %}
+
