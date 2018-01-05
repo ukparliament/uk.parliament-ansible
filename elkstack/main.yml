@@ -5,4 +5,5 @@
   vars:
 
   roles:
-    - role: elasticsearch
+    - role: apache
+    
