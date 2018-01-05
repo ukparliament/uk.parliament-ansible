@@ -47,7 +47,7 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - elasticsearch-node/main.yml
+                      - elkstack/main.yml
                       - "-f"
                       - 10
   base:
