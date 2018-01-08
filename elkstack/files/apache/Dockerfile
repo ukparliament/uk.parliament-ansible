@@ -1,5 +1,5 @@
 # Apache server
-FROM 438271037918.dkr.ecr.eu-west-1.amazonaws.com/apache:latest
+FROM httpd:2.4
 
 
 
