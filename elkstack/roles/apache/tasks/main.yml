@@ -5,6 +5,6 @@
 - name: Build an image and push it to ECR
   docker_image:
     path: /var/lib/go-agent/pipelines/elkstack/elkstack/files/apache
-    name: 438271037918.dkr.ecr.eu-west-1.amazonaws.com/httpd:latest
-    tag: httpd:latest
+    name: 438271037918.dkr.ecr.eu-west-1.amazonaws.com/httpd
+    tag: latest
     push: yes
