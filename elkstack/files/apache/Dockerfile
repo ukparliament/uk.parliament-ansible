@@ -9,7 +9,7 @@ ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
 
-COPY index.html /usr/local/apache2/htdocs/test.html
+COPY index.html /etc/test.html
 
 EXPOSE 80
 
