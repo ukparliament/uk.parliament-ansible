@@ -50,6 +50,8 @@
     name: awscli
 - pip:
     name: docker-py
+- pip:
+    name: ansible-container[docker]
 
 
 
