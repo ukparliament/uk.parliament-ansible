@@ -5,4 +5,4 @@ MAINTAINER John Hudson version: 0.1
 
 
 
-ADD index.html /etc/test.html
+ADD index.html /usr/local/apache2/htdocs/
