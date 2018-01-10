@@ -7,3 +7,4 @@
   roles:
     - role: apache
     - role: kibana
+    - role: logstash
