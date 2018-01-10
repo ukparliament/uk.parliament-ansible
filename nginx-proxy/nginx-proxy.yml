@@ -25,6 +25,11 @@
         upstreams:
           - name: 'gocd-web1live'
             servers: ['172.16.136.102:8153']
+      elkstack-common:
+        domains: ['elkstack-common.parliament.uk']
+        upstreams:
+          - name: 'elkstack-common'
+            servers: ['internal-elkstack-internal-198946768.eu-west-1.elb.amazonaws.com:80']
       freeipa:
         domains: ['freeipa-access.parliament.uk']
         upstreams:
