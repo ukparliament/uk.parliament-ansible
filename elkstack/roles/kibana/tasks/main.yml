@@ -1,0 +1,11 @@
+- name: ECR login
+  shell: "$(aws ecr get-login --no-include-email --region eu-west-1)"
+
+- name: Build the image
+  command: docker build -t httpd /var/lib/go-agent/pipelines/elkstack/elkstack/files/kibana
+
+- name: tqg the image
+  command: docker tag httpd:latest 438271037918.dkr.ecr.eu-west-1.amazonaws.com/kibana:latest
+
+- name: push the image
+  command: docker push 438271037918.dkr.ecr.eu-west-1.amazonaws.com/kibana:latest

@@ -6,4 +6,4 @@
 
   roles:
     - role: apache
-    
+    - role: kibana
