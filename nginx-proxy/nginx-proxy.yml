@@ -34,7 +34,7 @@
         domains: ['freeipa-access.parliament.uk']
         upstreams:
            - name: 'freeipa-master-1'
-             servers: ['172.16.40.36']
+             servers: ['172.16.40.168']
     proxy_pass_https:
       freeipa:
   roles:
