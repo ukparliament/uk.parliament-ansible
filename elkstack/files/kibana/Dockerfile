@@ -2,3 +2,7 @@
 FROM docker.elastic.co/kibana/kibana:5.6.5
 
 MAINTAINER John Hudson version: 0.1
+
+ADD kibana.yml /usr/share/kibana/config/kibana.yml
+
+EXPOSE 5061
