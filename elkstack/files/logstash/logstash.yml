@@ -1,0 +1,9 @@
+# Managed by Ansible
+
+http.host: "0.0.0.0"
+path.config: /usr/share/logstash/pipeline
+xpack.monitoring.elasticsearch.url: http://172.16.40.131:9200
+xpack.monitoring.elasticsearch.username: logstash_system
+xpack.monitoring.elasticsearch.password: changeme
+queue.type: persisted
+queue.max_bytes: 8gb
