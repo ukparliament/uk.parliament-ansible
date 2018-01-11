@@ -11,4 +11,4 @@ EXPOSE 5061 8000
 RUN logstash-plugin install logstash-filter-truncate
 RUN logstash-plugin install logstash-filter-geoip
 RUN logstash-plugin install logstash-filter-cidr
-RUN logstash-plugin install logstash-http-input
+RUN logstash-plugin install logstash-input-http
