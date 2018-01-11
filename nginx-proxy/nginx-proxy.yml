@@ -29,7 +29,7 @@
         domains: ['elkstack-common.parliament.uk']
         upstreams:
           - name: 'elkstack-common'
-            servers: ['internal-elkstack-internal-280071869.eu-west-1.elb.amazonaws.com:80']
+            servers: ['internal-httpd-ldap-956727467.eu-west-1.elb.amazonaws.com:80']
       freeipa:
         domains: ['freeipa-access.parliament.uk']
         upstreams:
