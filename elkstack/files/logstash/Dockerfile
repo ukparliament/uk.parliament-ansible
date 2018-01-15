@@ -6,7 +6,7 @@ MAINTAINER John Hudson version: 0.1
 ADD logstash.yml /usr/share/logstash/config/logstash.yml
 ADD logstash.conf /usr/share/logstash/pipeline/logstash.conf
 
-EXPOSE 5061 8000
+EXPOSE 5044 8000
 
 RUN logstash-plugin install logstash-filter-truncate
 RUN logstash-plugin install logstash-filter-geoip
