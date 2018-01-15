@@ -6,4 +6,4 @@ MAINTAINER John Hudson version: 0.1
 
 
 ADD index.html /usr/local/apache2/htdocs/
-ADD httpd.conf /usr/local/apache2/conf/httpd.conf
+ADD httpd.conf.j2 /usr/local/apache2/conf/httpd.conf
