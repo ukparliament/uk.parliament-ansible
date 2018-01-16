@@ -1,7 +1,8 @@
 - shell: credstash -r eu-west-1 get freeipa/system_user
   register: credstash_query_output
 
-- ldap_password: "{{ credstash_query_output.stout }}"
+
+
 
 
 

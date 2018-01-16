@@ -1,0 +1,3 @@
+- copy:
+    src: /var/lib/go-agent/pipelines/base/elkstack/files/apache/htdocs/
+    dest: /ecs/htdocs

@@ -1,5 +1,16 @@
+- hosts: tag_aws_autoscaling_groupName_ecs_cluster
+  user: deployer
+  become: yes
+  become_method: sudo
+  vars:
+
+  roles:
+    - role: cluster
+
+
+
 - hosts: tag_Name_core_gocd_server_ansible_1
-  user: ubuntu
+  user: deployer
   become: yes
   become_method: sudo
   vars:
