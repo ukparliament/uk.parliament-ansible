@@ -1,7 +1,7 @@
 - copy:
-    src: /var/lib/go-agent/pipelines/base/elkstack/files/apache/htdocs/
+    src: ../files/apache/htdocs/
     dest: /ecs/htdocs
 
 - copy:
-    src: /var/lib/go-agent/pipelines/base/elkstack/files/apache/conf/
-    dest: /ecs/conf
+    src: ../files/apache/conf.d/
+    dest: /ecs/conf.d
