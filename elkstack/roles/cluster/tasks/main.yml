@@ -2,15 +2,14 @@
     src: ../files/apache/htdocs/
     dest: /ecs/htdocs
 
-- copy:
-    src: ../files/apache/conf.d/
-    dest: /ecs/conf.d
+- shell: /usr/local/bin/credstash -r eu-west-1 get freeipa/system_user
+  register: credstash_system_user
+  ignore_errors: yes
 
 - name: Configure httpd.conf
   template:
-    src: 'httpd.conf.j2'
+    src: 'httpd-ldap.conf.j2'
     dest: '/ecs/conf.d/httpd-ldap.conf'
     group: 'root'
     owner: 'root'
     mode: '0644'
-  

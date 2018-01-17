@@ -1,1 +1,2 @@
-ldap_password: "{{ credstash -r eu-west-1 get freeipa/system_user}}"
+
+ldap_password: "{{ credstash_system_user.stdout }}"
