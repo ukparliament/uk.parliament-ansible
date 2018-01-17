@@ -5,3 +5,12 @@
 - copy:
     src: ../files/apache/conf.d/
     dest: /ecs/conf.d
+
+- name: Configure httpd.conf
+  template:
+    src: 'httpd.conf.j2'
+    dest: '/ecs/conf.d/httpd-ldap.conf'
+    group: 'root'
+    owner: 'root'
+    mode: '0644'
+  
