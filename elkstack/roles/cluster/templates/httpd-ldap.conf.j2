@@ -2,7 +2,7 @@
 AuthBasicProvider ldap
 AuthType Basic
 AuthName "Log in with email address and Windows password"
-AuthLDAPURL "ldap://ldap://172.16.40.168:389"
+AuthLDAPURL "ldap://172.16.40.168:389"
 AuthLDAPBindDN "uid=system,cn=sysaccounts,cn=etc,dc=access,dc=parliament,dc=uk"
 AuthLDAPBindPassword {{ ldap_password }}
 Require valid-user
