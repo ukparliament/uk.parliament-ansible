@@ -1,16 +1,12 @@
-Listen 80
-ServerName elkstack-common.parliament.uk
-ServerAlias elkstack-common.parliament.uk
-
-<location />
-AuthBasicProvider ldap
-AuthType Basic
-AuthName "Log in with Windows usaername and password+mfa"
-AuthLDAPURL ldap://172.16.40.168:389/cn=users,cn=accounts,dc=access,dc=parliament,dc=uk
-AuthLDAPBindDN uid=system,cn=sysaccounts,cn=etc,dc=access,dc=parliament,dc=uk
-AuthLDAPBindPassword {{ ldap_password }}
-Require valid-user
-</location>
+#<location />
+#AuthBasicProvider ldap
+#AuthType Basic
+#AuthName "Log in with Windows usaername and password+mfa"
+#AuthLDAPURL ldap://172.16.40.168:389/cn=users,cn=accounts,dc=access,dc=parliament,dc=uk
+#AuthLDAPBindDN uid=system,cn=sysaccounts,cn=etc,dc=access,dc=parliament,dc=uk
+#AuthLDAPBindPassword {{ ldap_password }}
+#Require valid-user
+#</location>
 
 
 #ProxyPass / http://internal-kibana-2134829661.eu-west-1.elb.amazonaws.com:5601/
