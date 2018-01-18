@@ -2,6 +2,3 @@
 FROM httpd:2.4
 
 MAINTAINER John Hudson version: 0.1
-
-
-ADD conf/httpd.conf /usr/local/apache2/conf/httpd.conf
