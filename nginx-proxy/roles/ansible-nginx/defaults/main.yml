@@ -80,3 +80,6 @@ nginx_default_upstream_proxy_settings:
 nginx_letsencrypt_root: '/usr/share/nginx/challenges'
 
 nginx_sites: {}
+
+ecs_node-1: '172.16.45.166:80'
+ecs_node-2: '172.16.44.224:80'

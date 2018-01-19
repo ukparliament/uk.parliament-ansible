@@ -1,0 +1,26 @@
+# Ansible managed
+
+upstream httpd-ldap {
+  least_conn;
+  server {{ ecs_node-1 }};
+  server {{ ecs_node-2 }};
+}
+
+server {
+  listen 80;
+  server_name elkstack-common.parliament.uk;
+  root  /var/www/html;
+
+  location /  {
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+
+
+    proxy_pass http://httpd-ldap;
+
+
+
+
+  }
+
+}
