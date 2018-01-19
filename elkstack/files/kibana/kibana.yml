@@ -6,3 +6,4 @@ elasticsearch.url: http://172.16.40.131:9200
 elasticsearch.username: elastic
 elasticsearch.password: changeme
 xpack.monitoring.ui.container.elasticsearch.enabled: false
+xpack.security.enabled: false
