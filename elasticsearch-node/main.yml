@@ -18,7 +18,7 @@
         node.data: true,
         node.master: true,
         bootstrap.memory_lock: true,
-        es_enable_xpack: true,
+        es_enable_xpack: false,
         }
     }
 
