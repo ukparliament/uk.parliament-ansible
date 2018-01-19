@@ -5,4 +5,4 @@ MAINTAINER John Hudson version: 0.1
 
 ADD kibana.yml /usr/share/kibana/config/kibana.yml
 
-EXPOSE 5061
+EXPOSE 5601
