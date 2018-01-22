@@ -16,6 +16,7 @@
   vars:
 
   roles:
+    - role: elasticsearch
     - role: apache
     - role: kibana
     - role: logstash
