@@ -1,10 +1,11 @@
 - name: ECR login
   shell: "$(aws ecr get-login --no-include-email --region eu-west-1)"
 
+- name: Build the image
+  command: docker build -t elasticsearch /var/lib/go-agent/pipelines/elkstack/elkstack/files/elasticsearch
 
-- name: Build an image and push it to ECR
-  docker_image:
-    path: /var/lib/go-agent/pipelines/elkstack/elkstack/elasticsearch
-    name: 438271037918.dkr.ecr.eu-west-1.amazonaws.com/elasticsearch:latest
-    tag: elasticsearch:latest
-    push: yes
+- name: tqg the image
+  command: docker tag elasticsearch:latest 438271037918.dkr.ecr.eu-west-1.amazonaws.com/elasticsearch:latest
+
+- name: push the image
+  command: docker push 438271037918.dkr.ecr.eu-west-1.amazonaws.com/elasticsearch:latest
