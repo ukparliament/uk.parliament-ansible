@@ -9,4 +9,3 @@ discovery.ec2.endpoint: ec2.${REGION}.amazonaws.com
 s3.client.default.endpoint: s3.${REGION}.amazonaws.com
 cloud.node.auto_attributes: true
 cluster.routing.allocation.awareness.attributes: aws_availability_zone
-xpack.security.enabled: false
