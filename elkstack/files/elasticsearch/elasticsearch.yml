@@ -1,2 +1,2 @@
-network.host: _ec2:privateIp_
+network.host: 0.0.0.0
 discovery.zen.hosts_provider: ec2
