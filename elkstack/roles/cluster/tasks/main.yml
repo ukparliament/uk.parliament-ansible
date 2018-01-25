@@ -6,6 +6,8 @@
   register: credstash_system_user
   ignore_errors: yes
 
+- shell:  sudo sysctl -w vm.max_map_count=262144
+
 - name: Configure httpd.conf
   template:
     src: 'httpd-ldap.conf.j2'

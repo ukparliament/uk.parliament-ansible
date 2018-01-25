@@ -1,4 +1,4 @@
-bootstrap.memory_lock: false
+bootstrap.memory_lock: true
 network.host: 0.0.0.0
 network.publish_host: _ec2:privateIp_
 transport.publish_host: _ec2:privateIp_
