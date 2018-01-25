@@ -9,6 +9,6 @@ Require valid-user
 </location>
 
 
-ProxyPass / http://172.16.44.31:5601/app/kibana
-ProxyPassReverse / http://172.16.44.31:5601/app/kibana
+ProxyPass / http://internal-elasticsearch-1696314485.eu-west-1.elb.amazonaws.com:5601/app/kibana
+ProxyPassReverse / http://internal-elasticsearch-1696314485.eu-west-1.elb.amazonaws.com:5601/app/kibana
 RequestHeader Set Authorization: "Basic ZWxhc3RpYzpjaGFuZ2VtZQ=="
