@@ -4,3 +4,5 @@ http.host: "0.0.0.0"
 path.config: /usr/share/logstash/pipeline
 queue.type: persisted
 queue.max_bytes: 8gb
+http.host: 0.0.0.0
+http.port: 9600
