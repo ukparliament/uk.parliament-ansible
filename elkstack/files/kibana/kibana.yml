@@ -3,3 +3,5 @@
 server.name: kibana
 server.host: "0"
 elasticsearch.url: http://internal-elasticsearch-1696314485.eu-west-1.elb.amazonaws.com/app/kibana:9200
+elasticsearch.username: elastic
+elasticsearch.password: changeme
