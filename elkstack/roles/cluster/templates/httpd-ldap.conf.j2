@@ -1,7 +1,7 @@
 <location />
 AuthBasicProvider ldap
 AuthType Basic
-AuthName "Log in with Windows usaername and password+mfa"
+AuthName "Log in with Windows username and password+mfa"
 AuthLDAPURL ldap://172.16.40.168:389/cn=users,cn=accounts,dc=access,dc=parliament,dc=uk
 AuthLDAPBindDN uid=system,cn=sysaccounts,cn=etc,dc=access,dc=parliament,dc=uk
 AuthLDAPBindPassword {{ ldap_password }}
