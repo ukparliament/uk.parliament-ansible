@@ -1,5 +1,5 @@
 # Managed by ansible_host.
 
 server.name: kibana
-server.host: "0"
+server.host: "0.0.0.0"
 elasticsearch.url: http://localhost:9200
