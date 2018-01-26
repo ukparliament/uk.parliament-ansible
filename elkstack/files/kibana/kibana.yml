@@ -1,5 +1,6 @@
 # Managed by ansible_host.
 
 server.name: kibana
-server.host: "0.0.0.0"
-elasticsearch.url: http://internal-elasticsearch-1696314485.eu-west-1.elb.amazonaws.com:9200
+server.host: "0"
+elasticsearch_url: http://internal-elasticsearch-1696314485.eu-west-1.elb.amazonaws.com:9200
+ADD kibana.yml /usr/share/kibana/config/
