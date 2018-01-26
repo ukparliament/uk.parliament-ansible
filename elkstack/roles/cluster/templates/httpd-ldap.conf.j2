@@ -1,4 +1,12 @@
-
+<location />
+AuthBasicProvider ldap
+AuthType Basic
+AuthName "Log in with Windows username and password+mfa"
+AuthLDAPURL ldap://172.16.40.168:389
+AuthLDAPBindDN uid=system,cn=sysaccounts,cn=etc,dc=access,dc=parliament,dc=uk
+AuthLDAPBindPassword {{ ldap_password }}
+Require valid-user
+</location>
 
 
 ProxyPass / http://internal-elasticsearch-1696314485.eu-west-1.elb.amazonaws.com:5601/
