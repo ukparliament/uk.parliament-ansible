@@ -1,1 +1,1 @@
-FROM gliderlabs/logspout:latest
+FROM docker.elastic.co/kibana/kibana-oss:6.1.2
