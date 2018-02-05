@@ -19,7 +19,7 @@
         domains: ['gocd-webdevci.parliament.uk']
         upstreams:
           - name: 'gocd-webdevci'
-            servers: ['172.16.128.93:8153']
+            servers: ['172.16.128.57:8153']
       gocd-web1live:
         domains: ['gocd-web1live.parliament.uk']
         upstreams:
