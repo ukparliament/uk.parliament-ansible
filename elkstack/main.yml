@@ -20,3 +20,4 @@
     - role: apache
     - role: kibana
     - role: logstash
+    - role: logspout
