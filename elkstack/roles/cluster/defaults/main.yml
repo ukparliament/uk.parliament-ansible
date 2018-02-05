@@ -1,4 +1,3 @@
 
 ldap_password: "{{ credstash_system_user.stdout }}"
-#freeipa_server_ip_address: "172.16.40.168"
 freeipa_server_ip_address: '172.16.40.168'
