@@ -2,7 +2,7 @@
   shell: "$(aws ecr get-login --no-include-email --region eu-west-1)"
 
 - name: Build the image
-  command: docker build -t filebeat/var/lib/go-agent/pipelines/elkstack/elkstack/files/filebeat
+  command: docker build -t filebeat /var/lib/go-agent/pipelines/elkstack/elkstack/files/filebeat
 
 - name: tqg the image
   command: docker tag filebeat:latest 438271037918.dkr.ecr.eu-west-1.amazonaws.com/filebeat:latest
