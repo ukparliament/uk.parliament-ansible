@@ -5,4 +5,4 @@ filebeat.prospectors:
     - /var/log/*.log
 
 output.logstash:
-hosts: ["internal-logstash-elb-1601667298.eu-west-1.elb.amazonaws.com"]
+  hosts: ["internal-logstash-elb-1601667298.eu-west-1.elb.amazonaws.com"]
