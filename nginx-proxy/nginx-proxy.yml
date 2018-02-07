@@ -25,12 +25,16 @@
         upstreams:
           - name: 'gocd-web1live'
             servers: ['172.16.136.102:8153']
-
       freeipa:
         domains: ['freeipa-access.parliament.uk']
         upstreams:
            - name: 'freeipa-master-1'
              servers: ['172.16.40.168']
+      freeipa:
+        domains: ['grafana-pdswebops.parliament.uk']
+        upstreams:
+           - name: 'grafana-pdswebops-1'
+             servers: ['172.16.248.144']
     proxy_pass_https:
       freeipa:
   roles:
