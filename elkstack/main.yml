@@ -21,3 +21,4 @@
     - role: kibana
     - role: logstash
     - role: logspout
+    - role: filebeat
