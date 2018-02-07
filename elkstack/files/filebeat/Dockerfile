@@ -5,5 +5,5 @@ MAINTAINER John Hudson version: 0.1
 COPY filebeat.yml /usr/share/filebeat/filebeat.yml
 USER root
 RUN chown filebeat /usr/share/filebeat/filebeat.yml
+RUN chmod go-w /usr/share/filebeat/filebeat.yml
 USER filebeat
-chmod go-w /usr/share/filebeat/filebeat.yml
