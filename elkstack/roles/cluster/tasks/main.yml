@@ -33,3 +33,7 @@
 - service:
     name: filebeat
     state: restarted
+
+# add dd-agent to wheel group
+
+- shell: usermod -aG wheel dd-agent
