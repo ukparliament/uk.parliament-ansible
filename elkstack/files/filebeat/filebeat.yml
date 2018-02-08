@@ -10,7 +10,7 @@ filebeat.prospectors:
   json.message_key: log
   json.add_error_key: true
   json.keys_under_root: true
-  
+
 #============================== Dashboards =====================================
   setup.dashboards.enabled: true
   setup.kibana:
@@ -33,5 +33,5 @@ output.logstash:
   enabled: true
   hosts: ["internal-logstash-elb-1601667298.eu-west-1.elb.amazonaws.com:5044"]
   worker: 1
-  index: 'filebeaat'
-  compression_level: 3
+  index: 'filebeat'
+  
