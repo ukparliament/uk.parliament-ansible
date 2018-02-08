@@ -25,4 +25,8 @@ filebeat.autodiscover:
                 - /var/lib/docker/containers/${data.docker.container.id}/*.log
 
 output.logstash:
+  enabled: true
   hosts: ["internal-logstash-elb-1601667298.eu-west-1.elb.amazonaws.com:5044"]
+  worker: 1
+  index: 'filebeaat'
+  compression_level: 3
