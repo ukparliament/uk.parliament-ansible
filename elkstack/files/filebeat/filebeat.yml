@@ -3,6 +3,8 @@ filebeat.prospectors:
   enabled: true
   paths:
     - /var/log/*.log
+    - /var/log/datadog/*.log
+    - /var/log/messages
   exclude_files: ['/var/log/yum.log']
 
 output.logstash:
