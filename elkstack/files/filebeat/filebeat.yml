@@ -7,24 +7,15 @@ filebeat.prospectors:
     - /var/log/messages
   exclude_files: ['/var/log/yum.log']
 
+- type: docker
+  enabled: true
+  paths:
+    - /var/lib/docker/containers/${data.docker.container.id}/*.log
+
   setup.kibana:
     host: "elkstack-common.parliament.uk"
 
-  #========================== Filebeat autodiscover ==============================
-
-# Autodiscover allows you to detect changes in the system and spawn new modules
-# or prospectors as they happen.
-
-filebeat.autodiscover:
-  # List of enabled autodiscover providers
-  providers:
-    - type: docker
-      templates:
-
-          config:
-            - type: log
-              paths:
-                - /var/lib/docker/containers/${data.docker.container.id}/*.log
+  
 
 output.logstash:
   enabled: true
