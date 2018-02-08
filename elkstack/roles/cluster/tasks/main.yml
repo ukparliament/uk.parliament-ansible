@@ -29,3 +29,7 @@
     owner: root
     group: root
     mode: 0600
+
+- service:
+    name: Filebeat
+    state: started
