@@ -3,11 +3,7 @@ filebeat.prospectors:
   enabled: true
   paths:
     - /var/log/*.log
-
-# Exclude files. A list of regular expressions to match. Filebeat drops the files that
-# are matching any regular expression from the list. By default, no files are dropped.
-
-exclude_files: ['^/var/log/yum.log$']
+  exclude_files: ['/var/log/yum.log']
 
 output.logstash:
   hosts: ["internal-logstash-elb-1601667298.eu-west-1.elb.amazonaws.com"]
