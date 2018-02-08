@@ -7,9 +7,7 @@ filebeat.prospectors:
     - /var/log/messages
     - '/var/lib/docker/containers/*/*.log'
   exclude_files: ['/var/log/yum.log']
-  json.message_key: log
-  json.add_error_key: true
-  json.keys_under_root: true
+  
 
 #============================== Dashboards =====================================
   setup.dashboards.enabled: true
@@ -34,4 +32,3 @@ output.logstash:
   hosts: ["internal-logstash-elb-1601667298.eu-west-1.elb.amazonaws.com:5044"]
   worker: 1
   index: 'filebeat'
-  
