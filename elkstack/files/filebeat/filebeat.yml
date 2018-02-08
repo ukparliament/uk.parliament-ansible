@@ -13,12 +13,27 @@ filebeat.prospectors:
   processors:
     - add_docker_metadata:
         host: "unix:///var/run/docker.sock"
-
-
+    - add_cloud_metadata: ~
+    - add_locale: ~
+  multiline.pattern: "^\t|^[[:space:]]+(at|...)|^Caused by:"
+  multiline.match: after
+#============================== Dashboards =====================================
+  setup.dashboards.enabled: true
   setup.kibana:
     host: "elkstack-common.parliament.uk"
 
+#==========================  Modules configuration ============================
+filebeat.modules:
 
+#------------------------------- System Module -------------------------------
+- module: system
+  # Syslog
+  syslog:
+    enabled: true
+    var.paths: ["/var/log/syslog*"]
+  auth:
+    enabled: true
+    var.paths: ["/var/log/auth.log*"]
 
 output.logstash:
   enabled: true
