@@ -7,15 +7,12 @@ filebeat.prospectors:
     - /var/log/messages
   exclude_files: ['/var/log/yum.log']
 
-- type: docker
-  enabled: true
-  paths:
-    - /var/lib/docker/containers/${data.docker.container.id}/*.log
+
 
   setup.kibana:
     host: "elkstack-common.parliament.uk"
 
-  
+
 
 output.logstash:
   enabled: true
