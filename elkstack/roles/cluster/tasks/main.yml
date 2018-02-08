@@ -36,4 +36,4 @@
 
 # add dd-agent to wheel group
 
-- shell: usermod -aG wheel dd-agent
+- shell: usermod -aG docker dd-agent
