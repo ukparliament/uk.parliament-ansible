@@ -31,5 +31,5 @@
     mode: 0600
 
 - service:
-    name: Filebeat
+    name: filebeat
     state: started
