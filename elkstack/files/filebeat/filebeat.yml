@@ -7,5 +7,22 @@ filebeat.prospectors:
     - /var/log/messages
   exclude_files: ['/var/log/yum.log']
 
+  #========================== Filebeat autodiscover ==============================
+
+# Autodiscover allows you to detect changes in the system and spawn new modules
+# or prospectors as they happen.
+
+filebeat.autodiscover:
+  # List of enabled autodiscover providers
+  providers:
+    - type: docker
+      templates:
+        - condition:
+            equals.docker.container.image: busybox
+          config:
+            - type: log
+              paths:
+                - /var/lib/docker/containers/${data.docker.container.id}/*.log
+
 output.logstash:
   hosts: ["internal-logstash-elb-1601667298.eu-west-1.elb.amazonaws.com:5044"]
