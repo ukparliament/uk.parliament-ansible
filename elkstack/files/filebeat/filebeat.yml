@@ -5,12 +5,15 @@ filebeat.prospectors:
     - /var/log/*.log
     - /var/log/datadog/*.log
     - /var/log/messages
+    - '/var/lib/docker/containers/*/*.log'
   exclude_files: ['/var/log/yum.log']
+  json.message_key: log
+  json.add_error_key: true
+  json.keys_under_root: true
+  processors:
+    - add_docker_metadata:
+        host: "unix:///var/run/docker.sock"
 
-- type: docker
-  enabled: true
-  paths:
-    - /var/lib/docker/containers/${data.docker.container.id}/*.log
 
   setup.kibana:
     host: "elkstack-common.parliament.uk"
