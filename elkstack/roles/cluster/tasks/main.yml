@@ -29,12 +29,12 @@
     owner: root
     group: root
     mode: 0600
-    register: filebeat_yml
+
 
 - service:
     name: filebeat
     state: restarted
-    when: filebeat_yml.changed
+
 
 # add dd-agent to docker group
 
@@ -44,11 +44,11 @@
     owner: dd-agent
     group: dd-agent
     mode: 0644
-    register: docker_daemon
+
 - service:
     name: datadog-agent
     state: restarted
-    when: docker_daemon.changed
+    
 
 - shell: usermod -aG docker dd-agent
 - shell: usermod -aG root dd-agent
