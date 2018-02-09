@@ -1,5 +1,5 @@
 filebeat.prospectors:
-- type: nginx-proxy-log
+- type: log
   enabled: true
   paths:
     - /var/log/*.log
