@@ -1,0 +1,16 @@
+# Install Filebeat
+
+- shell: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.2.1-amd64.deb
+- shell: dpkg -i filebeat-6.2.1-amd64.deb
+
+- copy:
+    src: files/filebeat-ubuntu.yml
+    dest: /etc/filebeat/filebeat.yml
+    owner: root
+    group: root
+    mode: 0600
+
+
+- service:
+    name: filebeat
+    state: restarted

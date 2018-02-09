@@ -1,0 +1,16 @@
+# Install Filebeat
+
+- shell: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.2.1-x86_64.rpm
+- shell: rpm -vi filebeat-6.2.1-x86_64.rpm
+
+- copy:
+    src: files/filebeat-centos.yml
+    dest: /etc/filebeat/filebeat.yml
+    owner: root
+    group: root
+    mode: 0600
+
+
+- service:
+    name: filebeat
+    state: restarted
