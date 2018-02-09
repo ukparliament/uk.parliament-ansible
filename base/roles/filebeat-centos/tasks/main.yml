@@ -2,7 +2,8 @@
 
 - shell: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.2.1-x86_64.rpm
 - shell: rpm -vi filebeat-6.2.1-x86_64.rpm
-
+  ignore_errors: yes
+  
 - copy:
     src: files/filebeat-centos.yml
     dest: /etc/filebeat/filebeat.yml
