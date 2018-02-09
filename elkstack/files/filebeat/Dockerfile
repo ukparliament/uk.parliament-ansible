@@ -1,4 +1,4 @@
-FROM docker.elastic.co/beats/filebeat:6.1.3
+FROM docker.elastic.co/beats/filebeat:6.2.1
 
 MAINTAINER John Hudson version: 0.1
 
