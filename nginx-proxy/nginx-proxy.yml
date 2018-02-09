@@ -34,7 +34,7 @@
         domains: ['grafana-pdswebops.parliament.uk']
         upstreams:
            - name: 'grafana-pdswebops-1'
-             servers: ['172.16.248.144']
+             servers: ['172.16.248.237']
     proxy_pass_https:
       freeipa:
   roles:
