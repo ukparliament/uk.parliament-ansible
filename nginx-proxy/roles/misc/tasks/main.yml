@@ -26,9 +26,11 @@
 # Install Filebeat
 
 - shell: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.1.3-x86_64.rpm
-- yum:
-   name: filebeat-6.1.3-x86_64.rpm
-   state: present
+- name: install filebeat
+  package:
+    name: filebeat-6.1.3-x86_64.rpm
+    state: latest
+
 
 - copy:
     src: ../files/filebeat/filebeat-nginx-proxy.yml
