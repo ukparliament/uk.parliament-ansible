@@ -4,9 +4,8 @@ filebeat.prospectors:
   paths:
     - /var/log/*.log
     - /var/log/datadog/*.log
-    - /var/log/messages
-    - '/var/lib/docker/containers/*/*.log'
-  exclude_files: ['/var/log/yum.log']
+    - /var/log/syslog
+  exclude_files: []
 
 
 
