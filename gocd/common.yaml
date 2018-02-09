@@ -8,27 +8,6 @@ environments:
       - elkstack
 
 pipelines:
-  elasticsearch-node:
-    group: Ansible
-    label_template: "${COUNT}"
-    materials:
-      mygit:
-        git: https://github.com/ukparliament/uk.parliament-ansible.git
-        branch: master
-    stages:
-      - build:
-          clean_workspace: true
-          approval:
-            type: manual
-          jobs:
-            default:
-              tasks:
-                - exec:
-                    command: ansible-playbook
-                    arguments:
-                      - elasticsearch-node/main.yml
-                      - "-f"
-                      - 10
   elkstack:
     group: Ansible
     label_template: "${COUNT}"
@@ -39,8 +18,6 @@ pipelines:
     stages:
       - build:
           clean_workspace: true
-          approval:
-            type: manual
           jobs:
             default:
               tasks:
