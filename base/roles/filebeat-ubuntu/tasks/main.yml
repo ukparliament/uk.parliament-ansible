@@ -1,7 +1,10 @@
 # Install Filebeat
 
-- shell: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.2.1-amd64.deb
-- shell: dpkg -i filebeat-6.2.1-amd64.deb
+- shell: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+- name: install Filebeat
+  package:
+    name: filebeat
+    state: latest
 
 - copy:
     src: files/filebeat-ubuntu.yml

@@ -9,7 +9,7 @@
   package:
     name: filebeat
     state: latest
-- shell: chekconfig --add filebeat
+- shell: chkconfig --add filebeat
 
 #- shell: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.2.1-x86_64.rpm
 #- shell: rpm -vi filebeat-6.2.1-x86_64.rpm
