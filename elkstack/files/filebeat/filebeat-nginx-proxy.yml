@@ -1,0 +1,36 @@
+filebeat.prospectors:
+- type: nginx-proxy-log
+  enabled: true
+  paths:
+    - /var/log/*.log
+    - /var/log/datadog/*.log
+    - /var/log/messages
+    - '/var/lib/docker/containers/*/*.log'
+  exclude_files: ['/var/log/yum.log']
+
+
+#============================== Dashboards =====================================
+setup.dashboards.enabled: true
+setup.template.enabled: true
+setup.dashboards.always_kibana: true
+setup.kibana:
+  host: "localhost:5601"
+
+#==========================  Modules configuration ============================
+filebeat.modules:
+
+#------------------------------- System Module -------------------------------
+- module: system
+  # Syslog
+  syslog:
+    enabled: true
+    var.paths: ["/var/log/syslog*"]
+  auth:
+    enabled: true
+    var.paths: ["/var/log/auth.log*"]
+
+output.logstash:
+  enabled: true
+  hosts: ["internal-logstash-elb-1601667298.eu-west-1.elb.amazonaws.com:5044"]
+  worker: 1
+  index: 'filebeat'
