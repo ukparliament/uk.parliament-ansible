@@ -3,7 +3,10 @@
     name: ntpdate
     state: latest
 
-
+- name: Install python-setuptools
+  package:
+    name: python-setuptools
+    state: latest
 
 - name: Install python*-pip
   package:
