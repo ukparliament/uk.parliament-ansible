@@ -33,7 +33,7 @@
 
 
 - copy:
-    src: ../files/filebeat/filebeat-nginx-proxy.yml
+    src: ../../files/filebeat/filebeat-nginx-proxy.yml
     dest: /etc/filebeat/filebeat.yml
     owner: root
     group: root
