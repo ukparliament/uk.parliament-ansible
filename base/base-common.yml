@@ -1,4 +1,4 @@
-- hosts: tag_Name_core_gocd_server_ansible_1 core-nginx-proxy-1 tag_cluster_elasticsearch_cluster
+- hosts: tag_Name_core_gocd_server_ansible_1 core-nginx-proxy-1
   vars:
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
@@ -11,6 +11,7 @@
     - role: packages-ubuntu
     - role: users
     - role: datadog
+    - role: filebeat-ubuntu
 
 
 - hosts: key_ecs_instances
