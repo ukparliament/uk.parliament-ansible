@@ -26,7 +26,7 @@
 # Install Filebeat
 
 - shell: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.1.3-x86_64.rpm
-- shell: rpm -i filebeat-6.1.3-x86_64.rpm
+- shell: dpkg -i filebeat-6.1.3-x86_64.rpm
 
 
 
