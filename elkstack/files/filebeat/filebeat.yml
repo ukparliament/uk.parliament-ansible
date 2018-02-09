@@ -10,11 +10,11 @@ filebeat.prospectors:
 
 
 #============================== Dashboards =====================================
-  setup.dashboards.enabled: true
-  setup.template.enabled: true
-  setup.dashboards.always_kibana: true
-  setup.kibana:
-    host: "localhost:5601"
+setup.dashboards.enabled: true
+setup.template.enabled: true
+setup.dashboards.always_kibana: true
+setup.kibana:
+  host: "localhost:5601"
 
 #==========================  Modules configuration ============================
 filebeat.modules:
