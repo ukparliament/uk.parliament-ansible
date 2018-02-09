@@ -7,12 +7,13 @@ filebeat.prospectors:
     - /var/log/messages
     - '/var/lib/docker/containers/*/*.log'
   exclude_files: ['/var/log/yum.log']
-  
+
 
 #============================== Dashboards =====================================
   setup.dashboards.enabled: true
+  setup.template.enabled: true
   setup.kibana:
-    host: "elkstack-common.parliament.uk"
+    host: "localhost:5601"
 
 #==========================  Modules configuration ============================
 filebeat.modules:
