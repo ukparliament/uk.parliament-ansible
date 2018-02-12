@@ -1,0 +1,46 @@
+environments:
+  Ansible:
+    pipelines:
+      - base
+      - elkstack
+
+pipelines:
+  elkstack:
+    group: Ansible
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/uk.parliament-ansible.git
+        branch: master
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
+                    command: ansible-playbook
+                    arguments:
+                      - elkstack/main.yml
+                      - "-f"
+                      - 10
+  base:
+    group: Ansible
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/uk.parliament-ansible.git
+        branch: master
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
+                    command: ansible-playbook
+                    arguments:
+                      - base/base-common.yml
+                      - "-f"
+                      - 10
+  
