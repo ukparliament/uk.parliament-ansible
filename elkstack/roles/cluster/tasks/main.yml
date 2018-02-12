@@ -1,3 +1,7 @@
+- file:
+    path: /ecs/conf.d
+    state: directory
+    
 - copy:
     src: ../files/apache/htdocs/
     dest: /ecs/htdocs
@@ -48,7 +52,7 @@
 - service:
     name: datadog-agent
     state: restarted
-    
+
 
 - shell: usermod -aG docker dd-agent
 - shell: usermod -aG root dd-agent
