@@ -1,3 +1,5 @@
+# Managed by Ansible
+
 filebeat.prospectors:
 - type: log
   enabled: true
