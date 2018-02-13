@@ -5,6 +5,7 @@ filebeat.prospectors:
   enabled: true
   paths:
     - /var/log/*/*.log
+    - /var/log/*.log
     - /var/log/datadog/*.log
     - /var/log/messages
     - /var/log/filebeat/filebeat
