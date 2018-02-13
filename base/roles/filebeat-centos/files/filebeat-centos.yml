@@ -22,10 +22,10 @@ filebeat.modules:
   # Syslog
   syslog:
     enabled: true
-    var.paths: ["/var/log/syslog*"]
+    var.paths: ["/var/log/messages*"]
   auth:
     enabled: true
-    var.paths: ["/var/log/auth.log*"]
+    var.paths: ["/var/log/secure*"]
 
 output.logstash:
   enabled: true
