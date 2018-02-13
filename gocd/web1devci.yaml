@@ -40,7 +40,6 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - base/base-common.yml
+                      - base/base-web1devci.yml
                       - "-f"
                       - 10
-  
