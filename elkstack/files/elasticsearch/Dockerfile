@@ -3,7 +3,7 @@ ENV REGION eu-west-1
 ADD elasticsearch.yml /usr/share/elasticsearch/config/
 USER root
 RUN chown elasticsearch:elasticsearch config/elasticsearch.yml
-RUN bin/elasticsearch-plugin install ingest-geoip
+RUN bin/elasticsearch-plugin install ingest-user-agent
 USER elasticsearch
 WORKDIR /usr/share/elasticsearch
 RUN bin/elasticsearch-plugin install discovery-ec2 && bin/elasticsearch-plugin install repository-s3  && sed -e '/^-Xm/s/^/#/g' -i /usr/share/elasticsearch/config/jvm.options
