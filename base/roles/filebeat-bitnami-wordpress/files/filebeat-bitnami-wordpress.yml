@@ -8,6 +8,7 @@ filebeat.prospectors:
     - /var/log/syslog
     - /var/log/filebeat/filebeat
     - /opt/bitnami/*/*.log
+    - /opt/bitnami/apache2/logs/*_log
   exclude_files: []
 
 
@@ -25,9 +26,7 @@ filebeat.modules:
   auth:
     enabled: true
     var.paths: ["/var/log/auth.log*"]
-  apache2:
-    enabled: true
-    var.paths: ["/opt/bitnami/apache2/logs/*_log"]
+  
 
 output.logstash:
   enabled: true
