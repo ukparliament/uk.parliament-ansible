@@ -9,7 +9,7 @@
 
 
 
-- hosts: tag_Name_core_gocd_server_ansible_1
+- hosts: type_t2_medium
   user: deployer
   become: yes
   become_method: sudo
@@ -21,4 +21,3 @@
     - role: kibana
     - role: logstash
     - role: logspout
-    
