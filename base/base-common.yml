@@ -13,14 +13,12 @@
     - role: datadog
     - role: filebeat-ubuntu
 
-  - hosts: core-nginx-proxy-1
-    user: ubuntu
-    become: yes
-    become_method: sudo
-
-    roles:
-      - role: filebeat-nginx
-
+- hosts: core-nginx-proxy-1
+  user: ubuntu
+  become: yes
+  become_method: sudo
+  roles:
+    - role: filebeat-nginx
 
 - hosts: key_ecs_instances
 
