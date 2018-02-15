@@ -27,3 +27,8 @@
     - role: users
     - role: datadog
     - role: filebeat-centos
+
+- hosts: tag_Application_second_reading
+
+  roles:
+    - role: filebeat-bitnami-wordpress

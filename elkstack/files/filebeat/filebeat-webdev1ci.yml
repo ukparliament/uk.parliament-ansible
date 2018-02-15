@@ -2,14 +2,12 @@ filebeat.prospectors:
 - type: log
   enabled: true
   paths:
-    - /var/log/*/*.log
     - /var/log/*.log
     - /var/log/datadog/*.log
-    - /var/log/syslog
-    - /var/log/filebeat/filebeat
-    - /opt/bitnami/*/*.log
-    - /opy/bitnami/apche2/logs/*_log
-  exclude_files: []
+    - /var/log/messages
+    - '/var/lib/docker/containers/*/*.log'
+    - '/var/log/*/*.log'
+  exclude_files: ['/var/log/yum.log']
 
 
 
