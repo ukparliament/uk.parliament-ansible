@@ -23,7 +23,7 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - elkstack-common/main.yml
+                      - elkstack/main-common.yml
                       - "-f"
                       - 10
   base:
