@@ -29,6 +29,8 @@
     - role: filebeat-centos
 
 - hosts: tag_Application_second_reading
-
+  user: ubuntu
+  become: yes
+  become_method: sudo
   roles:
     - role: filebeat-bitnami-wordpress
