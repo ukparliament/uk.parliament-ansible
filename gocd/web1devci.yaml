@@ -21,7 +21,7 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - elkstack-web1devci/main-web1devci.yml
+                      - elkstack/main-web1devci.yml
                       - "-f"
                       - 10
   base:
