@@ -9,7 +9,7 @@
 
 
 - copy:
-    src: files/filebeat/filebeat-bitnami-wordpress.yml
+    src: files/filebeat-bitnami-wordpress.yml
     dest: /etc/filebeat/filebeat.yml
     owner: root
     group: root
