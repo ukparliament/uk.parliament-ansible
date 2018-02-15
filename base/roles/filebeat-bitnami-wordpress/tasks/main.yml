@@ -1,19 +1,13 @@
-- shell: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-- shell: echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
-- shell: apt update
-
-- name: install Filebeat
-  package:
-    name: filebeat
-    state: latest
-
-
 - copy:
     src: files/filebeat-bitnami-wordpress.yml
     dest: /etc/filebeat/filebeat.yml
     owner: root
     group: root
     mode: 0600
+
+- copy:
+    src: files/apache2-module.yml
+    dest: /etc/filebeat/modules.d/apache2.yml
 
 
 - service:

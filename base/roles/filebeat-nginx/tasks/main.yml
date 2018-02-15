@@ -1,6 +1,6 @@
 - copy:
-    src: files/filebeat-bitnami-wordpress.yml
-    dest: /etc/filebeat/filebeat.yml
+    src: files/nginx-module.yml
+    dest: /etc/filebeat/modules.d/nginx.yml
     owner: root
     group: root
     mode: 0600
