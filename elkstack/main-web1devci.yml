@@ -20,4 +20,4 @@
     - role: apache
     - role: kibana
     - role: logstash
-    - role: logspout-common
+    - role: logspout-web1devci
