@@ -3,18 +3,10 @@
   access:
     enabled: true
     var.paths: ["/opt/bitnami/apache2/logs/access_log*"]
-
-  error:
-    enabled: true
-    var.paths: ["/opt/bitnami/apache2/logs/error_log*"]
-    # Set custom paths for the log files. If left empty,
-    # Filebeat will choose the paths depending on your OS.
-    #var.paths:
-
   # Error logs
   error:
     enabled: true
-
+    var.paths: ["/opt/bitnami/apache2/logs/error_log*"]
     # Set custom paths for the log files. If left empty,
     # Filebeat will choose the paths depending on your OS.
     #var.paths:
