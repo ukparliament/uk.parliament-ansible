@@ -1,3 +1,5 @@
+- shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+- shell: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 - name: Update repositories cache and install "docker-ce" package
   apt:
     name: docker-ce
