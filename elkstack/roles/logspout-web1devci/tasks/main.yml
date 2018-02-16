@@ -2,7 +2,7 @@
   apt:
     name: docker-ce
     update_cache: yes
-    
+
 - pip:
     name: awscli
 
@@ -10,7 +10,7 @@
   shell: "$(aws ecr get-login --no-include-email --region eu-west-1)"
 
 
-# Common
+# web1devci
 - name: Build the image
   command: docker build -t logspout /var/lib/go-agent/pipelines/elkstack/elkstack/files/logspout
 
