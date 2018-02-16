@@ -1,7 +1,5 @@
-- name: Install awscli
-  package:
+- pip:
     name: awscli
-    state: latest
 
 - name: ECR login
   shell: "$(aws ecr get-login --no-include-email --region eu-west-1)"
