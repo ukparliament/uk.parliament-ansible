@@ -1,0 +1,7 @@
+- name: Update repositories cache and install "docker-ce" package
+  apt:
+    name: docker-ce
+    update_cache: yes
+
+- pip:
+    name: awscli
