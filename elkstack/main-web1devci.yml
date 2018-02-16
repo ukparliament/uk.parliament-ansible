@@ -16,4 +16,9 @@
   vars:
 
   roles:
-    - role: test
+    - role: ecr
+    - role: elasticsearch
+    - role: apache
+    - role: kibana
+    - role: logstash
+    - role: logspout-web1devci

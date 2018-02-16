@@ -16,6 +16,7 @@
   vars:
 
   roles:
+    - role: ecr
     - role: elasticsearch
     - role: apache
     - role: kibana
