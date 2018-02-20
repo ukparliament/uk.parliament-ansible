@@ -24,7 +24,7 @@
         domains: ['gocd-web1live.parliament.uk']
         upstreams:
           - name: 'gocd-web1live'
-            servers: ['172.16.136.102:8153']
+            servers: ['172.16.136.236:8153']
       freeipa:
         domains: ['freeipa-access.parliament.uk']
         upstreams:
