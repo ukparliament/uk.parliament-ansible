@@ -3,7 +3,7 @@ FROM docker.elastic.co/logstash/logstash:6.2.1
 
 MAINTAINER John Hudson version: 0.1
 
-RUN -y install python-pip
+RUN yum -y install python-pip
 RUN pip install credstash
 RUN rm -f /usr/share/logstash/pipeline/logstash.conf
 RUN /usr/share/logstash/bin/logstash-plugin install logstash-input-sqs && \
