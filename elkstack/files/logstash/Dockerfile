@@ -11,5 +11,4 @@ RUN /usr/share/logstash/bin/logstash-plugin install logstash-input-sqs && \
 ADD cloudflare_log_get.py /usr/share/logstash/
 ADD pipeline/ /usr/share/logstash/pipeline/
 ADD config/ /usr/share/logstash/config/
-USER logstash
-RUN export AWS_DEFAULT_REGION=eu-west-1
+ENV AWS_DEFAULT_REGION=eu-west-1
