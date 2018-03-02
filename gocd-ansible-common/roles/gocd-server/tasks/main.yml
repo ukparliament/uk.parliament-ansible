@@ -150,3 +150,23 @@
     owner: root
     group: root
     mode: 0644
+
+# place cloudflare_log_get.py file
+- copy:
+    src: files/cloudflare_log_get.py
+    dest: /home/ubuntu/cloudflare_log_get.py
+    owner: ubuntu
+    group: ubuntu
+    mode : 0775
+
+- cron:
+    user: root
+    minute: *
+    hour: *
+    day: *
+    weekday: *
+    month: *
+    name: AWS_DEFAULT_REGION
+    env: yes
+    value: eu-west-1
+    job: "/usr/bin/python /home/ubuntu/cloudflare_log_get.py"
