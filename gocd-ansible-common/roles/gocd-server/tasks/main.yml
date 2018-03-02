@@ -161,11 +161,6 @@
 
 - cron:
     user: root
-    minute: *
-    hour: *
-    day: *
-    weekday: *
-    month: *
     name: AWS_DEFAULT_REGION
     env: yes
     value: eu-west-1
