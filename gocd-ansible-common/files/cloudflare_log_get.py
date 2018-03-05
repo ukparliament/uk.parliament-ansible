@@ -15,7 +15,7 @@ past_start_unix = str(int(time.mktime(past_start.timetuple())))
 past_end_unix = str(int(time.mktime(past_end.timetuple())))
 
 count = "1000000"
-fields = "SecurityLevel,ZoneID,ClientRequestProtocol,ClientRequestHost,OriginResponseBytes,RayID,CacheCacheStatus,ClientASN,ClientRequestUserAgent,ClientIP,OriginIP,ClientCountry,ClientRequestURI,ClientRequestHost,ClientRequestMethod,EdgeStartTimestamp,OriginResponseTime,EdgeEndTimestamp,ClientDeviceType,ClientRequestProtocol,ClientRequestReferer,OriginResponseStatus,EdgeResponseStatus,EdgeResponseBytes"
+fields = "SecurityLevel,ZoneID,ClientRequestProtocol,ClientRequestHost,OriginResponseBytes,RayID,CacheCacheStatus,ClientASN,ClientRequestUserAgent,ClientIP,OriginIP,ClientCountry,ClientRequestURI,ClientRequestHost,ClientRequestMethod,EdgeStartTimestamp,OriginResponseTime,EdgeEndTimestamp,ClientDeviceType,ClientRequestProtocol,ClientRequestReferer,OriginResponseStatus,EdgeResponseStatus,EdgeResponseBytes,WAFAction,WAFFlags,WAFMatchedVar,WAFProfile,WAFRuleID,WAFRuleMessage"
 auth_email = "webopsteam@parliament.uk"
 
 
