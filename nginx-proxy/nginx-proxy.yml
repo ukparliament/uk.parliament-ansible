@@ -36,7 +36,11 @@
            - name: 'grafana-pdswebops-1'
              servers: ['172.16.248.131']
       grafana-common:
-        domains: ['grafana-common.parliament.uk', 'grafana-common.pdswebops.org']
+        domains:
+          - grafana-common.parliament.uk
+          - status-dashboards.parliament.uk
+          - grafana-common.pdswebops.org
+
         upstreams:
            - name: 'grafana-common-1'
              servers: ['172.16.40.221']
