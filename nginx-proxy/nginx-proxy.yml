@@ -40,10 +40,11 @@
           - grafana-common.parliament.uk
           - status-dashboards.parliament.uk
           - grafana-common.pdswebops.org
-
         upstreams:
-           - name: 'grafana-common-1'
-             servers: ['172.16.40.221']
+          - name: 'grafana-common-1'
+            servers:
+              - '172.16.40.94'
+
     proxy_pass_https:
       freeipa:
   roles:
