@@ -1,0 +1,16 @@
+# add dd-agent to docker group
+
+- copy:
+    src: ../files/datadog/docker_daemon.yaml
+    dest: /etc/dd-agent/conf.d/docker_daemon.yaml
+    owner: dd-agent
+    group: dd-agent
+    mode: 0644
+
+- service:
+    name: datadog-agent
+    state: restarted
+
+
+- shell: usermod -aG docker dd-agent
+- shell: usermod -aG root dd-agent
