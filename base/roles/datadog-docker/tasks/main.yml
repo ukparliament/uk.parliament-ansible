@@ -7,7 +7,7 @@
     owner: dd-agent
     group: dd-agent
     mode: 0644
-    ignore_errors: yes
+    
 
 
 - service:
