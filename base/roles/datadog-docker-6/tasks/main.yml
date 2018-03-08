@@ -1,14 +1,15 @@
 # add dd-agent to docker group
 
-#  On some instances the datadog files are in /etc/dd-agent
+
+
+# On some instances the datadog files are in /etc/datadog-agent
 - copy:
     src: ../files/docker_daemon.yaml
-    dest: /etc/dd-agent/conf.d/docker_daemon.yaml
+    dest: /etc/datadog-agent/conf.d/docker_daemon.yaml
     owner: dd-agent
     group: dd-agent
     mode: 0644
     ignore_errors: yes
-
 
 - service:
     name: datadog-agent
