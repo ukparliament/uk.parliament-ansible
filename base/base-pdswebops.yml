@@ -14,7 +14,7 @@
     - role: packages-ubuntu
     - role: users
     - role: datadog
-
+    - role: filebeat-ubuntu
 
 - hosts: key_ecs_instances
 
@@ -30,3 +30,5 @@
     - role: packages-centos
     - role: users
     - role: datadog
+    - role: datadog-docker
+    - role: filebeat-centos
