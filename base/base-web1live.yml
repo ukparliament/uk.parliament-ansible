@@ -25,3 +25,5 @@
     - role: packages-centos
     - role: users
     - role: datadog
+    - role: datadog-docker
+    - role: filebeat-centos
