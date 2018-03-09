@@ -6,7 +6,7 @@
 
   roles:
     - role: cluster
-
+    - role: datadog-elasticsearch
 
 
 - hosts: tag_Name_core_gocd_server_ansible_1
