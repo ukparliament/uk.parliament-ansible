@@ -1,6 +1,6 @@
 - copy:
     src: ../files/docker-conf.yaml
-    dest: /etc/data-agent/conf.d/docker.d/conf.yaml
+    dest: /etc/datadog-agent/conf.d/docker.d/conf.yaml
     owner: dd-agent
     group: dd-agent
     mode: 0644
