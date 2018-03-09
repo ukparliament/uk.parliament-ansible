@@ -1,4 +1,4 @@
-- name: Install ntpdate
+- name: Install ntp
   package:
     name: ntp
     state: latest

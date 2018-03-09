@@ -26,7 +26,6 @@
     - role: packages-centos
     - role: users
     - role: datadog
-    - role: datadog-docker
     - role: filebeat-centos
 
 - hosts: tag_Application_second_reading
