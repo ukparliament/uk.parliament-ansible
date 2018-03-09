@@ -1,6 +1,6 @@
 - name: Install ntpdate
   package:
-    name: ntpdate
+    name: ntp
     state: latest
 - name: Install python-minimal
   package:
@@ -60,3 +60,10 @@
     state: latest
 - pip:
     name: credstash
+
+- name:  cleans the local repository of retrieved package files that can no longer be downloaded
+  apt:
+    autoclean: yes
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes
