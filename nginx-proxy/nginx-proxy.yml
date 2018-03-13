@@ -13,7 +13,7 @@
         domains: ['gocd-common2.parliament.uk']
         upstreams:
           - name: 'gocd-common2'
-            servers: ['172.16.40.181:8153']
+            servers: ['172.16.40.155:8153']
       gocd-pdswebops:
         domains: ['gocd-pdswebops.parliament.uk']
         default_server: True
