@@ -81,6 +81,6 @@ nginx_letsencrypt_root: '/usr/share/nginx/challenges'
 
 nginx_sites: {}
 
-ecs_node_1: '172.16.45.37:80'
-ecs_node_2: '172.16.44.31:80'
-ecs_node_3: '172.16.45.25:80'
+ecs_node_1: '172.16.44.117:80'
+ecs_node_2: '172.16.44.110:80'
+ecs_node_3: '172.16.45.134:80'
