@@ -11,6 +11,7 @@
     - role: packages-ubuntu
     - role: users
     - role: datadog
+    - role: filebeat-ubuntu
 
 - hosts: key_ecs_instances
   vars:
