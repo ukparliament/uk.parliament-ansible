@@ -7,7 +7,7 @@ filebeat.prospectors:
     - /var/log/datadog/*.log
     - /var/log/syslog
     - /var/log/filebeat/filebeat
-    
+
   exclude_files: []
 
 
@@ -28,6 +28,6 @@ filebeat.modules:
 
 output.logstash:
   enabled: true
-  hosts: ["internal-logstash-elb-1601667298.eu-west-1.elb.amazonaws.com:5044"]
+  hosts: ["internal-logstash-elb-869284181.eu-west-1.elb.amazonaws.com:5044"]
   worker: 1
   index: 'filebeat'
