@@ -6,6 +6,8 @@
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
+      expvar_port: 5050
+      cmd_port: 5051
   user: ubuntu
   become: yes
   become_method: sudo
@@ -22,6 +24,8 @@
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
+      expvar_port: 5050
+      cmd_port: 5051
   user: ec2-user
   become: yes
   become_method: sudo
