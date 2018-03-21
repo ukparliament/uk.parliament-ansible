@@ -2,7 +2,6 @@ environments:
   Ansible:
     pipelines:
       - base
-      - gocd-server-ansible
       - nginx-proxy
       - elkstack
 
@@ -45,7 +44,7 @@ pipelines:
                       - base/base-common.yml
                       - "-f"
                       - 10
-  
+
   nginx-proxy:
     group: Ansible
     label_template: "${COUNT}"
