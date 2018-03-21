@@ -8,7 +8,7 @@
         domains: ['gocd-common.parliament.uk']
         upstreams:
           - name: 'gocd-common'
-            servers: ['172.16.40.70:8153']
+            servers: ['172.16.40.155:8153']
       gocd-common2:
         domains: ['gocd-common2.parliament.uk']
         upstreams:
