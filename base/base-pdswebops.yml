@@ -19,7 +19,7 @@
     - role: users
     - role: datadog
     - role: filebeat-ubuntu
-    - { role: ansible-fqdn, fqdn: "mx.parliament.uk", hostname: "mx"
+    - { role: ansible-fqdn, fqdn: "mx.parliament.uk", hostname: "mx" }
 
 - hosts: key_ecs_instances
 
