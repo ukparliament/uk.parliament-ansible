@@ -3,7 +3,7 @@
 
 - name: Set Hostname with hostname command
   hostname:
-    name: "{{ shortname }}"
+    name: "{{ shortname }}.{{ domain }}"
   notify:
     - restart hostname
     - restart systemd-logind

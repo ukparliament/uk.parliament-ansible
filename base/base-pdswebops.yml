@@ -3,7 +3,8 @@
 - hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
 
   vars:
-    shortname: "{{ ansible_default_ipv4.address }} {{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
+    shortname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
+    domain: "parliament.uk"
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
