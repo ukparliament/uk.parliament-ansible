@@ -1,3 +1,7 @@
+- name: Upgrade
+  apt:
+    name: ansible
+    state: latest
 - name: Install ntp
   package:
     name: ntp
