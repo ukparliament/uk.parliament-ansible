@@ -3,6 +3,7 @@
 - hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
 
   vars:
+    fqdn: "parliament.uk"
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
@@ -17,8 +18,7 @@
     - role: users
     - role: datadog
     - role: filebeat-ubuntu
-    - role: ansible-fqdn:
-        fqdn: "parliament.uk" 
+    - role: ansible-fqdn
 
 - hosts: key_ecs_instances
 
