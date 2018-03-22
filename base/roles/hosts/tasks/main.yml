@@ -1,8 +1,22 @@
 ---
-
+vars:
+  fqdn: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}.parliament.uk"
+  shortname: {{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}
 - name: Set Hostname with hostname command
   hostname:
-    name: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}.parliament.uk"
+    name: {{ fqdn }}
+  notify:
+    - restart hostname
+    - restart systemd-logind
+
+- name: Build hosts file (backups will be made)
+  lineinfile:
+    dest: /etc/hosts
+    regexp: "^{{ ansible_default_ipv4.address }}"
+    line: "{{ ansible_default_ipv4.address }} {{ fqdn }} {{ shortname }}"
+    state: present
+    backup: yes
+  when: ansible_default_ipv4.address is defined
   notify:
     - restart hostname
     - restart systemd-logind
