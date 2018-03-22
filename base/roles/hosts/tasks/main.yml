@@ -1,7 +1,5 @@
 ---
-vars:
-  fqdn: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}.parliament.uk"
-  shortname: {{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}
+
 - name: Set Hostname with hostname command
   hostname:
     name: {{ fqdn }}
@@ -13,7 +11,7 @@ vars:
   lineinfile:
     dest: /etc/hosts
     regexp: "^{{ ansible_default_ipv4.address }}"
-    line: "{{ ansible_default_ipv4.address }} {{ fqdn }} {{ shortname }}"
+    line: "{{ ansible_default_ipv4.address }} {{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}.parliament.uk {{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
     state: present
     backup: yes
   when: ansible_default_ipv4.address is defined
