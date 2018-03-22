@@ -1,6 +1,6 @@
 
 
-- hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
+- hosts: mx.parliament.uk:key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
 
   vars:
     fqdn: "mx.parliament.uk"
@@ -19,7 +19,7 @@
     - role: users
     - role: datadog
     - role: filebeat-ubuntu
-    - role: ansible-fqdn
+    - { role: ansible-fqdn, fqdn: "mx.parliament.uk", hostname: "mx"
 
 - hosts: key_ecs_instances
 
