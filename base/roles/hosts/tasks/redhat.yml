@@ -1,0 +1,7 @@
+---
+- name: Redhat | Install libselinux-python
+  yum:
+    name: libselinux-python
+
+- name: Redhat | Update sysconfig
+  lineinfile: dest=/etc/sysconfig/network line="HOSTNAME={{ shortname }}.{{ domain}}" regexp="HOSTNAME="

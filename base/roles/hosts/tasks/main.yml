@@ -1,22 +1,16 @@
 ---
+- name: hosts | Configure Debian
+  include: debian.yml
+  when: ansible_os_family == 'Debian'
 
+- name: hosts | Configure Redhat
+  include: redhat.yml
+  when: ansible_os_family == 'RedHat'
 
-- name: Set Hostname with hostname command
-  hostname:
-    name: "{{ shortname }}.{{ domain }}"
-  notify:
-    - restart hostname
-    - restart systemd-logind
+- name: hosts | Configure Linux
+  include: linux.yml
+  when: ansible_system in  [ 'Linux' ]
 
-
-- name: Build hosts file (backups will be made)
-  lineinfile:
-    dest: /etc/hosts
-    regexp: "^{{ ansible_default_ipv4.address }}"
-    line: "{{ ansible_default_ipv4.address }} {{ shortname }}.{{ domain }} {{ shortname }}"
-    state: present
-    backup: yes
-  when: ansible_default_ipv4.address is defined
-  notify:
-    - restart hostname
-    - restart systemd-logind
+- name: hosts | Configure Windows
+  include: windows.yml
+  when: ansible_system in  [ 'Win32NT' ]

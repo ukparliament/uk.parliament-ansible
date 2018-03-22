@@ -1,4 +1,4 @@
-# handlers file for fqdn
+# handlers file for hosts
 ---
 - name: restart hostname
   service:

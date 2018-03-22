@@ -1,0 +1,21 @@
+---
+
+
+- name: Set Hostname with hostname command
+  hostname:
+    name: "{{ shortname }}.{{ domain }}"
+  notify:
+    - restart hostname
+    - restart systemd-logind
+
+
+- name: Build hosts file (backups will be made)
+  lineinfile:
+    dest: /etc/hosts
+#    regexp: "^{{ ansible_default_ipv4.address }}"
+    line: "{{ ansible_default_ipv4.address }} {{ shortname }}.{{ domain }} {{ shortname }}"
+    state: present
+    backup: yes
+  notify:
+    - restart hostname
+    - restart systemd-logind
