@@ -2,7 +2,7 @@
 
 - hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
 
-#  vars:
+  vars:
 #    shortname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
 #    domain: "parliament.uk"
 
