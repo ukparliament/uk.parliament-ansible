@@ -1,6 +1,6 @@
 
 
-- hosts: mx.key_core_instances mx.tag_Name_core_bastion_host mx.tag_Name_ecs_bastion_host
+- hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
 
   vars:
     fqdn: "mx.parliament.uk"
