@@ -2,7 +2,7 @@
 
 - name: Set Hostname with hostname command
   hostname:
-    name: "{{ inventory_hostname }}"
+    name: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
   notify:
     - restart hostname
     - restart systemd-logind
