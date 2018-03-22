@@ -1,9 +1,10 @@
 
 
-- hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
+- hosts: mx.key_core_instances mx.tag_Name_core_bastion_host mx.tag_Name_ecs_bastion_host
 
   vars:
-    fqdn: "parliament.uk"
+    fqdn: "mx.parliament.uk"
+    hostname: "mx"
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
