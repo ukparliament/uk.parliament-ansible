@@ -21,6 +21,7 @@
     - role: datadog
     - role: filebeat-ubuntu
     - role: hosts
+    - role: resolv_conf
     - role: sssd
 
 
@@ -42,4 +43,5 @@
     - role: datadog
     - role: filebeat-centos
     - role: hosts
+    - role: resolv_conf
     - role: sssd

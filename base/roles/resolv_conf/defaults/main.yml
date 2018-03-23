@@ -1,0 +1,8 @@
+---
+# defaults file for resolv_conf
+
+resolv_conf_nameservers:
+  - 172.16.40.168
+  
+resolv_conf_search_domains:
+  - access.parliament.uk
