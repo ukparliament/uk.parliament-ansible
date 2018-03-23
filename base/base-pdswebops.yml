@@ -21,8 +21,7 @@
     - role: datadog
     - role: filebeat-ubuntu
     - role: hosts
-    - role: resolv_conf
-    - role: sssd
+
 
 
 - hosts: key_ecs_instances
@@ -43,5 +42,4 @@
     - role: datadog
     - role: filebeat-centos
     - role: hosts
-    - role: resolv_conf
-    - role: sssd
+    
