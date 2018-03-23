@@ -1,3 +1,3 @@
-shortname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
+shortname: "{{ ec2_tag_Name }}-{{ inventory_hostname}}"
 domain: "access.parliament.uk"
-fqdn: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}.parliament.uk"
+fqdn: "{{ ec2_tag_Name }}-{{ inventory_hostname}}.access.parliament.uk"
