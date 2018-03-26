@@ -29,6 +29,7 @@
 
   roles:
    - role: resolv_conf
+   - role: sssd
 
 - hosts: key_ecs_instances
 
