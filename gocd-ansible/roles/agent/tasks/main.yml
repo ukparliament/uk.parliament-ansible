@@ -1,0 +1,97 @@
+---
+
+- name: Add new repository definition to the APT sources configuration directory
+  shell: echo "deb https://download.gocd.org /" | sudo tee /etc/apt/sources.list.d/gocd.list
+  args:
+    creates: gocd.list
+
+- name: Add the GoCD GPG key to APT
+  shell: curl  https://download.gocd.org/GOCD-GPG-KEY.asc | apt-key add -
+  args:
+   chdir: /home/ubuntu/
+   creates: GOCD-GPG-KEY.asc
+
+
+
+- name: Update Ansible
+  shell: apt-add-repository ppa:ansible/ansible
+
+- name: Get official Docker KEY
+  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+- name: Install Docker repository
+  shell: apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
+
+- name: Apt Update
+  shell: apt -y update
+
+- name: Install Packages
+  apt: state=present name={{ item }}
+  with_items:
+    - python-pip
+    - python-passlib
+    - python-setuptools
+    - python-dev
+    - build-essential
+    - default-jre
+    - go-server
+    - go-agent
+    - apache2-utils
+    - software-properties-common
+    - ansible
+    - docker-ce
+
+# pip install bcrypt for htpasswd
+- pip:
+    name: bcrypt
+- pip:
+    name: credstash
+- pip:
+    name: awscli
+- pip:
+    name: docker-py
+- pip:
+    name: ansible-container[docker]
+
+
+
+
+
+  # Place Python Dynamic Hosts script
+
+- name: Create Inventory Directory
+  file:
+    path: /etc/ansible/inventory
+    state: directory
+    owner: root
+    group: root
+
+- name: Download ec2.py
+  get_url:
+    url: https://raw.github.com/ansible/ansible/devel/contrib/inventory/ec2.py
+    dest: /etc/ansible/inventory/hosts
+    mode: 0755
+
+    # Place ansible.cfg
+- copy:
+    src: files/ansible.cfg
+    dest: /etc/ansible/ansible.cfg
+    owner: root
+    group: root
+    mode: 0644
+
+# place ec2.ini
+- copy:
+    src: files/ec2.ini
+    dest: /etc/ansible/inventory/ec2.ini
+    owner: root
+    group: root
+    mode: 0644
+
+# place hosts_static
+- copy:
+    src: files/hosts_static
+    dest: /etc/ansible/inventory/hosts_static
+    owner: root
+    group: root
+    mode: 0644

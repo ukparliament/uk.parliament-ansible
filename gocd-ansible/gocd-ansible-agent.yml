@@ -1,0 +1,7 @@
+- hosts: tag_Name_core_gocd_server_ansible_1
+  user: ubuntu
+  become: yes
+  become_method: sudo
+  vars:
+  roles:
+    - role: agent

@@ -4,8 +4,28 @@ environments:
       - base
       - nginx-proxy
       - elkstack
+      - gocd-ansible
 
 pipelines:
+  gocd-ansible:
+    group: Ansible
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/uk.parliament-ansible.git
+        branch: master
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
+                    command: ansible-playbook
+                    arguments:
+                      - gocd-ansible/gocd-ansible-agent.yml
+                      - "-f"
+                      - 10
   elkstack:
     group: Ansible
     label_template: "${COUNT}"
