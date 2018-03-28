@@ -23,6 +23,6 @@
 - name: Add FreeIPA Master to hosts
   lineinfile:
     dest: /etc/hosts
-    line: "{{ freeipa-master }}"
+    regexp: "^freeipa-access.parliament.uk"
+    line: "{{ freeipa_master }}"
     state: present
-    
