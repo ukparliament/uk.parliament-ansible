@@ -19,3 +19,10 @@
   notify:
     - restart hostname
     - restart systemd-logind
+
+- name: Add FreeIPA Master to hosts
+  lineinfile:
+    dest: /etc/hosts
+    line: "{{ freeipa-master }}"
+    state: present
+    

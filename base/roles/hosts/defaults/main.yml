@@ -1,3 +1,4 @@
 shortname: "{{ ec2_tag_Name }}-{{ inventory_hostname}}"
 domain: "access.parliament.uk"
 fqdn: "{{ ec2_tag_Name }}-{{ inventory_hostname}}.access.parliament.uk"
+freeipa-master: "172.16.40.168 freeipa-access.parliament.uk"
