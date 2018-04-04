@@ -35,6 +35,11 @@
         upstreams:
           - name: 'gocd-xfjsdevci'
             servers: ['172.16.48.65:8153']            
+      gocd-xfjslive:
+        domains: ['gocd-xfjslive.parliament.uk']
+        upstreams:
+          - name: 'gocd-xfjslive'
+            servers: ['172.16.52.203:8153']          
       freeipa:
         domains: ['freeipa-access.parliament.uk']
         upstreams:
