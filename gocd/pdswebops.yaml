@@ -1,13 +1,12 @@
 environments:
   Ansible:
     pipelines:
-      - base
       - packer
 
 
 pipelines:
 
-  
+
   ecs-agent-ubuntu-16.04:
      group: Packer
      label_template: "${COUNT}"
