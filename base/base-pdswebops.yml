@@ -27,3 +27,22 @@
 
   roles:
    - role: resolv_conf
+
+- hosts: key_ecs_instances
+
+  vars:
+    datadog_api_key: "{{credstash_query_output.stdout}}"
+    datadog_config:
+      hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
+      expvar_port: 5050
+      cmd_port: 5051
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: packages-ubuntu
+    - role: users
+    - role: datadog
+    - role: filebeat-ubuntu
+    - role: hosts
