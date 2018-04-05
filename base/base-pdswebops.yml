@@ -47,7 +47,7 @@
     - role: filebeat-ubuntu
     - role: hosts
 
-- hosts: tag_Name_core-gocd-agent-ansible-1
+- hosts: tag_Name_core_gocd_agent_ansible_1
 
   roles:
     - role: packer
