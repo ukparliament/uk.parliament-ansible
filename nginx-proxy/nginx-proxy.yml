@@ -34,7 +34,7 @@
         domains: ['gocd-xfjsdevci.parliament.uk']
         upstreams:
           - name: 'gocd-xfjsdevci'
-            servers: ['172.16.48.65:8153']            
+            servers: ['172.16.48.138:8153']            
       gocd-xfjslive:
         domains: ['gocd-xfjslive.parliament.uk']
         upstreams:
