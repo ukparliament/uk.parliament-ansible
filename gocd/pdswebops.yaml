@@ -26,7 +26,7 @@ pipelines:
                       - base/base-pdswebops.yml
                       - "-f"
                       - 10
-   ecs-agent-ubuntu-16.04:
+  ecs-agent-ubuntu-16.04:
      group: Packer
      label_template: "${COUNT}"
      materials:
@@ -44,4 +44,3 @@ pipelines:
                      arguments:
                        - build
                        - ecs-agent-ubuntu-16.04.json
-                      
