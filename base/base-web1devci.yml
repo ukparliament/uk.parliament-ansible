@@ -35,3 +35,8 @@
   become_method: sudo
   roles:
     - role: filebeat-bitnami-wordpress
+
+- hosts: tag_Name_core-gocd-agent-ansible-1
+
+  roles:
+    - role: packer

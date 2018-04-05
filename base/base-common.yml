@@ -56,3 +56,8 @@
      - role: users
      - role: datadog
      - role: filebeat-centos
+
+- hosts: tag_Name_core-gocd-agent-ansible-1
+
+  roles:
+    - role: packer
