@@ -62,6 +62,10 @@
   package:
     name: ncdu
     state: latest
+- name: Install freeipa-client
+  package:
+    name: freeipa-client
+    state: latest
 - pip:
     name: credstash
 

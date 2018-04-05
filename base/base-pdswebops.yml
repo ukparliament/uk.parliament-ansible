@@ -1,6 +1,4 @@
-
-
-- hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
+- hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_ecs_instances
 
   vars:
 #    shortname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
@@ -29,23 +27,3 @@
 
   roles:
    - role: resolv_conf
-   
-
-- hosts: key_ecs_instances
-
-  vars:
-    datadog_api_key: "{{credstash_query_output.stdout}}"
-    datadog_config:
-      hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-      expvar_port: 5050
-      cmd_port: 5051
-  user: ec2-user
-  become: yes
-  become_method: sudo
-
-  roles:
-    - role: packages-centos
-    - role: users
-    - role: datadog
-    - role: filebeat-centos
-    - role: hosts
