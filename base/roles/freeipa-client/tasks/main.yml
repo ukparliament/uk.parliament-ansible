@@ -7,6 +7,14 @@
   register: credstash_freeipa_output
   ignore_errors: yes
 
+- name: Change default realm in krb5.conf if it exists
+  lineinfile:
+    regexp: "^default_realm"
+    dest: /etc/krb5.conf
+    line: "	default_realm = 16.248.180.ACCESS.PARLIAMENT.UK"
+    state: present
+
+
 - shell: ipa-client-install -d -U  -p admin -w {{ freeipa_system_user }} --domain=access.parliament.uk --server=freeipa-access.parliament.uk --mkhomedir --ssh-trust-dns
   args:
     creates: /etc/sssd/sssd.conf
