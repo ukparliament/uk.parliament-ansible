@@ -7,6 +7,6 @@
   register: credstash_freeipa_output
   ignore_errors: yes
 
-- shell: ipa-client-install -d -U  -p admin -w {{ freeipa-system_user }} --domain=access.parliament.uk --server=freeipa-access.parliament.uk --mkhomedir --ssh-trust-dns
+- shell: ipa-client-install -d -U  -p admin -w {{ freeipa_system_user }} --domain=access.parliament.uk --server=freeipa-access.parliament.uk --mkhomedir --ssh-trust-dns
   args:
     creates: /etc/sssd/sssd.conf
