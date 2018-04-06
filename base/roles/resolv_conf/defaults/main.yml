@@ -3,8 +3,7 @@
 
 resolv_conf_nameservers:
   - 172.16.40.168
-  - 172.16.248.2
-  - 172.16.244.2
+  
 
 resolv_conf_search_domains:
   - access.parliament.uk
