@@ -10,3 +10,9 @@
 - shell: ipa-client-install -d -U  -p admin -w {{ freeipa_system_user }} --domain=access.parliament.uk --server=freeipa-access.parliament.uk --mkhomedir --ssh-trust-dns
   args:
     creates: /etc/sssd/sssd.conf
+
+- name: Modify PAM common-session so that user home directory is created on first login
+  lineinfile:
+    dest: /etc/pam.d/common-session
+    line: "session required pam_mkhomedir.so"
+    state: present
