@@ -1,0 +1,4 @@
+- name: Install freeipa-client
+  package:
+    name: freeipa-client
+    state: latest
