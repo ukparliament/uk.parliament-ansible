@@ -9,7 +9,7 @@
 
 - name: Change default realm in krb5.conf if it exists
   lineinfile:
-    regexp: "^default_realm"
+    insertbefore: ".default_realm"
     dest: /etc/krb5.conf
     line: "	default_realm = 16.248.180.ACCESS.PARLIAMENT.UK"
     state: present
