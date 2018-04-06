@@ -21,6 +21,8 @@
     - role: hosts
 
 - hosts: tag_Name_core_ansible_node_1
+  vars:
+    freeipa-system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
   become: yes
   become_method: sudo
