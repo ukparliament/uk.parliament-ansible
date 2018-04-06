@@ -29,7 +29,7 @@
 
   roles:
    - role: resolv_conf
-   
+   - role: freeipa-client
 
 - hosts: key_ecs_instances
 
