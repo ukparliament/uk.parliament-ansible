@@ -30,12 +30,12 @@
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
       expvar_port: 5050
       cmd_port: 5051
-  user: ec2-user
+  user: ubuntu
   become: yes
   become_method: sudo
 
   roles:
-    - role: packages-centos
+    - role: packages-ubuntu
     - role: users
     - role: datadog
     - role: datadog-docker
