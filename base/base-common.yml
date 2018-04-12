@@ -58,6 +58,8 @@
      - role: filebeat-centos
 
 - hosts: tag_Name_core-gocd-agent-ansible-1
-
+  user: ubuntu
+  become: yes
+  become_method: sudo
   roles:
     - role: packer
