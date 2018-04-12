@@ -57,7 +57,7 @@
      - role: datadog
      - role: filebeat-centos
 
-- hosts: tag_Name_core-gocd-agent-ansible-1
+- hosts: tag_Name_core_gocd_agent_ansible_1
   user: ubuntu
   become: yes
   become_method: sudo
