@@ -16,7 +16,15 @@
     - role: filebeat-ubuntu
     - role: hosts
 
+- hosts:  key_ecs_instances   key_core_instances
+  vars:
+    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
+  user: ubuntu
+  become: yes
+  become_method: sudo
 
+  roles:
+   - role: freeipa-client
 
 - hosts: core-nginx-proxy-1
   user: ubuntu
