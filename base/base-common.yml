@@ -1,4 +1,4 @@
-- hosts:  core-nginx-proxy-1 key_ecs_instances   key_core_instances
+- hosts:  core-nginx-proxy-1   key_core_instances
   vars:
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
@@ -16,15 +16,7 @@
     - role: filebeat-ubuntu
     - role: hosts
 
-- hosts:  key_ecs_instances   key_core_instances
-  vars:
-    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
-  user: ubuntu
-  become: yes
-  become_method: sudo
 
-  roles:
-   - role: freeipa-client
 
 - hosts: core-nginx-proxy-1
   user: ubuntu
@@ -74,3 +66,13 @@
   become_method: sudo
   roles:
     - role: packer
+
+- hosts:  key_ecs_instances   key_core_instances
+  vars:
+    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+   - role: freeipa-client
