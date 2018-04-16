@@ -1,4 +1,4 @@
-- hosts: tag_Name_core_gocd_agent_ansible_1 core-nginx-proxy-1 tag_Name_core_grafana_server tag_Name_core_influxdb_server
+- hosts:  core-nginx-proxy-1 key_ecs_instances   key_core_instances
   vars:
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
