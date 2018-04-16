@@ -1,4 +1,4 @@
-- hosts:  core-nginx-proxy-1   key_core_instances
+- hosts:  core-nginx-proxy-1   key_core_instances:!tag_Name_core_nginx_proxy_1
   vars:
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
