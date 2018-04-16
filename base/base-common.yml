@@ -67,7 +67,7 @@
   roles:
     - role: packer
 
-- hosts:  key_ecs_instances   key_core_instances
+- hosts:  key_ecs_instances:!tag_Name_core_nginx_proxy_1:!tag_Name_core_freeipa_master_1   key_core_instances
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
