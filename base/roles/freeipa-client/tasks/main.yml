@@ -44,4 +44,4 @@
 - name: Reload service sssd, in all cases
   service:
     name: sssd
-    state: reloaded
+    state: restarted
