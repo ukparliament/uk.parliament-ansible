@@ -27,20 +27,19 @@
     insertbefore: ".end of pam-auth-update config"
     state: present
 
-# Add sudoers config to sssd.conf
+- name: Add sudoers config to sssd.conf
+  blockinfile:
+    path: /etc/sssd/sssd.conf
+    insertafter: "ldap_tls_cacert = /etc/ipa/ca.crt"
+    block: |
+      # For the SUDO integration
+      sudo_provider = ldap
+      ldap_uri = ldap://freeipa-access.parliament.uk
+      ldap_sudo_search_base = ou=sudoers,dc=access,dc=parliament,dc=uk
+      ldap_sasl_mech = GSSAPI
+      ldap_sasl_authid = host/client.access.parliament.uk
+      ldap_sasl_realm = ACCESS.PARLIAMENT.UK
+      krb5_server = freeipa-access.parliament.uk
 
-- blockinfile:
-  path: /etc/sssd/sssd.conf
-  insertafter: "ldap_tls_cacert = /etc/ipa/ca.crt"
-  block: |
-    # For the SUDO integration
-    sudo_provider = ldap
-    ldap_uri = ldap://freeipa-access.parliament.uk
-    ldap_sudo_search_base = ou=sudoers,dc=access,dc=parliament,dc=uk
-    ldap_sasl_mech = GSSAPI
-    ldap_sasl_authid = host/client.access.parliament.uk
-    ldap_sasl_realm = ACCESS.PARLIAMENT.UK
-    krb5_server = freeipa-access.parliament.uk
-
-  notify:
-    - Restart sssd
+    notify:
+      - Restart sssd
