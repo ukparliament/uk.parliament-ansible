@@ -41,5 +41,7 @@
       ldap_sasl_realm = ACCESS.PARLIAMENT.UK
       krb5_server = freeipa-access.parliament.uk
 
-    notify:
-      - Restart sssd
+- name: Reload service sssd, in all cases
+  service:
+    name: sssd
+    state: reloaded
