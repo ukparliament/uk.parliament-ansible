@@ -3,7 +3,7 @@
 #</location>
 
 <location />
-#uthBasicProvider ldap
+AuthBasicProvider ldap
 AuthType Basic
 AuthName "Log in with Windows username and password+mfa"
 AuthLDAPURL ldap://{{ freeipa_server_ip_address }}:389/cn=users,cn=accounts,dc=access,dc=parliament,dc=uk?uid?sub
