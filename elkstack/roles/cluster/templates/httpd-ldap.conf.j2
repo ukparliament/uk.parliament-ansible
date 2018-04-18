@@ -1,12 +1,12 @@
-<location />
-AuthBasicProvider ldap
-AuthType Basic
-AuthName "Log in with Windows username and password+mfa"
-AuthLDAPURL ldap://{{ freeipa_server_ip_address }}:389/cn=users,cn=accounts,dc=access,dc=parliament,dc=uk?uid?sub
-AuthLDAPBindDN uid=system,cn=sysaccounts,cn=etc,dc=access,dc=parliament,dc=uk
-AuthLDAPBindPassword {{ ldap_password }}
-Require valid-user
-</location>
+#<location />
+#AuthBasicProvider ldap
+#AuthType Basic
+#AuthName "Log in with Windows username and password+mfa"
+#AuthLDAPURL ldap://{{ freeipa_server_ip_address }}:389/cn=users,cn=accounts,dc=access,dc=parliament,dc=uk?uid?sub
+#AuthLDAPBindDN uid=system,cn=sysaccounts,cn=etc,dc=access,dc=parliament,dc=uk
+#AuthLDAPBindPassword {{ ldap_password }}
+#Require valid-user
+#</location>
 
 
 ProxyPass / http://internal-elasticsearch-1696314485.eu-west-1.elb.amazonaws.com:5601/
