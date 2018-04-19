@@ -1,0 +1,8 @@
+-hosts: tag_Name_core_nginx_ldap_proxy_1
+user: deployer
+become: yes
+become_method: sudo
+vars:
+
+roles:
+  - role: openresty
