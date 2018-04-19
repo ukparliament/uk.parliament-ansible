@@ -11,3 +11,6 @@
 - apt:
     name: openresty
     state: latest
+- apt:
+    name: apache2-utils
+    state: latest
