@@ -2,7 +2,7 @@
     url: https://openresty.org/package/pubkey.gpg
     state: present
 - apt_repository:
-    repo: deb http://openresty.org/package/ubuntu $(lsb_release -sc) main
+    repo: deb http://openresty.org/package/ubuntu xenial main
     state: present
     update_cache: yes
 -  apt:
