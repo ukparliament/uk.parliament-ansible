@@ -5,6 +5,9 @@
     repo: deb http://openresty.org/package/ubuntu xenial main
     state: present
     update_cache: yes
--  apt:
+- apt:
     name: software-properties-common
+    state: latest
+- apt:
+    name: openresty
     state: latest
