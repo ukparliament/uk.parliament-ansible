@@ -1,7 +1,7 @@
-<location "/">
+<location />
  AuthBasicFake parliament_user 12ShFtgZWVvy
- Require valid-user
-</location>
+
+
 
 #<location />
 #AuthBasicProvider ldap
@@ -17,3 +17,4 @@
 ProxyPass / http://internal-elasticsearch-1696314485.eu-west-1.elb.amazonaws.com:5601/
 ProxyPassReverse / http://internal-elasticsearch-1696314485.eu-west-1.elb.amazonaws.com:5601/
 #RequestHeader Set Authorization: "Basic ZWxhc3RpYzpjaGFuZ2VtZQ=="
+</location>
