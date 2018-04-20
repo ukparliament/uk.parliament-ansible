@@ -37,13 +37,7 @@
     state: 'present'
 
 
-#- name: copy nginx ldap authentication config
-#  copy:
-#    src: files/nginx_ldap_auth.conf
-#    dest: /etc/nginx/conf.d/nginx-ldap-auth.conf
-#    owner: root
-#    group: root
-#    mode: 0644
+
 
 # Create python-ldap Directory
 - file:
