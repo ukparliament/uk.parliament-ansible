@@ -55,7 +55,8 @@
     group: root
     mode: 0755
 
-- name: Create python-ldap Directory
+# Create python-ldap Directory
+- file: 
     path: /opt/python-ldap
     owner: root
     group: root
