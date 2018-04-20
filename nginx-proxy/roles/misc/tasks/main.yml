@@ -49,7 +49,7 @@
 
 - name: copy python ldap daemon
   copy:
-    src: files/nginx-ldap-auth-daemon.py
+    src: ../files/nginx-ldap-auth-daemon.py
     dest: /opt/python-ldap/nginx-ldap-auth-daemon.py
     owner: root
     group: root
