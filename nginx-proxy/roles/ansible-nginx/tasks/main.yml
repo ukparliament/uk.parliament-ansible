@@ -12,6 +12,11 @@
   notify:
     - Test nginx and restart
 
+- name: Install python-LDAP
+  apt:
+    name: 'python-ldap'
+    state: 'present'
+
 - name: Create default nginx directories
   file:
     path: '{{ item }}'
