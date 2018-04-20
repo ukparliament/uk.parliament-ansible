@@ -30,3 +30,39 @@
        line: 'up route add -net 172.16.44.0/22 gw 172.16.40.1'
   notify:
       - Restart networking
+
+- name: Install python-LDAP
+  apt:
+    name: 'python-ldap'
+    state: 'present'
+
+
+- name: copy nginx ldap authentication config
+  copy:
+    src: files/nginx_basic_http_authentication.conf
+    dest: /etc/nginx/conf.d/nginx-ldap-auth.conf
+    owner: root
+    group: root
+    mode: 0644
+
+
+
+- name: copy python ldap daemon
+  copy:
+    src: files/nginx-ldap-auth-daemon.py
+    dest: /opt/python-ldap/nginx-ldap-auth-daemon.py
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Create python-ldap Directory
+    file: /opt/python-ldap
+    state: directory 
+
+- name: copy python ldap daemon startup script
+  copy:
+    src: files/nginx-ldap-auth-daemon-ctl.sh
+    dest: /opt/python-ldap/nginx-ldap-auth-daemon-ctl.sh
+    owner: root
+    group: root
+    mode: 0755
