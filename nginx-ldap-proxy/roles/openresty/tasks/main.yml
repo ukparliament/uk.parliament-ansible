@@ -14,3 +14,12 @@
 - apt:
     name: apache2-utils
     state: latest
+
+- name: copy nginx basic http authenticatio config
+  copy:
+    src: files/nginx_basic_http_authentication.conf
+    dest: /usr/local/openresty/nginx/conf/nginx_basic_http_authentication.conf
+    owner: root
+    group: root
+    mode: 0644
+    
