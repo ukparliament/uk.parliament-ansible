@@ -39,7 +39,7 @@
 
 - name: copy nginx ldap authentication config
   copy:
-    src: files/nginx_basic_http_authentication.conf
+    src: files/nginx_ldap_auth.conf
     dest: /etc/nginx/conf.d/nginx-ldap-auth.conf
     owner: root
     group: root
@@ -56,7 +56,7 @@
     mode: 0755
 
 # Create python-ldap Directory
-- file: 
+- file:
     path: /opt/python-ldap
     owner: root
     group: root
