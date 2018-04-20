@@ -3,8 +3,7 @@
 upstream httpd-ldap {
   least_conn;
   server {{ ecs_node_1 }};
-#  server {{ ecs_node_2 }};
-#  server {{ ecs_node_3 }};
+
 }
 
 server {
