@@ -45,7 +45,13 @@
     group: root
     mode: 0644
 
-
+# Create python-ldap Directory
+- file:
+    path: /opt/python-ldap
+    owner: root
+    group: root
+    mode: 0644
+    state: directory
 
 - name: copy python ldap daemon
   copy:
@@ -55,13 +61,7 @@
     group: root
     mode: 0755
 
-# Create python-ldap Directory
-- file:
-    path: /opt/python-ldap
-    owner: root
-    group: root
-    mode: 0644
-    state: directory
+
 
 - name: copy python ldap daemon startup script
   copy:
