@@ -19,12 +19,7 @@
   notify:
     - Test nginx and restart
 
-- name: Install nginx-extras
-  apt:
-    name: 'nginx-extras'
-    state: 'present'
-  notify:
-    - Test nginx and restart
+
 
 - name: Install python-LDAP
   apt:
