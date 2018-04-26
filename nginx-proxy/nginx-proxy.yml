@@ -34,17 +34,17 @@
         domains: ['gocd-xfjsdevci.parliament.uk']
         upstreams:
           - name: 'gocd-xfjsdevci'
-            servers: ['172.16.48.138:8153']            
+            servers: ['172.16.48.138:8153']
       gocd-xfjslive:
         domains: ['gocd-xfjslive.parliament.uk']
         upstreams:
           - name: 'gocd-xfjslive'
-            servers: ['172.16.52.203:8153']          
+            servers: ['172.16.52.203:8153']
       freeipa:
         domains: ['freeipa-access.parliament.uk']
         upstreams:
            - name: 'freeipa-master-1'
-             servers: ['172.16.40.168']
+             servers: ['https://freeipa-access.parliament.uk']
       grafana-pdswebops:
         domains: ['grafana-pdswebops.parliament.uk']
         upstreams:
