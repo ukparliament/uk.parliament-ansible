@@ -3,7 +3,7 @@
 -  lineinfile:
        path: /etc/nginx/sites-available/freeipa.conf
        regexp: 'proxy_pass'
-       line: 'proxy_pass https://172.16.40.39;'
+       line: 'proxy_pass https://172.16.40.168;'
    notify:
       - Test nginx and reload
 
