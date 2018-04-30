@@ -12,21 +12,7 @@
   notify:
     - Test apache2 and restart
 
-- name: Install apache2 utilities
-  apt:
-    name: 'apache2-utils'
-    state: 'present'
-  notify:
-    - Test apache2 and restart
 
-- apache2_module:
-    state: absent
-    name: mpm_event
-    ignore_configcheck: True
-
-- apache2_module:
-    state: present
-    name: mpm_worker
 
 
 - name: Create default apache2 directories
