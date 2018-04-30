@@ -28,3 +28,15 @@
     - '/etc/apache2/mods-enabled'
     - '/etc/apache2/conf-available'
     - '/etc/apache2/conf-enabled'
+
+
+- name: Remove default site
+  file:
+    path: '{{ item }}'
+    state: 'absent'
+  with_items:
+    - '/var/www/html'
+    - '/etc/apache2/sites-enabled/000-default.conf'
+    - '/etc/apache2/sites-available/000-default.conf'
+  notify:
+    - Test apache2 and reload
