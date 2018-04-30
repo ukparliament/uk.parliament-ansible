@@ -41,13 +41,13 @@
   notify:
     - Test apache2 and reload
 
-  - name: Configure apache2
-    template:
-      src: 'etc/apache2/apache2.conf.j2'
-      dest: '/etc/apache2/apache2.conf'
-      group: 'root'
-      owner: 'root'
-      mode: '0644'
-    register: apache2_register_apache2_config
-    notify:
-      - Test apache2 and reload
+- name: Configure apache2
+  template:
+    src: 'etc/apache2/apache2.conf.j2'
+    dest: '/etc/apache2/apache2.conf'
+    group: 'root'
+    owner: 'root'
+    mode: '0644'
+  register: apache2_register_apache2_config
+  notify:
+    - Test apache2 and reload
