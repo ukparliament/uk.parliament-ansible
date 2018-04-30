@@ -1,0 +1,68 @@
+- hosts: tag_Name_core_httpd_proxy_1
+  user: deployer
+  become: yes
+  become_method: sudo
+  vars:
+    nginx_sites:
+      gocd-common:
+        domains: ['gocd-common.parliament.uk']
+        upstreams:
+          - name: 'gocd-common'
+            servers: ['172.16.40.155:8153']
+      gocd-common2:
+        domains: ['gocd-common2.parliament.uk']
+        upstreams:
+          - name: 'gocd-common2'
+            servers: ['172.16.40.155:8153']
+      gocd-pdswebops:
+        domains: ['gocd-pdswebops.parliament.uk']
+        default_server: True
+        upstreams:
+          - name: 'gocd-pdswebops'
+            servers: ['172.16.248.149:8153']
+      gocd-web1devci:
+        domains: ['gocd-webdevci.parliament.uk']
+        upstreams:
+          - name: 'gocd-webdevci'
+            servers: ['172.16.128.57:8153']
+      gocd-web1live:
+        domains: ['gocd-web1live.parliament.uk']
+        upstreams:
+          - name: 'gocd-web1live'
+            servers: ['172.16.136.236:8153']
+      gocd-xfjsdevci:
+        domains: ['gocd-xfjsdevci.parliament.uk']
+        upstreams:
+          - name: 'gocd-xfjsdevci'
+            servers: ['172.16.48.138:8153']
+      gocd-xfjslive:
+        domains: ['gocd-xfjslive.parliament.uk']
+        upstreams:
+          - name: 'gocd-xfjslive'
+            servers: ['172.16.52.203:8153']
+      freeipa:
+        domains: ['freeipa-access.parliament.uk']
+        upstreams:
+           - name: 'freeipa-master-1'
+             servers: ['freeipa-access.parliament.uk']
+      grafana-pdswebops:
+        domains: ['grafana-pdswebops.parliament.uk']
+        upstreams:
+          - name: 'grafana-pdswebops-1'
+            servers:
+              - "172.16.248.130"
+      grafana-common:
+        domains:
+          - grafana-common.parliament.uk
+          - status-dashboards.parliament.uk
+          - grafana-common.pdswebops.org
+        upstreams:
+          - name: 'grafana-common-1'
+            servers:
+              - '172.16.40.54'
+
+    proxy_pass_https:
+      freeipa:
+  roles:
+    - role: ansible-httpd
+    - role: misc

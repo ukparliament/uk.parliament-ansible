@@ -1,0 +1,28 @@
+---
+
+- name: Test apache2 and restart
+  command: apachectl configtest
+  when: nginx_install_service
+  notify:
+    - 'Restart apache2'
+
+- name: Test apache2 and reload
+  command: apachectl configtest
+  when: apache2_install_service
+  notify:
+    - 'Reload apache2'
+
+- name: Restart apache2
+  service:
+    name: 'apache2'
+    state: 'restarted'
+  when: apache2_install_service
+
+- name: Reload apache2
+  service:
+    name: 'apache2'
+    state: 'reloaded'
+  when: apache2_install_service
+
+- name: Restart networking
+  command: sudo /etc/init.d/networking restart

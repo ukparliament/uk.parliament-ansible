@@ -1,0 +1,84 @@
+---
+
+apache2_install_service: True
+
+apache2_user: 'www-data'
+apache2_worker_processes: 'auto'
+apache2_worker_rlimit_nofile: 4096
+apache2_events_worker_connections: 1024
+apache2_http_server_tokens: 'off'
+apache2_http_add_headers:
+  - 'X-Frame-Options SAMEORIGIN'
+  - 'X-Content-Type-Options nosniff'
+  - 'X-XSS-Protection "1; mode=block"'
+apache2_http_access_log_format: |
+  '$remote_addr $remote_user $request_time $upstream_response_time $msec [$time_local] '
+  '"$request" $status $body_bytes_sent '
+  '"$http_referer" "$http_user_agent"'
+apache2_http_server_names_hash_bucket_size: 64
+apache2_http_server_names_hash_max_size: 512
+apache2_http_sendfile: 'on'
+apache2_http_tcp_nopush: 'on'
+apache2_http_keepalive_timeout: 60
+apache2_http_client_max_body_size: '1m'
+apache2_http_types_hash_max_size: 2048
+apache2_http_gzip: 'on'
+apache2_http_gzip_types: 'text/plain text/css application/javascript application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml image/svg'
+apache2_http_gzip_disable: 'msie6'
+apache2_http_directives: []
+
+apache2_basic_auth: []
+
+apache2_ssl_dhparam_bits: 2048
+apache2_ssl_override_filename: ''
+apache2_ssl_generate_self_signed_certs: True
+
+apache2_default_sites:
+  default:
+    domains: []
+    default_server: False
+    listen_http: 80
+    listen_https: 443
+    root: '/usr/share/apache2/html'
+    directives: []
+    ssl:
+      protocols: 'TLSv1 TLSv1.1 TLSv1.2'
+      ciphers: 'ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4'
+      prefer_server_ciphers: 'on'
+      session_cache: 'shared:SSL:50m'
+      session_timeout: '5m'
+      ssl_stapling: 'on'
+      ssl_stapling_verify: 'on'
+      resolver: '8.8.8.8'
+      resolver_timeout: '5s'
+      sts_header: 'Strict-Transport-Security "max-age=63072000; includeSubdomains;"'
+    cache_all_locations:
+      enabled: True
+      duration: '30s'
+    error_pages:
+      - { code: 404, page: '404.html' }
+      - { code: 500, page: '500.html' }
+    serve_assets:
+      enabled: True
+      pattern: ' ~ ^/assets/'
+      expires: 'max'
+    custom_locations: ''
+    custom_root_location_try_files: ''
+    basic_auth: False
+    basic_auth_message: 'Please sign in'
+    disallow_hidden_files:
+      enabled: True
+    upstreams: []
+
+apache2_default_upstream_proxy_settings:
+  - 'proxy_set_header X-Real-IP $remote_addr'
+  - 'proxy_set_header X-Forwarded-Proto $scheme'
+  - 'proxy_set_header Host $http_host'
+  - 'proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for'
+  - 'proxy_redirect off'
+
+apache2_letsencrypt_root: '/usr/share/apache2/challenges'
+
+apache2_sites: {}
+
+ecs_node_1: '172.16.40.210:80'
