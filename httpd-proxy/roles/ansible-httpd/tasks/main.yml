@@ -21,7 +21,13 @@
 
 - apache2_module:
     state: present
+    name: mpm_event
+    ignore_configcheck: True
+
+- apache2_module:
+    state: present
     name: mpm_worker
+    
 
 - name: Create default apache2 directories
   file:
