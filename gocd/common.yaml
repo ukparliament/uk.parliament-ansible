@@ -6,7 +6,6 @@ environments:
       - elkstack
       - gocd-ansible
       - ecs-agent-ubuntu-16.04
-      - nginx-ldap-proxy
       - httpd-proxy
 
 pipelines:
