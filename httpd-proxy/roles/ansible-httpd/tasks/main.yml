@@ -11,3 +11,20 @@
     state: 'present'
   notify:
     - Test apache2 and restart
+
+
+- name: Create default apache2 directories
+  file:
+    path: '{{ item }}'
+    state: 'directory'
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+  with_items:
+    - '/usr/www/html'
+    - '/etc/apache2/sites-available'
+    - '/etc/apache2/sites-enabled'
+    - '/etc/apache2/mods-available'
+    - '/etc/apache2/mods-enabled'
+    - '/etc/apache2/conf-available'
+    - '/etc/apache2/conf-enabled'
