@@ -89,41 +89,41 @@ pipelines:
                       - 10
 
 
-       httpd-proxy:
-         group: Ansible
-         label_template: "${COUNT}"
-         materials:
-           mygit:
-             git: https://github.com/ukparliament/uk.parliament-ansible.git
-             branch: master
-         stages:
-           - build:
-               clean_workspace: true
-               jobs:
-                 default:
-                   tasks:
-                     - exec:
-                         command: ansible-playbook
-                         arguments:
-                           - httpd-proxy/httpd-proxy.yml
-                           - "-f"
-                           - 10
-                           
-       ecs-agent-ubuntu-16.04:
-          group: Packer
-          label_template: "${COUNT}"
-          materials:
-            mygit:
-              git: https://github.com/ukparliament/parliament.uk-packer.git
-              branch: development
-          stages:
-            - build:
-                clean_workspace: true
-                jobs:
-                  default:
-                    tasks:
-                      - exec:
-                          command: packer
-                          arguments:
-                            - build
-                            - ecs-agent-ubuntu-16.04.json
+  httpd-proxy:
+   group: Ansible
+   label_template: "${COUNT}"
+   materials:
+     mygit:
+       git: https://github.com/ukparliament/uk.parliament-ansible.git
+       branch: master
+   stages:
+     - build:
+         clean_workspace: true
+         jobs:
+           default:
+             tasks:
+               - exec:
+                   command: ansible-playbook
+                   arguments:
+                     - httpd-proxy/httpd-proxy.yml
+                     - "-f"
+                     - 10
+
+  ecs-agent-ubuntu-16.04:
+    group: Packer
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/parliament.uk-packer.git
+        branch: development
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
+                    command: packer
+                    arguments:
+                      - build
+                      - ecs-agent-ubuntu-16.04.json
