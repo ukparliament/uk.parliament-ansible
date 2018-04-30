@@ -125,21 +125,21 @@ pipelines:
                            - httpd-proxy/httpd-proxy.yml
                            - "-f"
                            - 10
-  ecs-agent-ubuntu-16.04:
-     group: Packer
-     label_template: "${COUNT}"
-     materials:
-       mygit:
-         git: https://github.com/ukparliament/parliament.uk-packer.git
-         branch: development
-     stages:
-       - build:
-           clean_workspace: true
-           jobs:
-             default:
-               tasks:
-                 - exec:
-                     command: packer
-                     arguments:
-                       - build
-                       - ecs-agent-ubuntu-16.04.json
+       ecs-agent-ubuntu-16.04:
+          group: Packer
+          label_template: "${COUNT}"
+          materials:
+            mygit:
+              git: https://github.com/ukparliament/parliament.uk-packer.git
+              branch: development
+          stages:
+            - build:
+                clean_workspace: true
+                jobs:
+                  default:
+                    tasks:
+                      - exec:
+                          command: packer
+                          arguments:
+                            - build
+                            - ecs-agent-ubuntu-16.04.json
