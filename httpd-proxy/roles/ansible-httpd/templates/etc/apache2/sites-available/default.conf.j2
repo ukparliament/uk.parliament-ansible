@@ -2,26 +2,28 @@
 
 {% set item = (apache2_default_sites['default'] | combine(item.value, recursive=True)) %}
 
+<VirtualHost *:80>
+  ServerName {{ item.domains | join(' ') }}
+  ServerAdmin webmaster@localhost
+  DocumentRoot /var/www/html
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
+  KeepAlive On
+</VirtualHost>
 
-server {
-  listen {{ item.listen_http }}{{ ' default deferred' if item.default_server else '' }};
-  server_name {{ item.domains | join(' ') }};
-  root  /var/www/html;
-
-  location /  {
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
+<location />
 
 {% if item.upstreams %}
 {%- for upstream in item.upstreams %}
 {% for server in upstream.servers %}
-
-    proxy_pass http://{{ server }};
-
+ProxyPass http://{{ server }}
+ProxyPassReverse http://{{ server }}
 {% endfor %}
 {% endfor %}
 {% endif %}
 
-  }
+</location>
 
-}
+
+
+    
