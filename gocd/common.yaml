@@ -87,6 +87,7 @@ pipelines:
                       - nginx-proxy/nginx-proxy.yml
                       - "-f"
                       - 10
+                      
   nginx-ldap-proxy:
     group: Ansible
     label_template: "${COUNT}"
