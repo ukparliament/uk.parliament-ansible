@@ -36,7 +36,7 @@
     group: 'root'
     mode: '0755'
   with_items:
-    - '/usr/www/html'
+    - '/var/www/html'
     - '/etc/apache2/sites-available'
     - '/etc/apache2/sites-enabled'
     - '/etc/apache2/mods-available'
