@@ -39,7 +39,7 @@ apache2_default_sites:
     default_server: False
     listen_http: 80
     listen_https: 443
-    root: '/usr/share/apache2/html'
+    root: '/var/www/html'
     directives: []
     ssl:
       protocols: 'TLSv1 TLSv1.1 TLSv1.2'
