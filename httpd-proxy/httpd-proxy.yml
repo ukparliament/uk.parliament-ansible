@@ -3,7 +3,7 @@
   become: yes
   become_method: sudo
   vars:
-    nginx_sites:
+    apache2_sites:
       gocd-common:
         domains: ['gocd-common.parliament.uk']
         upstreams:
