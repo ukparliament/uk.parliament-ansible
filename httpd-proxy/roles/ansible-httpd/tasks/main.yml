@@ -12,6 +12,21 @@
   notify:
     - Test apache2 and restart
 
+- apache2_module:
+    state: present
+    name: proxy
+
+- apache2_module:
+    state: present
+    name: proxy_html
+
+- apache2_module:
+    state: present
+    name: proxy_http
+
+- apache2_module:
+    state: present
+    name: session
 
 - name: Create default apache2 directories
   file:
