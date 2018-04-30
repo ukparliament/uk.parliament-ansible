@@ -87,26 +87,8 @@ pipelines:
                       - nginx-proxy/nginx-proxy.yml
                       - "-f"
                       - 10
-                      
-  nginx-ldap-proxy:
-    group: Ansible
-    label_template: "${COUNT}"
-    materials:
-      mygit:
-        git: https://github.com/ukparliament/uk.parliament-ansible.git
-        branch: master
-    stages:
-      - build:
-          clean_workspace: true
-          jobs:
-            default:
-              tasks:
-                - exec:
-                    command: ansible-playbook
-                    arguments:
-                      - nginx-ldap-proxy/nginx-ldap-proxy.yml
-                      - "-f"
-                      - 10
+
+
        httpd-proxy:
          group: Ansible
          label_template: "${COUNT}"
@@ -126,6 +108,7 @@ pipelines:
                            - httpd-proxy/httpd-proxy.yml
                            - "-f"
                            - 10
+                           
        ecs-agent-ubuntu-16.04:
           group: Packer
           label_template: "${COUNT}"
