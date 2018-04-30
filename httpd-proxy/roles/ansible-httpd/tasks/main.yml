@@ -19,7 +19,9 @@
   notify:
     - Test apache2 and restart
 
-
+- apache2_module:
+    state: present
+    name: mpm_worker
 
 - name: Create default apache2 directories
   file:
