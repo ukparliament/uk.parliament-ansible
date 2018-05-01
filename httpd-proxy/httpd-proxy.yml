@@ -58,8 +58,8 @@
             servers:
               - '172.16.40.54'
 
-    proxy_pass_https:
-      freeipa:
+#    proxy_pass_https:
+#      freeipa:
   roles:
     - role: ansible-httpd
     - role: misc
