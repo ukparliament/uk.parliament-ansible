@@ -38,7 +38,7 @@
 
 - apache2_module:
     state: present
-    name: mod_xml2enc
+    name: xml2enc
 
 
 
