@@ -32,6 +32,10 @@
     state: present
     name: ldap
 
+- apache2_module:
+    state: present
+    name: authnz_ldap
+
 
 
 
