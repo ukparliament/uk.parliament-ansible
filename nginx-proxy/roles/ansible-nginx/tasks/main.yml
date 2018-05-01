@@ -12,12 +12,7 @@
   notify:
     - Test nginx and restart
 
-- name: Install nginx-common
-  apt:
-    name: 'nginx-common'
-    state: 'present'
-  notify:
-    - Test nginx and restart
+
 
 
 
