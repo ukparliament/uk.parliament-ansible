@@ -36,6 +36,9 @@
     state: present
     name: authnz_ldap
 
+- apache2_module:
+    state: present
+    name: mod_xml2enc
 
 
 
