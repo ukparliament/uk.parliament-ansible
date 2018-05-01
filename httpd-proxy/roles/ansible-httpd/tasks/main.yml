@@ -28,6 +28,11 @@
     state: present
     name: session
 
+- apache2_module:
+    state: present
+    name: ldap
+
+
 
 
 - name: Create default apache2 directories
@@ -110,6 +115,6 @@
     src: '/etc/apache2/sites-available/elkstack-common.conf'
     dest: '/etc/apache2/sites-enabled/elkstack-common.conf'
     state: 'link'
-  
+
   notify:
     - Test apache2 and restart
