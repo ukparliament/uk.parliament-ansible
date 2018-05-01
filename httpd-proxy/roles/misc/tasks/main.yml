@@ -1,23 +1,9 @@
-# Add route to web1live subnet for GoCD Server connection
-
-- lineinfile:
-       path: /etc/network/interfaces
-       line: 'up route add -net 172.16.136.0/24 gw 172.16.40.1'
-  notify:
-      - Restart networking
-
-# Add route to web1dev subnet for GoCD Server connection
-
-- lineinfile:
-       path: /etc/network/interfaces
-       line: 'up route add -net 172.16.128.0/24 gw 172.16.40.1'
-  notify:
-      - Restart networking
-
-# Add route to common ecs private  subnet for nginx proxy connection
-
-- lineinfile:
-       path: /etc/network/interfaces
-       line: 'up route add -net 172.16.44.0/22 gw 172.16.40.1'
-  notify:
-      - Restart networking
+- name: Copy network interfaces file
+  copy:
+    src: files/interfaces
+    dest: /etc/network/interfaces
+    owner: root
+    group: root
+    mode: 0644
+notify:
+    - Restart networking
