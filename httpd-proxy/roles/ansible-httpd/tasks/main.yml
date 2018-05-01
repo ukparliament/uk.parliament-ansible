@@ -89,3 +89,27 @@
   with_dict: '{{ apache2_sites }}'
   notify:
     - Test apache2 and restart
+
+
+# Treat elkstack-common separately because it uses load balancing hard-coded to two ecs-nodes
+
+- name: Place elkstack-common conf spearately because it uses load balancing
+  template:
+    src: 'etc/apache2/sites-available/elkstack-common.conf.j2'
+    dest: '/etc/apache2/sites-available/elkstack-common.conf'
+    group: 'root'
+    owner: 'root'
+    mode: '0644'
+
+  register: apache2_register_vhost_config
+  notify:
+    - Test apache2 and reload
+
+- name: Symlink elkstack-common to sites-enabled
+  file:
+    src: '/etc/apache2/sites-available/elkstack-common.conf'
+    dest: '/etc/apache2/sites-enabled/elkstack-common.conf'
+    state: 'link'
+  
+  notify:
+    - Test apache2 and restart
