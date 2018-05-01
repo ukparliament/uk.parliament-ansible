@@ -30,6 +30,13 @@
         #Include conf-available/serve-cgi-bin.conf
         KeepAlive On
 
+        # Store encrypted session cookie on user browser with maximum age 24 hours
+        Session On
+        SessionCookieName session path=/
+        SessionHeader X-Replace-Session
+        SessionCryptoPassphrase bigmonty
+        SessionMaxAge 86400
+
 </VirtualHost>
 
 <location />

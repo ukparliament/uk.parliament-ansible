@@ -40,6 +40,13 @@
     state: present
     name: xml2enc
 
+- apache2_module:
+    state: present
+    name: session_cookie
+
+- apache2_module:
+    state: present
+    name: session_crypto
 
 
 - name: Create default apache2 directories
