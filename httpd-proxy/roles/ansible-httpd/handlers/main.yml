@@ -2,7 +2,7 @@
 
 - name: Test apache2 and restart
   command: apachectl configtest
-  when: nginx_install_service
+  when: apache2_install_service
   notify:
     - 'Restart apache2'
 
