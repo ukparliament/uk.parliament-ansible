@@ -68,29 +68,3 @@
   register: apache2_register_apache2_config
   notify:
     - Test apache2 and reload
-
-- name: Configure sites-enabled (vhosts)
-  template:
-    src: 'etc/apache2/sites-available/default.conf.j2'
-    dest: '/etc/apache2/sites-available/{{ item.key }}.conf'
-    group: 'root'
-    owner: 'root'
-    mode: '0644'
-  with_dict: '{{ apache2_sites }}'
-  register: apache2_register_vhost_config
-  notify:
-    - Test apache2 and reload
-
-- name: Symlink sites-available to sites-enabled
-  file:
-    src: '/etc/apache2/sites-available/{{ item.key }}.conf'
-    dest: '/etc/apache2/sites-enabled/{{ item.key }}.conf'
-    state: 'link'
-  with_dict: '{{ apache2_sites }}'
-  notify:
-    - Test apache2 and restart
-
-- name: Forcefully restart apache2
-  service:
-    name: 'apache2'
-    state: 'restarted'
