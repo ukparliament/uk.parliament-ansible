@@ -1,4 +1,4 @@
-- hosts: tag_Name_core_httpd_proxy_1
+- hosts: common-httpd-proxy-1
   user: deployer
   become: yes
   become_method: sudo
