@@ -9,7 +9,7 @@
   ErrorLog ${APACHE_LOG_DIR}/error.log
   CustomLog ${APACHE_LOG_DIR}/access.log combined
   KeepAlive On
-</VirtualHost>
+
 
 <location />
 
@@ -23,7 +23,4 @@ ProxyPassReverse http://{{ server }}
 {% endif %}
 
 </location>
-
-
-
-    
+</VirtualHost>
