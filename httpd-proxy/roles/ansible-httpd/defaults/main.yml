@@ -82,3 +82,6 @@ apache2_letsencrypt_root: '/usr/share/apache2/challenges'
 apache2_sites: {}
 
 ecs_node_1: '172.16.40.210:80'
+
+freeipa_system_user: "{{credstash_freeipa_system_user.stdout}}"
+sessioncryptopassphrase: "{{credstash_sessioncryptopassphrase}}""

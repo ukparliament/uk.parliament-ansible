@@ -34,7 +34,7 @@
         Session On
         SessionCookieName session path=/
         SessionHeader X-Replace-Session
-        SessionCryptoPassphrase bigmonty
+        SessionCryptoPassphrase {{sessioncryptopassphrase}}
         SessionMaxAge 86400
 
 
@@ -45,7 +45,7 @@ AuthType Basic
 AuthName "Log in with Windows username and password+mfa"
 AuthLDAPURL ldap://172.16.40.168:389/cn=users,cn=accounts,dc=access,dc=parliament,dc=uk?uid?sub
 AuthLDAPBindDN uid=system,cn=sysaccounts,cn=etc,dc=access,dc=parliament,dc=uk
-AuthLDAPBindPassword Red:bishop02102017
+AuthLDAPBindPassword {{freeipa_system_user}}
 
     Require valid-user
 ProxyPass  http://internal-elasticsearch-1696314485.eu-west-1.elb.amazonaws.com:5601/

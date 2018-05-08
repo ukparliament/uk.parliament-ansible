@@ -111,6 +111,11 @@
 
 
 # Treat elkstack-common separately because it uses load balancing hard-coded to two ecs-nodes
+- shell: credstash -r eu-west-1 get freeipa/system_user
+  register: credstash_freeipa_system_user
+
+- shell: credstash -r eu-west-1 get httpd/sessioncryptopassphrase
+  register: credstash_sessioncryptopassphrase
 
 - name: Place elkstack-common conf spearately because it uses load balancing
   template:
