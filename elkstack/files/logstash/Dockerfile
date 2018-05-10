@@ -7,7 +7,7 @@ RUN python get-pip.py --user
 RUN /usr/share/logstash/.local/bin/pip install credstash --user
 RUN rm -f /usr/share/logstash/pipeline/logstash.conf
 RUN /usr/share/logstash/bin/logstash-plugin install logstash-input-sqs && \
- /usr/share/logstash/bin/logstash-plugin install logstash-filter-json &&  /usr/share/logstash/bin/logstash-plugin install logstash-input-gelf && /usr/share/logstash/bin/logstash-plugin install logstash-input-cloudwatch && /usr/share/logstash/bin/logstash-plugin install logstash-input-s3 && /usr/share/logstash/bin/logstash-plugin install logstash-input-cloudwatch-logs
+ /usr/share/logstash/bin/logstash-plugin install logstash-filter-json &&  /usr/share/logstash/bin/logstash-plugin install logstash-input-gelf && /usr/share/logstash/bin/logstash-plugin install logstash-input-cloudwatch && /usr/share/logstash/bin/logstash-plugin install logstash-input-s3 && /usr/share/logstash/bin/logstash-plugin install logstash-input-cloudwatch_logs
 ADD cloudflare_log_get.py /usr/share/logstash/
 ADD pipeline/ /usr/share/logstash/pipeline/
 ADD config/ /usr/share/logstash/config/
