@@ -2,6 +2,7 @@ environments:
   Ansible:
     pipelines:
       - base
+      - gocd-ansible
 
       pipelines:
         gocd-ansible:
