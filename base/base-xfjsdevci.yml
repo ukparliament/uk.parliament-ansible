@@ -12,3 +12,4 @@
     - role: users
     - role: datadog
     - role: filebeat-ubuntu
+    - role: hosts
