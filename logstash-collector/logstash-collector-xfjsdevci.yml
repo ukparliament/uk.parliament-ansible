@@ -1,0 +1,6 @@
+- hosts: tag_Name_core_logstash_collector_1
+  user: deployer
+  become: yes
+  become_method: sudo
+
+  roles: logstash-collector

@@ -3,6 +3,7 @@ environments:
     pipelines:
       - base
       - gocd-ansible
+      - logstash-collector
 pipelines:
   gocd-ansible:
     group: Ansible
@@ -41,5 +42,24 @@ pipelines:
                     command: ansible-playbook
                     arguments:
                       - base/base-xfjsdevci.yml
+                      - "-f"
+                      - 10
+  logstash-collector:
+    group: Ansible
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/uk.parliament-ansible.git
+        branch: master
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
+                    command: ansible-playbook
+                    arguments:
+                      - logstash-collector/logstash-collector-xfjsdevci.yml
                       - "-f"
                       - 10
