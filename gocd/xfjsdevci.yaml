@@ -41,6 +41,6 @@ environments:
                       - exec:
                           command: ansible-playbook
                           arguments:
-                            - base/base-common.yml
+                            - base/base-xfjsdevci.yml
                             - "-f"
                             - 10
