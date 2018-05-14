@@ -20,14 +20,14 @@
 - copy:
     src: ../files/logstash.yml
     dest: /etc/logstash/logstash.yml
-    user: root
+    owner: root
     group: root
     mode: 0644
 
 - copy:
     src: ../files/logstash.conf
     dest: /etc/logstash/conf.d/logstash.conf
-    user: root
+    owner: root
     group: root
     mode: 0644
 
