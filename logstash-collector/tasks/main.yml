@@ -31,7 +31,7 @@
     group: root
     mode: 0644
 
-  - shell:  /usr/share/logstash/bin/logstash-plugin install logstash-input-sqs && /usr/share/logstash/bin/logstash-plugin install logstash-filter-json &&  /usr/share/logstash/bin/logstash-plugin install logstash-input-gelf && /usr/share/logstash/bin/logstash-plugin install logstash-input-cloudwatch && /usr/share/logstash/bin/logstash-plugin install logstash-input-s3 && /usr/share/logstash/bin/logstash-plugin install logstash-input-cloudwatch_logs
+- shell:  /usr/share/logstash/bin/logstash-plugin install logstash-input-sqs && /usr/share/logstash/bin/logstash-plugin install logstash-filter-json &&  /usr/share/logstash/bin/logstash-plugin install logstash-input-gelf && /usr/share/logstash/bin/logstash-plugin install logstash-input-cloudwatch && /usr/share/logstash/bin/logstash-plugin install logstash-input-s3 && /usr/share/logstash/bin/logstash-plugin install logstash-input-cloudwatch_logs
 
 - name: Restart service logstash, in all cases
   service:
