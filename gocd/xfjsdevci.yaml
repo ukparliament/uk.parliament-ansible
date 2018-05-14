@@ -24,7 +24,7 @@ pipelines:
                       - "-f"
                       - 10
 
-base:
+  base:
     group: Ansible
     label_template: "${COUNT}"
     materials:
