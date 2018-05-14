@@ -15,3 +15,23 @@
   apt:
     name: logstash
     update_cache: yes
+
+
+- copy:
+    src: ../files/logstash.yml
+    dest: /etc/logstash/logstash.yml
+    user: root
+    group: root
+    mode: 0644
+
+- copy:
+    src: ../files/logstash.conf
+    dest: /etc/logstash/conf.d/logstash.conf
+    user: root
+    group: root
+    mode: 0644
+
+- name: Restart service logstash, in all cases
+  service:
+    name: logstash
+    state: restarted
