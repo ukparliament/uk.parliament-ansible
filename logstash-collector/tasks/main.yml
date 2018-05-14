@@ -1,7 +1,7 @@
--name: Get elastic repository
- apt_key:
-   url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
-   state: present
+- name: Get elastic repository
+  apt_key:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    state: present
 
 - name: Save the repository definition to /etc/apt/sources.list.d/elastic-6.x.list
   shell: echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
