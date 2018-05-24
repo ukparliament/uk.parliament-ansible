@@ -28,10 +28,9 @@
   become_method: sudo
 
   roles:
-   - role: resolv_conf
    - role: freeipa-client
 
-# The GoCD Ansible agent will not work if FreeIPA nameserver is added to resolv.conf 
+# The GoCD Ansible agent will not work if FreeIPA nameserver is added to resolv.conf
 
 - hosts: tag_Name_core_gocd_agent_ansible_1
   vars:
