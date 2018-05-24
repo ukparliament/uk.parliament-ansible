@@ -30,17 +30,7 @@
   roles:
    - role: freeipa-client
 
-# The GoCD Ansible agent will not work if FreeIPA nameserver is added to resolv.conf
 
-- hosts: tag_Name_core_gocd_agent_ansible_1
-  vars:
-    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
-  user: ubuntu
-  become: yes
-  become_method: sudo
-
-  roles:
-   - role: freeipa-client
 
 - hosts: key_ecs_instances
 
