@@ -13,6 +13,7 @@
     - role: datadog
     - role: filebeat-ubuntu
     - role: hosts
+    - role: freeipa-client
 
 
 
