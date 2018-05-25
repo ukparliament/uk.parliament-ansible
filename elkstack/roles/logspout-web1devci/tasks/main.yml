@@ -4,7 +4,7 @@
 
 # web1devci
 - name: Build the image
-  command: docker build -t logspout /var/lib/go-agent/pipelines/elkstack/elkstack/files/logspout
+  command: docker build -t logspout /var/lib/go-agent/pipelines/logspout/elkstack/files/logspout
 
 - name: tqg the image
   command: docker tag logspout:latest 337667769842.dkr.ecr.eu-west-1.amazonaws.com/logspout:latest
