@@ -16,7 +16,21 @@
     - role: hosts
     - role: freeipa-client
 
+- hosts: key_ecs_instances:!tag_Name_ecs_green_node
+  vars:
+    datadog_api_key: "{{credstash_query_output.stdout}}"
+    datadog_config:
+      hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
+  user: ec2-user
+  become: yes
+  become_method: sudo
 
+  roles:
+    - role: packages-centos
+    - role: users
+    - role: datadog
+    - role: datadog-docker
+    - role: filebeat-centos
 
 - hosts: tag_Application_second_reading
   user: ubuntu
