@@ -1,4 +1,4 @@
-- hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_ecs_instances:!tag_Name_ecs_node
+- hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_ecs_instances
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
     datadog_api_key: "{{credstash_query_output.stdout}}"
@@ -14,23 +14,21 @@
     - role: datadog
     - role: filebeat-ubuntu
     - role: hosts
-    - role: freeipa-client
 
-- hosts: key_ecs_instances:!tag_Name_ecs_green_node
+
+- hosts: key_core_instances:!tag_Name_core_gocd_agent_ansible_1 tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_ecs_instances
   vars:
+    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-  user: ec2-user
+  user: ubuntu
   become: yes
   become_method: sudo
 
   roles:
-    - role: packages-centos
-    - role: users
-    - role: datadog
-    - role: datadog-docker
-    - role: filebeat-centos
+    - role: resolv_conf
+    - role: freeipa-client
 
 - hosts: tag_Application_second_reading
   user: ubuntu
@@ -45,3 +43,4 @@
   become_method: sudo
   roles:
     - role: packer
+    - role: freeipa-client
