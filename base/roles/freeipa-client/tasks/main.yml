@@ -19,29 +19,3 @@
 - shell: ipa-client-install -d -U  -p admin -w {{ freeipa_system_user }} --domain=access.parliament.uk --server=freeipa-access.parliament.uk --mkhomedir --ssh-trust-dns
   args:
     creates: /etc/sssd/sssd.conf
-
-- name: Modify PAM common-session so that user home directory is created on first login
-  lineinfile:
-    dest: /etc/pam.d/common-session
-    line: "session required pam_mkhomedir.so"
-    insertbefore: ".end of pam-auth-update config"
-    state: present
-
-- name: Add sudoers config to sssd.conf
-  blockinfile:
-    path: /etc/sssd/sssd.conf
-    insertafter: "ldap_tls_cacert = /etc/ipa/ca.crt"
-    block: |
-      # For the SUDO integration
-      sudo_provider = ldap
-      ldap_uri = ldap://freeipa-access.parliament.uk
-      ldap_sudo_search_base = ou=sudoers,dc=access,dc=parliament,dc=uk
-      ldap_sasl_mech = GSSAPI
-      ldap_sasl_authid = host/client.access.parliament.uk
-      ldap_sasl_realm = ACCESS.PARLIAMENT.UK
-      krb5_server = freeipa-access.parliament.uk
-
-- name: Reload service sssd, in all cases
-  service:
-    name: sssd
-    state: restarted
