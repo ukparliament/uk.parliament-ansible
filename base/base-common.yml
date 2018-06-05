@@ -45,7 +45,7 @@
 
 
 
-- hosts: tag_Name_core_freeipa_master_1
+- hosts: tag_Name_core_freeipa_master_1 tag_Name_core_freeipa_replica_1
   vars:
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
