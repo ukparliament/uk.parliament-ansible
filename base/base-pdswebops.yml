@@ -64,7 +64,7 @@
     - role: packer
     - role: freeipa-client
 
-- hosts: - hosts: tag_role_core_gocd_agent
+- hosts: tag_role_core_gocd_agent
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
 
@@ -74,4 +74,3 @@
 
   roles:
     - role: freeipa-client
-  
