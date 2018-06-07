@@ -60,13 +60,6 @@
      - role: datadog
      - role: filebeat-centos
 
-- hosts: tag_Name_core_gocd_agent_ansible_1
-  user: ubuntu
-  become: yes
-  become_method: sudo
-  roles:
-    - role: packer
-
 - hosts:  common-nginx-proxy-1 key_ecs_instances   key_core_instances:!tag_Name_core_nginx_proxy_1:!tag_Name_core_freeipa_master_1:!tag_Name_core_freeipa_replica_1:!tag_Name_core_gocd_agent_ansible_1:!tag_role_core_gocd_agent
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
