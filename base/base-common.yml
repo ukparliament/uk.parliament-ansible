@@ -71,16 +71,7 @@
    - role: resolv_conf
    - role: freeipa-client
 
-- hosts: tag_Name_core_gocd_agent_ansible_1
-  vars:
-     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
-   user: ubuntu
-   become: yes
-   become_method: sudo
 
-   roles:
-     - role: packer
-     - role: freeipa-client
 
  - hosts: tag_role_core_gocd_agent
    vars:
