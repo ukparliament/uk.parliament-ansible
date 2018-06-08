@@ -13,7 +13,7 @@
     - role: datadog
     - role: filebeat-ubuntu
 
-- hosts: key_ecs_instances
+- hosts: key_ecs_instances:!tag_Name_ecs_node
   vars:
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
@@ -23,11 +23,11 @@
   become_method: sudo
 
   roles:
-    - role: packages-centos
+    - role: packages-ubuntu
     - role: users
     - role: datadog
     - role: datadog-docker
-    - role: filebeat-centos
+    - role: filebeat-ubuntu
 
 - hosts: tag_Name_core-gocd-agent-ansible-1
 
