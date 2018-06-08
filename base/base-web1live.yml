@@ -18,7 +18,7 @@
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-  user: ec2-user
+  user: ubuntu
   become: yes
   become_method: sudo
 
