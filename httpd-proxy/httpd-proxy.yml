@@ -41,10 +41,10 @@
           - name: 'gocd-xfjslive'
             servers: ['172.16.52.203:8153/']
       freeipa:
-        domains: ['freeipa-access.parliament.uk']
+        domains: ['freeipa-master.access.common-pds.org']
         upstreams:
            - name: 'freeipa-master-1'
-             servers: ['freeipa-access.parliament.uk']
+             servers: ['172.16.41.114']
       grafana-pdswebops:
         domains: ['grafana-pdswebops.parliament.uk']
         upstreams:
