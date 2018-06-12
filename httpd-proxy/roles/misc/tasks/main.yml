@@ -25,3 +25,9 @@
 
   notify:
     - Test apache2 and restart
+
+- name: Generate a Self Signed OpenSSL SSLCertificate
+  openssl_certificate:
+  path: /etc/ssl/certs/access.common-pds.org.crt
+  privatekey_path: /etc/ssl/certs/access.common-pds.org.key
+  provider: selfsigned
