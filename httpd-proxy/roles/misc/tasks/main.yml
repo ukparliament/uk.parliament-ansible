@@ -28,6 +28,6 @@
 
 - name: Generate a Self Signed OpenSSL SSLCertificate
   openssl_certificate:
-  path: /etc/ssl/certs/access.common-pds.org.crt
-  privatekey_path: /etc/ssl/certs/access.common-pds.org.key
-  provider: selfsigned
+    path: /etc/ssl/certs/access.common-pds.org.crt
+    privatekey_path: /etc/ssl/certs/access.common-pds.org.key
+    provider: selfsigned
