@@ -7,3 +7,21 @@
     mode: 0644
   notify:
     - Restart networking
+
+- name: Copy freeipa-ssl.conf file
+  copy:
+    src: files/freeipa-ssl.conf
+    dest: /etc/apache2/sites-available/freeipa-ssl.conf
+    owner: root
+    group: root
+    mode: 0644
+
+
+- name: Symlink freeipa-ssl to sites-enabled
+  file:
+    src: '/etc/apache2/sites-available/freeipa-ssl.conf'
+    dest: '/etc/apache2/sites-enabled/freeipa-ssl.conf'
+    state: 'link'
+
+  notify:
+    - Test apache2 and restart
