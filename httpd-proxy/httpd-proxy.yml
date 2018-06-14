@@ -45,6 +45,11 @@
         upstreams:
            - name: 'freeipa-master-1'
              servers: ['172.16.41.114']
+      freeipa-selfservice:
+          domains: ['freeipa-selfservice.common-pds.org']
+          upstreams:
+            - name: 'freeipa-selfservice'
+              servers: ['172.16.40.6']
       grafana-pdswebops:
         domains: ['grafana-pdswebops.parliament.uk']
         upstreams:

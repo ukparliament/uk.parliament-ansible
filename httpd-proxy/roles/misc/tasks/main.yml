@@ -30,9 +30,3 @@
   pip:
     name:  pyOpenSSL
     state: latest
-
-- name: Generate a Self Signed OpenSSL SSLCertificate
-  openssl_certificate:
-    path: /etc/ssl/certs/access.common-pds.org.crt
-    privatekey_path: /etc/ssl/certs/access.common-pds.org.key
-    provider: selfsigned
