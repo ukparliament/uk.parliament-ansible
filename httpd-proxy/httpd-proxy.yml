@@ -49,7 +49,7 @@
           domains: ['freeipa-selfservice.common-pds.org']
           upstreams:
             - name: 'freeipa-selfservice'
-              servers: ['172.16.40.6']
+              servers: ['172.16.40.6:8080']
       grafana-pdswebops:
         domains: ['grafana-pdswebops.parliament.uk']
         upstreams:
