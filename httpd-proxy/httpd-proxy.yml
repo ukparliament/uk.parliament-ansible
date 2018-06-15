@@ -44,7 +44,7 @@
         domains: ['freeipa-master.access.common-pds.org']
         upstreams:
            - name: 'freeipa-master-1'
-             servers: ['freeipa-master.access.common-pds.org']
+             servers: ['freeipa-master.access.common-pds.org/']
       freeipa-replica:
         domains: ['freeipa-replica.access.common-pds.org']
         upstreams:
