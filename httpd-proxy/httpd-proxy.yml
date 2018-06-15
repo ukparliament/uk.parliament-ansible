@@ -44,7 +44,12 @@
         domains: ['freeipa-master.access.common-pds.org']
         upstreams:
            - name: 'freeipa-master-1'
-             servers: ['internal-freeipa-264828717.eu-west-1.elb.amazonaws.com']
+             servers: ['172.16.41.114']
+      freeipa-replica:
+        domains: ['freeipa-replica.access.common-pds.org']
+        upstreams:
+           - name: 'freeipa-replica-1'
+             servers: ['172.16.40.49']
       freeipa-selfservice:
           domains: ['freeipa-selfservice.common-pds.org']
           upstreams:
