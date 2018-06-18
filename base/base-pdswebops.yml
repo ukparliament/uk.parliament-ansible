@@ -28,7 +28,7 @@
   become_method: sudo
 
   roles:
-   - role: resolv_conf
+#   - role: resolv_conf
    - role: freeipa-client
 
 
