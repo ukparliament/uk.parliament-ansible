@@ -10,12 +10,14 @@
 
 - name: Modify dhclient.conf to put freeipa nameserver and dns search on reboot to override AWS
   blockinfile:
-    insertafter: "#supersede"
     path: /etc/dhcp/dhclient.conf
     block: |
       supersede domain-name-servers 172.16.41.114, 172.16.40.49;
       supersede domain-search "access.common-pds.org", "eu-west-1.compute.internal";
       supersede domain-name "access.common-pds.org”, "eu-west-1.compute.internal";
+
+- name: renew dhcp
+  command: dhclient
 
 
 #- shell: ipa-client-install -d -U  -p admin -w {{ freeipa_system_user }}  --mkhomedir --ssh-trust-dns
