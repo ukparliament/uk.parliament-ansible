@@ -23,6 +23,21 @@
     dest: '/etc/apache2/sites-enabled/freeipa-ssl.conf'
     state: 'link'
 
+- name: Copy freeipa-replica-ssl.conf file
+  copy:
+    src: files/freeipa--replica-ssl.conf
+    dest: /etc/apache2/sites-available/freeipa-replica-ssl.conf
+    owner: root
+    group: root
+    mode: 0644
+
+
+- name: Symlink freeipa-replica-ssl to sites-enabled
+  file:
+    src: '/etc/apache2/sites-available/freeipa-replica-ssl.conf'
+    dest: '/etc/apache2/sites-enabled/freeipa-replica-ssl.conf'
+    state: 'link'
+
   notify:
     - Test apache2 and restart
 
@@ -30,3 +45,5 @@
   pip:
     name:  pyOpenSSL
     state: latest
+
+- letsencrypt:
