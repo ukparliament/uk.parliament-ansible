@@ -20,7 +20,7 @@
     - role: filebeat-ubuntu
     - role: hosts
 
-- hosts: tag_Name_core_ansible_node_1 tag_Name_core_gocd_server key_ecs_instances  tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances:!tag_Name_core_gocd_agent_ansible_1:!tag_role_core_gocd_agent
+- hosts: key_ecs_instances  tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances:!tag_Name_core_gocd_agent_ansible_1:!tag_role_core_gocd_agent
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
@@ -28,7 +28,7 @@
   become_method: sudo
 
   roles:
-
+    - role: freeipa-client
 
 
 
