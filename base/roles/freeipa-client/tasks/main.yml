@@ -7,6 +7,8 @@
   register: credstash_freeipa_output
   ignore_errors: yes
 
+- shell: rm /etc/resolv.conf
+
 - file:
     src: /run/resolvconf/resolv.conf
     dest: /etc/resolv.conf
