@@ -8,11 +8,11 @@
   ignore_errors: yes
 
 - file:
-  src: /run/resolvconf/resolv.conf
-  dest: /etc/resolv.conf
-  owner: root
-  group: root
-  state: link
+    src: /run/resolvconf/resolv.conf
+    dest: /etc/resolv.conf
+    owner: root
+    group: root
+    state: link
 
 - name: Modify dhclient.conf to put freeipa nameserver and dns search on reboot to override AWS
   blockinfile:
