@@ -7,5 +7,5 @@
       supersede domain-name "access.common-pds.org eu-west-1.compute.internal";
     state: absent
 
-  - name: renew dhcp
-    command: dhclient
+- name: renew dhcp
+  command: dhclient
