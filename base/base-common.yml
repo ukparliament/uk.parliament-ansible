@@ -42,7 +42,7 @@
     - role: users
     - role: datadog
     - role: datadog-docker
-
+    - role: hosts
 
 
 - hosts: tag_Name_core_freeipa_master_1 tag_Name_core_freeipa_replica_1
