@@ -29,12 +29,12 @@
 - name: renew dhcp
   command: dhclient
 
-#- name: uninstall freeipa-client
-#  command: ipa-client-install --uninstall
+- name: uninstall freeipa-client
+  command: ipa-client-install --uninstall
 
-- shell: ipa-client-install -d -U  -p admin -w {{ freeipa_system_user }}  --mkhomedir --ssh-trust-dns
-  args:
-    creates: /etc/sssd/sssd.conf
+#- shell: ipa-client-install -d -U  -p admin -w {{ freeipa_system_user }}  --mkhomedir --ssh-trust-dns
+#  args:
+#    creates: /etc/sssd/sssd.conf
 
 - name: Modify PAM common-session so that user home directory is created on first login
   lineinfile:

@@ -60,7 +60,7 @@
      - role: datadog
      - role: filebeat-centos
 
-- hosts:  common-nginx-proxy-1 key_ecs_instances   key_core_instances:!tag_Name_core_nginx_proxy_1:!tag_Name_core_freeipa_master_1:!tag_Name_core_gocd_agent_ansible_1:!tag_role_core_gocd_agent
+- hosts: key_ecs_instances  tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances:!tag_group_freeipa_servers
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
@@ -68,10 +68,9 @@
   become_method: sudo
 
   roles:
-   - role: resolv_conf
-   - role: freeipa-client
+    - role: freeipa-client
 
-- hosts: tag_Name_core_gocd_agent_ansible_1
+- hosts: tag_Application_GoCD_agent
   vars:
      freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
@@ -80,7 +79,8 @@
 
   roles:
    - role: packer
-   - role: freeipa-client
+   - role: dhcp-revert
+
 
 - hosts: tag_role_core_gocd_agent
   vars:
