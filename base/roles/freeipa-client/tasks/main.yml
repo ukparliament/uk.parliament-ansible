@@ -29,9 +29,9 @@
 - name: renew dhcp
   command: dhclient
 
-- shell: ipa-client-install -d -U  -p admin -w {{ freeipa_system_user }}  --mkhomedir --ssh-trust-dns
-  args:
-    creates: /etc/sssd/sssd.conf
+#- shell: ipa-client-install -d -U  -p admin -w {{ freeipa_system_user }}  --mkhomedir --ssh-trust-dns
+#  args:
+#    creates: /etc/sssd/sssd.conf
 
 - name: Modify PAM common-session so that user home directory is created on first login
   lineinfile:
