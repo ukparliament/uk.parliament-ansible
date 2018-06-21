@@ -55,6 +55,11 @@
           upstreams:
             - name: 'freeipa-selfservice'
               servers: ['172.16.40.6:8080/']
+      freeipa-selfservice-parliament:
+          domains: ['freeipa-selfservice.parliament.uk']
+          upstreams:
+            - name: 'freeipa-selfservice'
+              servers: ['172.16.40.6:8080/']
       grafana-pdswebops:
         domains: ['grafana-pdswebops.parliament.uk']
         upstreams:
