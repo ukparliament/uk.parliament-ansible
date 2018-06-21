@@ -32,25 +32,6 @@
 
 
 
-- hosts: key_ecs_instances
-
-  vars:
-    datadog_api_key: "{{credstash_query_output.stdout}}"
-    datadog_config:
-      hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-      expvar_port: 5050
-      cmd_port: 5051
-  user: ubuntu
-  become: yes
-  become_method: sudo
-
-  roles:
-    - role: packages-ubuntu
-    - role: users
-    - role: datadog
-    - role: filebeat-ubuntu
-    - role: hosts
-
 - hosts: tag_Name_core_gocd_agent_ansible_1 tag_role_core_gocd_agent
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
@@ -62,14 +43,3 @@
   roles:
     - role: packer
     - role: dhcp-revert
-
-
-- hosts: tag_role_core_gocd_agent
-  vars:
-    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
-
-  user: ubuntu
-  become: yes
-  become_method: sudo
-
-  roles:

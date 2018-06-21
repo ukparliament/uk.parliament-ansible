@@ -1,4 +1,4 @@
-- hosts: key_core_instances:!tag_Name_core_gocd_agent_ansible_1:!tag_role_core_gocd_agent tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_ecs_instances:!tag_Name_ecs_node
+- hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_ecs_instances
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
     datadog_api_key: "{{credstash_query_output.stdout}}"
@@ -14,8 +14,31 @@
     - role: datadog
     - role: filebeat-ubuntu
     - role: hosts
-    - role: resolv_conf
+
+
+- hosts: key_ecs_instances  tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances
+  vars:
+    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
     - role: freeipa-client
+
+
+
+- hosts: tag_Name_core_gocd_agent_ansible_1 tag_role_core_gocd_agent
+  vars:
+    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
+
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: packer
+    - role: dhcp-revert
 
 - hosts: tag_Application_second_reading
   user: ubuntu
@@ -23,22 +46,3 @@
   become_method: sudo
   roles:
     - role: filebeat-bitnami-wordpress
-
-- hosts: tag_Name_core_gocd_agent_ansible_1
-  vars:
-    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
-  user: ubuntu
-  become: yes
-  become_method: sudo
-  roles:
-    - role: packer
-    - role: freeipa-client
-
-- hosts: tag_role_core_gocd_agent
-  vars:
-    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
-  user: ubuntu
-  become: yes
-  become_method: sudo
-  roles:
-    - role: freeipa-client
