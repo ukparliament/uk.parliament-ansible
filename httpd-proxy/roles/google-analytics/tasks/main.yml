@@ -1,0 +1,7 @@
+- name: clone git repository
+  shell: git clone https://github.com/bithauschile/datadog-ga
+  args:
+    chdir: /usr/src/
+
+- name: install Google API client for Python
+  shell: /opt/datadog-agent/embedded/bin/pip install --upgrade google-api-python-client
