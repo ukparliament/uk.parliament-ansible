@@ -1,7 +1,43 @@
-- name: clone git repository
-  shell: git clone https://github.com/bithauschile/datadog-ga
-  args:
-    chdir: /usr/src/
+# pip3 install
 
-- name: install Google API client for Python
-  shell: /opt/datadog-agent/embedded/bin/pip install --upgrade google-api-python-client
+pip3:
+  name: google-api-python-client
+  state: latest
+
+pip3:
+  name: oauth2client
+
+pip3:
+  name: apscheduler
+
+- file:
+    path: /opt/google-analytics
+    state: directory
+    owner: root
+    group: root
+    mode:  0644
+
+ - name: copy update-rt python script
+   copy:
+     src: files/update-rt.py
+     dest: /opt/google-analytics/update-rt.py
+     owner: root
+     group: root
+     mode: 0755
+
+- shell: credstash -r eu-west-1 get google-analytics/key
+  register: credstash_query_output
+
+- file:
+    path: /opt/google-analytics/key.json
+    owner: root
+    group: root
+    mode:  0644
+    state: touch
+
+- name: copy Google Analytics key to file
+  copy:
+    src: "{{ google-analytics-key }}"
+    dest: /opt/google-analytics/key.json
+
+    

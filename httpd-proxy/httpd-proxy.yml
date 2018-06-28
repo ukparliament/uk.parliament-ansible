@@ -79,3 +79,5 @@
     - role: ansible-httpd
     - role: misc
     - role: google-analytics
+  vars:
+    google-analytics-key: "{{credstash_query_output.stdout}}"
