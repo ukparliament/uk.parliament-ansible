@@ -37,7 +37,5 @@ pip3:
 
 - name: copy Google Analytics key to file
   copy:
-    src: "{{ google-analytics-key }}"
+    src: "{{credstash_query_output.stdout}}"
     dest: /opt/google-analytics/key.json
-
-    
