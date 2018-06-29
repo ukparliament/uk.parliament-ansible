@@ -7,6 +7,7 @@
 - shell: pip3 install --upgrade google-api-python-client
 - shell: pip3 install oauth2client
 - shell:  pip3 install apscheduler
+- shell: pip3 install --upgrade credstash
 
 
 - file:
@@ -36,5 +37,5 @@
 
 - name: copy Google Analytics key to file
   copy:
-    src: "{{credstash_query_output.stdout}}"
+    src: "{{credstash_query_output}}"
     dest: /opt/google-analytics/key.json
