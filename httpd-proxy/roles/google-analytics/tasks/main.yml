@@ -18,7 +18,7 @@
     mode:  0644
 
 - name: copy update-rt python script
-   copy:
+  copy:
    src: files/update-rt.py
    dest: /opt/google-analytics/update-rt.py
    owner: root
