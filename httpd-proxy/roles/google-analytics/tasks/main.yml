@@ -17,13 +17,13 @@
     group: root
     mode:  0644
 
- - name: copy update-rt python script
+- name: copy update-rt python script
    copy:
-     src: files/update-rt.py
-     dest: /opt/google-analytics/update-rt.py
-     owner: root
-     group: root
-     mode: 0755
+   src: files/update-rt.py
+   dest: /opt/google-analytics/update-rt.py
+   owner: root
+   group: root
+   mode: 0755
 
 - shell: credstash -r eu-west-1 get google-analytics/key
   register: credstash_query_output
