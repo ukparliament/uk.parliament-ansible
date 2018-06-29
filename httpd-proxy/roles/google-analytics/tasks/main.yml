@@ -36,6 +36,7 @@
     state: touch
 
 - name: copy Google Analytics key to file
-  copy:
-    src: "{{ credstash_query_output.stdout }}"
-    dest: /opt/google-analytics/key.json
+  local_action:
+    copy:
+      content: {{ credstash_query_output}}
+      dest: /opt/google-analytics/key.json
