@@ -39,3 +39,33 @@
   copy:
     content: "{{ google_analytics_key }}"
     dest: /opt/google-analytics/key.json
+
+- name: copy google-analytics.yaml
+  copy:
+    src: files/google-analytics.yaml
+    dest: /etc/datadog-agent/conf.d/google-analytics.yaml
+    owner: dd-agent
+    group: dd-agent
+    mode: 0644
+
+- name: copy google-analytics.py
+  copy:
+    src: files/google-analytics.py
+    dest: /etc/datadog-agent/checks.d/google-analytics.py
+    owner: dd-agent
+    group: dd-agent
+    mode: 0644
+
+- name: copy update-rt.service
+  copy:
+    src: files/update-rt.service
+    dest: /lib/systemd/system/update-rt.service
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Start update-rt service
+  service:
+    name: update-rt
+    state: started
+    enabled: yes

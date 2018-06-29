@@ -1,0 +1,10 @@
+[Unit]
+Description=Update Google Analytics RT Service
+After=network.target
+
+[Service]
+ExecStart=/opt/google-analytics/update-rt.py
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
