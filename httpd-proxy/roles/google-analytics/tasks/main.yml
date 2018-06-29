@@ -69,3 +69,9 @@
     name: update-rt.service
     state: started
     enabled: yes
+
+- name: restart datadog-agent
+  service:
+    name: datadog-agent
+    state: restarted
+    

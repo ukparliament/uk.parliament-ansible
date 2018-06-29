@@ -12,13 +12,13 @@ import httplib2
 from oauth2client import client
 from oauth2client import file
 from oauth2client import tools
-from pymongo import MongoClient
+# from pymongo import MongoClient
 import urllib3
 urllib3.disable_warnings()
 import datetime
 import json
 import sched, time
-import daemon
+#import daemon
 
 working_directory = "/opt/google-analytics/"
 
@@ -73,11 +73,11 @@ def main():
          service = get_service('analytics', 'v3', scope, key_file_location,
          service_account_email)
           # Insert rtUsers into mongo
-         mongoServer = 'localhost'
-         client = MongoClient(mongoServer, 27017)
-         db = client.parliament
-         collectionGABeta = db.gabeta
-         collectionGAWWW = db.gawww
+#         mongoServer = 'localhost'
+#         client = MongoClient(mongoServer, 27017)
+#         db = client.parliament
+#         collectionGABeta = db.gabeta
+#         collectionGAWWW = db.gawww
 
          metric_total =int( print_totals_for_all_results(get_results(service, '158454199')))
          dataPoint = {}
