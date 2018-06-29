@@ -38,5 +38,5 @@
 - name: copy Google Analytics key to file
   local_action:
     copy:
-      content: {{ credstash_query_output}}
+      content: "{{ credstash_query_output}}"
       dest: /opt/google-analytics/key.json
