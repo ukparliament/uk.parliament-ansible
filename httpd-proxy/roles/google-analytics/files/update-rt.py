@@ -83,7 +83,7 @@ def main():
          dataPoint = {}
          dataPoint['timestamp'] = datetime.datetime.utcnow()
          dataPoint['totalUsers'] = metric_total
-         collectionGABeta.insert(dataPoint)
+#         collectionGABeta.insert(dataPoint)
          data['rt'] = []
          data['rt'].append({
              'beta-active-users': metric_total
@@ -92,7 +92,7 @@ def main():
          dataPoint = {}
          dataPoint['timestamp'] = datetime.datetime.utcnow()
          dataPoint['totalUsers'] = metric_total
-         collectionGAWWW.insert(dataPoint)
+    #     collectionGAWWW.insert(dataPoint)
          data['rt'].append({
              'www-active-users': metric_total
          })

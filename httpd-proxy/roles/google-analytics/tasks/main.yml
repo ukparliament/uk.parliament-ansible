@@ -15,7 +15,7 @@
     state: directory
     owner: root
     group: root
-    mode:  0644
+    mode:  0777
 
 - name: copy update-rt python script
   copy:
@@ -30,6 +30,13 @@
 
 - file:
     path: /opt/google-analytics/key.json
+    owner: root
+    group: root
+    mode:  0644
+    state: touch
+
+- file:
+    path: /opt/google-analytics/google-analytics.json
     owner: root
     group: root
     mode:  0644
@@ -74,4 +81,3 @@
   service:
     name: datadog-agent
     state: restarted
-    
