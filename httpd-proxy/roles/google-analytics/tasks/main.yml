@@ -66,6 +66,6 @@
 
 - name: Start update-rt service
   service:
-    name: update-rt
+    name: update-rt.service
     state: started
     enabled: yes
