@@ -3,6 +3,7 @@
   become: yes
   become_method: sudo
   vars:
+    google_analytics_key: "{{credstash_query_output.stdout}}"
     apache2_sites:
       gocd-common:
         domains: ['gocd-common.parliament.uk']
@@ -72,7 +73,7 @@
           - name: 'grafana-common-1'
             servers:
               - '172.16.40.17'
-      
+
 #    proxy_pass_https:
 #      freeipa:
   roles:
