@@ -1,14 +1,17 @@
 # pip3 install
 
-- pip3:
+- pip:
     name: google-api-python-client
     state: latest
+    executable: pip-3
 
-- pip3:
+- pip:
     name: oauth2client
+    executable: pip-3
 
-- pip3:
+- pip:
     name: apscheduler
+    executable: pip-3
 
 - file:
     path: /opt/google-analytics
