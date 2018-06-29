@@ -3,19 +3,19 @@
   apt:
     name: python3-pip
     update_cache: yes
-    
+
 - pip:
     name: google-api-python-client
     state: latest
-    executable: pip-3
+    executable: pip-3.5.2
 
 - pip:
     name: oauth2client
-    executable: pip-3
+    executable: pip-3.5.2
 
 - pip:
     name: apscheduler
-    executable: pip-3
+    executable: pip-3.5.2
 
 - file:
     path: /opt/google-analytics
