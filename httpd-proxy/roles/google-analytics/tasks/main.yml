@@ -37,5 +37,5 @@
 
 - name: copy Google Analytics key to file
   copy:
-    src: credstash_query_output
+    src: "{{ credstash_query_output.stdout }}"
     dest: /opt/google-analytics/key.json
