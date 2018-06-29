@@ -1,5 +1,9 @@
 # pip3 install
-
+- name: install pip3
+  apt:
+    name: python3-pip
+    update_cache: yes
+    
 - pip:
     name: google-api-python-client
     state: latest
