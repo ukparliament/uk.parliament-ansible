@@ -36,6 +36,6 @@
     state: touch
 
 - name: copy Google Analytics key to file
-    copy:
-      content: "{{ google_analytics_key }}"
-      dest: /opt/google-analytics/key.json
+  copy:
+    content: "{{ google_analytics_key }}"
+    dest: /opt/google-analytics/key.json
