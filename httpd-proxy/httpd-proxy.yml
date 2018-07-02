@@ -64,12 +64,12 @@
       freeipa-saml:
           domains: ['freeipa-saml.common-pds.org']
           upstreams:
-            - name: 'freeipa-selfservice'
+            - name: 'freeipa-saml'
               servers: ['172.16.40.111/']
       freeipa-selfservice-parliament:
           domains: ['freeipa-saml.parliament.uk']
           upstreams:
-            - name: 'freeipa-selfservice'
+            - name: 'freeipa-saml'
               servers: ['172.16.40.111/']
       grafana-pdswebops:
         domains: ['grafana-pdswebops.parliament.uk']
