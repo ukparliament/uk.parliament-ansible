@@ -18,3 +18,7 @@
     dest: /etc/pam.d/password-auth
     line: "session required pam_mkhomedir.so"
     state: present
+
+- shell: ipa-client-install -d -U  -p admin -w {{ freeipa_system_user }}  --mkhomedir --ssh-trust-dns
+  args:
+    creates: /etc/sssd/sssd.conf
