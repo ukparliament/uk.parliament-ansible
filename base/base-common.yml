@@ -89,5 +89,5 @@
   become_method: sudo
 
   roles:
-    role: hosts
-    
+    - role: hosts
+    - role: freeipa-saml
