@@ -10,8 +10,7 @@
       supersede domain-search "access.common-pds.org eu-west-1.compute.internal";
       supersede domain-name "access.common-pds.org eu-west-1.compute.internal";
 
-- name: renew dhcp
-  command: dhclient
+
 
 - name: Modify PAM common-session so that user home directory is created on first login
   lineinfile:
