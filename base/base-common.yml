@@ -80,3 +80,14 @@
   roles:
    - role: packer
    - role: dhcp-revert
+
+- hosts: tag_Name_core_freeipa_saml_1
+  vars:
+    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
+  user: fedora
+  become: yes
+  become_method: sudo
+
+  roles:
+    role: hosts
+    
