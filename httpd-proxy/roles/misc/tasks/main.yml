@@ -38,6 +38,24 @@
     dest: '/etc/apache2/sites-enabled/freeipa-replica-ssl.conf'
     state: 'link'
 
+- name: Copy freeipa-saml-ssl.conf file
+  copy:
+    src: files/freeipa-saml-ssl.conf
+    dest: /etc/apache2/sites-available/freeipa-saml-ssl.conf
+    owner: root
+    group: root
+    mode: 0644
+
+
+- name: Symlink freeipa-saml-ssl to sites-enabled
+  file:
+    src: '/etc/apache2/sites-available/freeipa-saml-ssl.conf'
+    dest: '/etc/apache2/sites-enabled/freeipa-saml-ssl.conf'
+    state: 'link'
+
+
+
+
   notify:
     - Test apache2 and restart
 
