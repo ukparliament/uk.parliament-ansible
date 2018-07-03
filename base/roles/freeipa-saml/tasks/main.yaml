@@ -1,6 +1,6 @@
 - file:
-  path: /etc/dhcp/dhclient.conf
-  state: touch
+    path: /etc/dhcp/dhclient.conf
+    state: touch
 
 - name: Modify dhclient.conf to put freeipa nameserver and dns search on reboot to override AWS
   blockinfile:
