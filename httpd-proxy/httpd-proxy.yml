@@ -85,7 +85,7 @@
               - '172.16.40.17'
       datadog:
         domains: ['datadog.parliament.uk']
-        upstreams;
+        upstreams:
           - name: 'datadog'
             servers:
               - 'https://app.datadoghq.com/account/login/id/9e1ed1dac'
