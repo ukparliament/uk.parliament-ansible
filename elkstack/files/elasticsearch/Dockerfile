@@ -7,4 +7,4 @@ USER elasticsearch
 WORKDIR /usr/share/elasticsearch
 #RUN bin/elasticsearch-plugin install discovery-ec2 && bin/elasticsearch-plugin install repository-s3  && sed -e '/^-Xm/s/^/#/g' -i /usr/share/elasticsearch/config/jvm.options
 
-RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install discovery-ec2
+RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch discovery-ec2
