@@ -12,8 +12,10 @@
     - role: packages-ubuntu
     - role: users
     - role: datadog
+    - role: datadog-docker
     - role: filebeat-ubuntu
     - role: hosts
+
 
 
 - hosts: key_ecs_instances:!tag_aws_autoscaling_groupName_ecs_cluster  tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances:!tag_Application_GoCD_agent
