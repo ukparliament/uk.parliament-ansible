@@ -53,6 +53,8 @@
     - role: dhcp-revert
 
 - hosts: tag_Application_second_reading
+  vars:
+    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
   become: yes
   become_method: sudo
