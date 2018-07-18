@@ -18,7 +18,7 @@
 
 
 
-- hosts: common-nginx-proxy-1 common-httpd-proxy-1
+- hosts: common-nginx-proxy-1 common-httpd-proxy-1 tag_Name_core_httpd_proxy_1
   user: ubuntu
   become: yes
   become_method: sudo
