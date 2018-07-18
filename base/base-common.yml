@@ -68,7 +68,7 @@
   become_method: sudo
 
   roles:
-    - role: freeipa-client
+#    - role: freeipa-client
 
 - hosts: tag_Application_GoCD_agent
   vars:

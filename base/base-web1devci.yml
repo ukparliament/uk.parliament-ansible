@@ -36,7 +36,7 @@
   become_method: sudo
 
   roles:
-    - role: freeipa-client
+#    - role: freeipa-client
 
 
 
