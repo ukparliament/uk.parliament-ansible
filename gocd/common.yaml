@@ -16,8 +16,6 @@ pipelines:
       mygit:
         git: https://github.com/ukparliament/uk.parliament-ansible.git
         branch: master
-    timer:
-      spec: "*/10 * * * *"
     stages:
       - build:
           clean_workspace: true
