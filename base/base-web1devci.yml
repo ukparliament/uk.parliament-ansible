@@ -58,3 +58,4 @@
   become_method: sudo
   roles:
     - role: filebeat-bitnami-wordpress
+    - role: freeipa-client
