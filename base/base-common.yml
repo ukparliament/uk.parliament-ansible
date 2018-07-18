@@ -1,4 +1,4 @@
-- hosts:  tag_Name_core_bastion_host tag_Name_ecs_bastion_host common-nginx-proxy-1  common-httpd-proxy-1 key_core_instances:!tag_Name_core_nginx_proxy_1:!tag_group_freeipa_servers:!tag_Name_core_httpd_proxy_1
+- hosts:  tag_Name_core_bastion_host tag_Name_ecs_bastion_host common-httpd-proxy-1 key_core_instances:!tag_Name_core_nginx_proxy_1:!tag_group_freeipa_servers:!tag_Name_core_httpd_proxy_1
   vars:
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
@@ -18,7 +18,7 @@
 
 
 
-- hosts: common-httpd-proxy-1 
+- hosts: common-httpd-proxy-1
   user: ubuntu
   become: yes
   become_method: sudo
