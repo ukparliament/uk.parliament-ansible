@@ -7,7 +7,7 @@
 - shell: pip3 install --upgrade google-api-python-client
 - shell: pip3 install oauth2client
 - shell:  pip3 install apscheduler
-- shell: pip3 install --upgrade credstash
+#- shell: pip3 install --upgrade credstash
 
 
 - file:
