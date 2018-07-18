@@ -55,7 +55,7 @@ pipelines:
         git: https://github.com/ukparliament/uk.parliament-ansible.git
         branch: master
     timer:
-      spec: "0 15 10 * * ? *"
+      spec: "* 0/30 * * * *"
       only_on_changes: no
     stages:
       - build:

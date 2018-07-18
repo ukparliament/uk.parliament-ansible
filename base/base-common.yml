@@ -18,12 +18,7 @@
 
 
 
-- hosts: common-httpd-proxy-1
-  user: ubuntu
-  become: yes
-  become_method: sudo
-  roles:
-    - role: filebeat-nginx
+
 
 - hosts: key_ecs_instances
 
@@ -60,7 +55,7 @@
      - role: datadog
      - role: filebeat-centos
 
-- hosts: key_ecs_instances  tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances:!tag_group_freeipa_servers
+- hosts: key_ecs_instances  tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances:!tag_group_freeipa_servers:!tag_Name_core_nginx_proxy_1
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
