@@ -13,7 +13,8 @@
     - role: datadog
     - role: filebeat-ubuntu
     - role: hosts
-    
+    - role: freeipa-client
+
 - hosts: key_ecs_instances:!tag_Name_ecs_node
   vars:
     datadog_api_key: "{{credstash_query_output.stdout}}"
