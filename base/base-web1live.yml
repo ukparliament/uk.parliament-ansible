@@ -1,4 +1,4 @@
-- hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
+- hosts: key_core_instances:!tag_Application_GoCD_agent tag_Name_core_bastion_host tag_Name_ecs_bastion_host
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
     datadog_api_key: "{{credstash_query_output.stdout}}"
