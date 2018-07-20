@@ -14,7 +14,7 @@
     - role: datadog
     - role: filebeat-ubuntu
     - role: hosts
-    - role: freeipa-client
+    
 
 - hosts: key_ecs_instances:!tag_Name_ecs_node
   vars:
