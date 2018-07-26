@@ -55,7 +55,7 @@
      - role: datadog
      - role: filebeat-centos
 
-- hosts: key_ecs_instances  tag_Name_core_bastion_host tag_Name_ecs_bastion_host common-httpd-proxy-1 key_core_instances:!tag_group_freeipa_servers:!tag_Name_core_httpd_proxy_1 
+- hosts: key_ecs_instances  tag_Name_core_bastion_host tag_Name_ecs_bastion_host common-httpd-proxy-1 key_core_instances:!tag_Application_GoCD_agent:!tag_group_freeipa_servers:!tag_Name_core_httpd_proxy_1 
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
