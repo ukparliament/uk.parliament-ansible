@@ -30,9 +30,9 @@
   register: credstash_query_output
   ignore_errors: yes
 
-- shell: /usr/local/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub
-  register: credstash_query_output
-  ignore_errors: yes
+#- shell: /usr/local/bin/credstash -r eu-west-1 get ssh/deployer_id_rsa_pub
+#  register: credstash_query_output
+#  ignore_errors: yes
 
 - debug:
     var: credstash_query_output
