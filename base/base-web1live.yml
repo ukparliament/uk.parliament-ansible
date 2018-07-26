@@ -32,13 +32,14 @@
     - role: datadog
     - role: datadog-docker
     - role: filebeat-ubuntu
+    - role: hosts
 
 - hosts: tag_Name_core-gocd-agent-ansible-1
 
   roles:
     - role: packer
 
-- hosts: tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances:!tag_Application_GoCD_agent key_ecs_instances
+- hosts: tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances:!tag_Application_GoCD_agent 
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
