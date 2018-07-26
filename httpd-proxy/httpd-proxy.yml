@@ -88,5 +88,5 @@
 #      freeipa:
   roles:
     - role: ansible-httpd
-#    - role: misc
+    - role: misc
     - role: google-analytics
