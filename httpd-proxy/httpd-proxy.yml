@@ -83,10 +83,10 @@
           - name: 'grafana-common-1'
             servers:
               - '172.16.40.17'
-      
+
 #    proxy_pass_https:
 #      freeipa:
   roles:
     - role: ansible-httpd
-    - role: misc
+#    - role: misc
     - role: google-analytics
