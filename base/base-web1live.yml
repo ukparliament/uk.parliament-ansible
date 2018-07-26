@@ -38,7 +38,7 @@
   roles:
     - role: packer
 
-- hosts: tag_Name_core_bastion_host tag_Name_ecs_bastion_host
+- hosts: tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances:!tag_Application_GoCD_agent
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
