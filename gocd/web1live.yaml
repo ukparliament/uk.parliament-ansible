@@ -1,0 +1,30 @@
+environments:
+  Ansible:
+    pipelines:
+      - base
+
+
+pipelines:
+  
+  base:
+    group: Ansible
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/uk.parliament-ansible.git
+        branch: master
+    timer:
+      spec: "0 0/30 * * * ?"
+      only_on_changes: no
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
+                    command: ansible-playbook
+                    arguments:
+                      - base/base-web1live.yml
+                      - "-f"
+                      - 10
