@@ -138,7 +138,7 @@
   notify:
     - Test apache2 and restart
 
-# Treat Bandiera separately because it uses load balancing hard-coded to two ecs-nodes
+# Treat Bandiera-Devci separately because it uses load balancing hard-coded to two ecs-nodes
 
 - name: Place elkstack-common conf spearately because it uses load balancing
   template:
@@ -156,6 +156,29 @@
   file:
     src: '/etc/apache2/sites-available/bandiera-devci.conf'
     dest: '/etc/apache2/sites-enabled/bandiera-devci.conf'
+    state: 'link'
+
+  notify:
+    - Test apache2 and restart
+
+  # Treat Bandiera-Live separately because it uses load balancing hard-coded to two ecs-nodes
+
+- name: Place elkstack-common conf spearately because it uses load balancing
+  template:
+    src: 'etc/apache2/sites-available/bandiera-live.conf.j2'
+    dest: '/etc/apache2/sites-available/bandiera-live.conf'
+    group: 'root'
+    owner: 'root'
+    mode: '0644'
+
+  register: apache2_register_vhost_config
+  notify:
+    - Test apache2 and reload
+
+- name: Symlink elkstack-common to sites-enabled
+  file:
+    src: '/etc/apache2/sites-available/bandiera-live.conf'
+    dest: '/etc/apache2/sites-enabled/bandiera-live.conf'
     state: 'link'
 
   notify:
