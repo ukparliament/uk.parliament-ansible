@@ -43,8 +43,8 @@
 AuthBasicProvider ldap
 AuthType Basic
 AuthName "Log in with Windows username and password+mfa"
-AuthLDAPURL ldap://172.16.40.168:389/cn=users,cn=accounts,dc=access,dc=commond-pds,dc=org?uid?sub
-AuthLDAPBindDN uid=system,cn=sysaccounts,cn=etc,dc=access,dc=commond-pds,dc=org
+AuthLDAPURL ldap://172.16.41.114:389/cn=users,cn=accounts,dc=access,dc=common-pds,dc=org?uid?sub
+AuthLDAPBindDN uid=system,cn=sysaccounts,cn=etc,dc=access,dc=common-pds,dc=org
 AuthLDAPBindPassword {{freeipa_system_user}}
 
     Require valid-user
