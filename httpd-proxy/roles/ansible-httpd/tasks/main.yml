@@ -161,4 +161,28 @@
   notify:
     - Test apache2 and restart
 
+
+
+# Treat Bandiera-Live separately because it uses load balancing hard-coded to two ecs-nodes
+
+- name: Place bandiera-live conf spearately because it uses load balancing
+  template:
+    src: 'etc/apache2/sites-available/bandiera-live.conf.j2'
+    dest: '/etc/apache2/sites-available/bandiera-live.conf'
+    group: 'root'
+    owner: 'root'
+    mode: '0644'
+
+  register: apache2_register_vhost_config
+  notify:
+    - Test apache2 and reload
+
+- name: Symlink bandiera-liveto sites-enabled
+  file:
+    src: '/etc/apache2/sites-available/bandiera-live.conf'
+    dest: '/etc/apache2/sites-enabled/bandiera-live.conf'
+    state: 'link'
+
+  notify:
+    - Test apache2 and restart
   
