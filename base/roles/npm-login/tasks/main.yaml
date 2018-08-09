@@ -12,3 +12,4 @@
     owner: go
     group: go
     mode: 0644
+  become_user: go

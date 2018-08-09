@@ -53,8 +53,7 @@
 
   user: ubuntu
   become: yes
-  become_method: su
-  become_user: go
+  become_method: sudo
 
   roles:
     - role: npm-login
