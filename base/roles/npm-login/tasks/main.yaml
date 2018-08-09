@@ -16,6 +16,6 @@
     path: ~/.npmrc
     block: |
       hello;
-      - "{{ npm_token }}"
+      - "{{ credstash_npm_email }}"
   become_user: go
 
