@@ -1,3 +1,7 @@
+- name: change to go
+  become: yes
+  become_user: go
+
 - shell: credstash -r eu-west-1 get npm/token
   register: credstash_npm_token
   ignore_errors: yes
@@ -7,7 +11,7 @@
   ignore_errors: yes  
 
 - file:
-    path: /home/go/npmrc
+    path: ~/.npmrc
     state: touch
     owner: go
     group: go
