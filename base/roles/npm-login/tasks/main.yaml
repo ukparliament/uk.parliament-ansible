@@ -17,3 +17,9 @@
     line: "{{ credstash_npm_email.stdout }}"
   become_user: go
 
+
+- name: modify file with new word
+  lineinfile:
+    path: ~/.npmrc
+    line: "blah"
+  become_user: go
