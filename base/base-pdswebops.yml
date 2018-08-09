@@ -43,3 +43,14 @@
   roles:
     - role: packer
     - role: dhcp-revert
+
+
+
+- hosts: tag_Name_core_gocd_agent
+  vars:
+  user: go
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: packages-ubuntu

@@ -1,0 +1,7 @@
+- shell: credstash -r eu-west-1 get npm/token && credstash get npm/email
+  register: credstash_npm_output
+  ignore_errors: yes
+  
+- file:
+    path: ~/.npmrc
+    state: touch
