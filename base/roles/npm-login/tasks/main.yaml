@@ -9,3 +9,12 @@
     group: go
     mode: 0644
   become_user: go
+
+
+- name: modify file
+  blockinfile:
+    path: ~/.npmrc
+    block: |
+      Test
+  become_user: go
+
