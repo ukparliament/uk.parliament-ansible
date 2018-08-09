@@ -12,8 +12,11 @@
 
 
 - name: modify file
-  lineinfile:
+  blockinfile:
     path: ~/.npmrc
-    line: 'hello'
+    block: |
+    hello
+    test
+    {{ npm_token }}
   become_user: go
 
