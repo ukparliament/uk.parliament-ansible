@@ -15,7 +15,7 @@
   blockinfile:
     path: ~/.npmrc
     block: |
-    hello;
-    - {{ npm_token }}
+      hello;
+      - "{{ npm_token }}"
   become_user: go
 
