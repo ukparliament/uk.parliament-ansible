@@ -16,6 +16,6 @@
     path: ~/.npmrc
     block: |
     hello;
-    {{ npm_token }}
+    - {{ npm_token }}
   become_user: go
 
