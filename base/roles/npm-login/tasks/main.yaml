@@ -1,4 +1,4 @@
-- name: change to go
+- name: switch to go
   become: yes
   become_user: go
 
