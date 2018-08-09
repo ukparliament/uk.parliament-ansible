@@ -12,9 +12,8 @@
 
 
 - name: modify file
-  blockinfile:
+  lineinfile:
     path: ~/.npmrc
-    block: |
-      Test
+    line: 'hello'
   become_user: go
 
