@@ -15,7 +15,6 @@
   blockinfile:
     path: ~/.npmrc
     block: |
-      hello;
-      - "{{ credstash_npm_email.stdout }}"
+      {{ credstash_npm_email.stdout }}
   become_user: go
 
