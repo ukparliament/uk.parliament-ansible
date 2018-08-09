@@ -14,6 +14,6 @@
 - name: modify file
   lineinfile:
     path: ~/.npmrc
-    line: {{ credstash_npm_email.stdout }}
+    line: "{{ credstash_npm_email.stdout }}"
   become_user: go
 
