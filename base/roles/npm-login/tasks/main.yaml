@@ -2,6 +2,11 @@
   register: credstash_npm_email
   ignore_errors: yes  
 
+- shell: credstash -r eu-west-1 get npm/token
+register: credstash_npm_token
+ignore_errors: yes  
+
+
 - file:
     path: ~/.npmrc
     state: touch
@@ -11,15 +16,15 @@
   become_user: go
 
 
-- name: modify file
+- name: modify file with email
   lineinfile:
     path: ~/.npmrc
     line: "{{ credstash_npm_email.stdout }}"
   become_user: go
 
 
-- name: modify file with new word
+- name: modify file with token
   lineinfile:
     path: ~/.npmrc
-    line: "blah"
+    line: "{{ credstash_npm_token.stdout }}"
   become_user: go
