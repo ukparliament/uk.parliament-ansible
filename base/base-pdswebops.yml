@@ -52,7 +52,7 @@
     npm_email: "{{credstash_npm_email}}"
   user: ubuntu
   become: yes
-  become_method: sudo
+  become_method: go
 
   roles:
     - role: npm-login

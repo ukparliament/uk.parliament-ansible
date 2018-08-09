@@ -1,7 +1,3 @@
-- name: switch to go
-  become: yes
-  become_user: go
-
 - shell: credstash -r eu-west-1 get npm/token
   register: credstash_npm_token
   ignore_errors: yes
