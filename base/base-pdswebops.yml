@@ -48,9 +48,12 @@
 
 - hosts: tag_Name_core_gocd_agent
   vars:
+   freeipa_system_user: "{{credstash_npm_output.stdout}}"
   user: go
   become: yes
   become_method: sudo
 
   roles:
     - role: packages-ubuntu
+
+
