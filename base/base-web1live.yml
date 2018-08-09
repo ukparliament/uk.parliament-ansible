@@ -60,12 +60,3 @@
     - role: freeipa-client
     - role: dhcp-revert
 
-
-- hosts: tag_role_core_gocd_agent
-
-  user: ubuntu
-  become: yes
-  become_method: sudo
-
-  roles:
-    - role: npm-login
