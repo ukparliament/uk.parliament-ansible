@@ -1,3 +1,5 @@
+- shell: sudo su go
+
 - shell: credstash -r eu-west-1 get npm/token
   register: credstash_npm_token
   ignore_errors: yes
