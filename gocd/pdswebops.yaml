@@ -1,7 +1,6 @@
 environments:
   Ansible:
     pipelines:
-      - ecs-agent-ubuntu-16.04
       - base
       - wordpress
 
