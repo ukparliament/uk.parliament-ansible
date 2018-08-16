@@ -1,5 +1,5 @@
 
-- hosts: tag_Name_core_r_r_1
+- hosts: tag_Name_core_restoration_1
   user: ubuntu
   become: yes
   become_method: sudo
