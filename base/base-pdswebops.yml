@@ -55,14 +55,3 @@
   roles:
     - role: npm-login
 
-
-- hosts: tag_Name_core_restoration_renewal_wordpress_1
-
-  user: ubuntu
-  become: yes
-  become_method: sudo
-  roles:
-    - role: wordpress
-
-
-
