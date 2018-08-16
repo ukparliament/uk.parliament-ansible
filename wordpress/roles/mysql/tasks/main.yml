@@ -1,0 +1,12 @@
+---
+
+- shell: credstash -r eu-west-1 get restoration/wp_db
+  register: wp_db
+  ignore_errors: yes  
+
+
+
+
+- name: Create mysql database
+  mysql_db: name={{ wp_db }} state=present
+  become: yes
