@@ -1,0 +1,17 @@
+---
+- name: Update apt cache
+  apt: update_cache=yes cache_valid_time=3600
+  sudo: yes
+
+
+- name: Install required software
+  apt: name={{ item }} state=present
+  become: yes
+  with_items:
+    - apache2
+    - mysql-server
+    - php7.0-mysql
+    - php7.0
+    - libapache2-mod-php7.0
+    - python-mysqldb
+

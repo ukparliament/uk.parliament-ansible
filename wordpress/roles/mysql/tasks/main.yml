@@ -1,0 +1,30 @@
+---
+
+- shell: credstash -r eu-west-1 get restoration/wp_db
+  register: wp_db
+  ignore_errors: yes  
+
+- shell: credstash -r eu-west-1 get restoration/wp_db_user
+  register: wp_db_user
+  ignore_errors: yes  
+
+
+- shell: credstash -r eu-west-1 get restoration/wp_db_password
+  register: wp_db_password
+  ignore_errors: yes  
+
+
+- name: Create mysql database
+  mysql_db: name={{ wp_db.stdout }} state=present
+  become: yes
+
+
+- name: Create mysql user
+  mysql_user: 
+    name={{ wp_db_user.stdout }} 
+    password={{ wp_db_password.stdout }} 
+  become: yes   
+
+
+    # 
+    # priv=*.*:ALL

@@ -3,6 +3,7 @@ environments:
     pipelines:
       - ecs-agent-ubuntu-16.04
       - base
+      - wordpress
 
 
 pipelines:
@@ -30,4 +31,46 @@ pipelines:
                       - "-f"
                       - 10
 
+<<<<<<< HEAD
   
+=======
+  wordpress:
+    group: Ansible
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/uk.parliament-ansible.git
+        branch: master
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
+                    command: ansible-playbook
+                    arguments:
+                      - wordpress/wordpress.yml
+                      - "-f"
+                      - 10
+
+
+  ecs-agent-ubuntu-16.04:
+     group: Packer
+     label_template: "${COUNT}"
+     materials:
+       mygit:
+         git: https://github.com/ukparliament/parliament.uk-packer.git
+         branch: development
+     stages:
+       - build:
+           clean_workspace: true
+           jobs:
+             default:
+               tasks:
+                 - exec:
+                     command: packer
+                     arguments:
+                       - build
+                       - ecs-agent-ubuntu-16.04.json
+>>>>>>> 14f5dd9137be907e797b948e45f87d886eb342da

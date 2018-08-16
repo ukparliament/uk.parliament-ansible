@@ -61,3 +61,5 @@
   roles:
     - role: filebeat-bitnami-wordpress
     - role: freeipa-client
+
+
