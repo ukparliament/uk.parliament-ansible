@@ -4,7 +4,7 @@
   register: wp_db
   ignore_errors: yes  
 
-  - shell: credstash -r eu-west-1 get restoration/wp_db_user
+- shell: credstash -r eu-west-1 get restoration/wp_db_user
   register: wp_db_user
   ignore_errors: yes  
 
