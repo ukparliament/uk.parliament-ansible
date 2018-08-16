@@ -22,8 +22,9 @@
 - name: Create mysql user
   mysql_user: 
     name={{ wp_db_user.stdout }} 
+    password={{ wp_db_password.stdout }} 
   become: yes   
 
 
-    # password={{ wp_db_password.stdout }} 
+    # 
     # priv=*.*:ALL
