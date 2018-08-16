@@ -23,8 +23,8 @@
   mysql_user: 
     name={{ wp_db_user.stdout }} 
     password={{ wp_db_password.stdout }} 
+    priv=*.*:ALL
   become: yes   
 
 
-    # 
-    # priv=*.*:ALL
+    
