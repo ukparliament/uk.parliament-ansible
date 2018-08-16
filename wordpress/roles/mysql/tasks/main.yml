@@ -15,15 +15,15 @@
 
 
 - name: Create mysql database
-  mysql_db: name={{ wp_db }} state=present
+  mysql_db: name={{ wp_db.stdout }} state=present
   become: yes
 
 
 
 - name: Create mysql user
   mysql_user: 
-    name={{ wp_mysql_user }} 
-    password={{ wp_mysql_password }} 
+    name={{ wp_mysql_user.stdout }} 
+    password={{ wp_mysql_password.stdout }} 
     priv=*.*:ALL
 
   become: yes   
