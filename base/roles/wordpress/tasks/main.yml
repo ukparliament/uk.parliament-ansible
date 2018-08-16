@@ -5,11 +5,11 @@
   sudo: yes
 
 
-# - name: Install required software
-#   apt: name={{ item }} state=present
-#   sudo: yes
-#   with_items:
-#     - apache2
+- name: Install required software
+  apt: name={{ item }} state=present
+  sudo: yes
+  with_items:
+    - apache2
 #     - mysql-server
 #     - php5-mysql
 #     - php5
