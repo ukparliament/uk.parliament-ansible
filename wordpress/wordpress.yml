@@ -7,3 +7,4 @@
   roles:
     - role: server
     - role: php
+    - role: mysql
