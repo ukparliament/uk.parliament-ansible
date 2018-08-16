@@ -9,9 +9,9 @@
   become: yes
   with_items:
     - apache2
-    - mysql-server
-    - php7.2-mysql
-    - php7.2
-    - libapache2-mod-php7.2
-    - python-mysqldb
+    # - mysql-server
+    # - php7.2-mysql
+    # - php7.2
+    # - libapache2-mod-php7.2
+    # - python-mysqldb
 
