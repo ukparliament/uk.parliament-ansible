@@ -8,3 +8,4 @@
     - role: server
     - role: php
     - role: mysql
+    - role: wordpress
