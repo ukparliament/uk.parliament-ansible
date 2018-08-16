@@ -4,4 +4,4 @@
   become: yes
   with_items:
     - php7.0-gd 
-    - php7.0-ssh2
+    - php-ssh2
