@@ -49,5 +49,5 @@
     - {'regexp': "define\\('DB_NAME', '(.)+'\\);", 'line': "define('DB_NAME', '{{ wp_db.stdout }}');"}        
     - {'regexp': "define\\('DB_USER', '(.)+'\\);", 'line': "define('DB_USER', '{{ wp_db_user.stdout }}');"}        
     - {'regexp': "define\\('DB_PASSWORD', '(.)+'\\);", 'line': "define('DB_PASSWORD', '{{ wp_db_password.stdout }}');"}
-    - {'regexp': "define\\('AUTH_KEY', '(.)+'\\);", 'line': "define('AUTH_KEY', '{{wp_auth_key.stdout }}');"}  
+    - {'regexp': "define\\('AUTH_KEY',\\s+ '(.)+'\\);", 'line': "define('AUTH_KEY', '{{wp_auth_key.stdout }}');"}  
   become: yes
