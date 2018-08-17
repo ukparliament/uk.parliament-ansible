@@ -41,7 +41,7 @@
   roles:
     - role: packer
 
-- hosts: tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances:!tag_Application_GoCD_agent:!tag_Name_core_gocd_agent_ansible_1 key_ecs_instances
+- hosts: tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances key_ecs_instances
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
@@ -51,16 +51,8 @@
   roles:
     - role: freeipa-client
 
-- hosts: tag_Name_core_gocd_agent tag_Name_core_gocd_agent_ansible_1
-  vars:
-    freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
-  user: ubuntu
-  become: yes
-  become_method: sudo
 
-  roles:
-    - role: freeipa-client
-    - role: dhcp-revert
+
 
 - hosts: tag_role_core_gocd_agent
 
