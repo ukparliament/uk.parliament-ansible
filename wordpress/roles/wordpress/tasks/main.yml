@@ -53,9 +53,11 @@
 
 - name: Update WordPress Salts file
   lineinfile:
-    path: /var/www/wordpress/wp-config.php
+    dest=/var/www/wordpress/wp-config.php
     state: present
-    regexp: "define\('AUTH_KEY', '(.)+'\);"
-    line: "define('AUTH_KEY', '{{wp_auth_key.stdout }}');"     
+    regexp="{{ item.regexp }}"
+    line="{{ item.line }}"
+  with_items:
+    - {'regexp': "define\\('AUTH_KEY', '(.)+'\\);", 'line': "define('AUTH_KEY', '{{wp_auth_key.stdout }}');"}        
   become: yes
 
