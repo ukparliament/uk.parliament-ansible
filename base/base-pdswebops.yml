@@ -32,7 +32,7 @@
 
 
 
-- hosts: tag_Name_core_gocd_agent_ansible_1 tag_role_core_gocd_agent
+- hosts: tag_Name_core_gocd_agent_ansible_1
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
 
@@ -42,7 +42,7 @@
 
   roles:
     - role: packer
-    - role: dhcp-revert
+    
 
 
 
@@ -54,4 +54,3 @@
 
   roles:
     - role: npm-login
-
