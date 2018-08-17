@@ -13,6 +13,9 @@
   register: wp_db_password
   ignore_errors: yes  
 
+- shell: credstash -r eu-west-1 get restoration/auth_key
+  register: wp_auth_key
+  ignore_errors: yes  
 
 - name: Download WordPress
   get_url: 
@@ -46,4 +49,13 @@
     - {'regexp': "define\\('DB_NAME', '(.)+'\\);", 'line': "define('DB_NAME', '{{ wp_db.stdout }}');"}        
     - {'regexp': "define\\('DB_USER', '(.)+'\\);", 'line': "define('DB_USER', '{{ wp_db_user.stdout }}');"}        
     - {'regexp': "define\\('DB_PASSWORD', '(.)+'\\);", 'line': "define('DB_PASSWORD', '{{ wp_db_password.stdout }}');"}
+  become: yes
+
+- name: Update WordPress Salts file
+  lineinfile:
+    dest=/var/www/wordpress/wp-config.php
+    regexp="{{ item.regexp }}"
+    line="{{ item.line }}"
+  with_items:
+    - {'regexp': "define\\('AUTH_KEY', '(.)+'\\);", 'line': "define('AUTH_KEY', '{{wp_auth_key.stdout }}');"}        
   become: yes
