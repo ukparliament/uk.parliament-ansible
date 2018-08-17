@@ -55,7 +55,7 @@
   lineinfile:
     path: /var/www/wordpress/wp-config.php
     state: present
-    regexp: "define\\('AUTH_KEY', '(.)+'\\);"
+    regexp: "define\('AUTH_KEY', '(.)+'\);"
     line: "define('AUTH_KEY', '{{wp_auth_key.stdout }}');"     
   become: yes
 
