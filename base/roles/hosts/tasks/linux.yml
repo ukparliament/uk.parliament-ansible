@@ -9,6 +9,18 @@
     - restart systemd-logind
 
 
+- name: insert additional hosts
+  blockinfile:
+    path: /etc/hosts
+    block: |
+      172.16.248.149 gocd.pdswebops.private
+      172.16.40.155 gocd.common.private
+      172.16.136.236 gocd.web1live.private
+      172.16.128.57 gocd.web1devci.private
+      172.16.48.138 gocd.xfjsdevci.private
+      172.16.52.203 gocd.xfjslive.private
+
+
 - name: Build hosts file (backups will be made)
   lineinfile:
     dest: /etc/hosts
