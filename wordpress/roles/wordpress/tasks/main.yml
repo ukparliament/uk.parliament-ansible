@@ -55,8 +55,7 @@
   lineinfile:
     path: /var/www/wordpress/wp-config.php
     state: present
-    regexp: "{{ item.regexp }}"
-    line="{{ item.line }}"
-  with_items:
-    - {'regexp': "define\\('AUTH_KEY', '(.)+'\\);", 'line': "define('AUTH_KEY', '{{wp_auth_key.stdout }}');"}        
+    regexp: "define\\('AUTH_KEY', '(.)+'\\);"
+    line: "define('AUTH_KEY', '{{wp_auth_key.stdout }}');"     
   become: yes
+
