@@ -84,7 +84,7 @@
     - {'regexp': "define\\('LOGGED_IN_KEY',\\s+ '(.)+'\\);", 'line': "define('LOGGED_IN_KEY', '{{ logged_in_key.stdout }}');"}  
     - {'regexp': "define\\('NONCE_KEY',\\s+ '(.)+'\\);", 'line': "define('NONCE_KEY', '{{ nonce_key.stdout }}');"}  
     - {'regexp': "define\\('AUTH_SALT',\\s+ '(.)+'\\);", 'line': "define('AUTH_SALT', '{{ auth_salt.stdout }}');"}  
-    - {'regexp': "define\\('SECURE_AUTH_SALT',\\s+ '(.)+'\\);", 'line': "define('SECURE_AUTH_SALT', '{{ secure_auth_salt.stdout }}');"}  
+    - {'regexp': "define\\('SECURE_AUTH_SALT', '(.)+'\\);", 'line': "define('SECURE_AUTH_SALT', '{{ secure_auth_salt.stdout }}');"}  
     - {'regexp': "define\\('LOGGED_IN_SALT',\\s+ '(.)+'\\);", 'line': "define('LOGGED_IN_SALT', '{{ logged_in_salt.stdout }}');"}  
     - {'regexp': "define\\('NONCE_SALT',\\s+ '(.)+'\\);", 'line': "define('NONCE_SALT', '{{ nonce_salt.stdout }}');"}  
   become: yes
