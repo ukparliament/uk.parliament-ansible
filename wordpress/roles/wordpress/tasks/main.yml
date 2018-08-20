@@ -8,7 +8,6 @@
   register: wp_db_user
   ignore_errors: yes  
 
-
 - shell: credstash -r eu-west-1 get wordpress/wp_db_password
   register: wp_db_password
   ignore_errors: yes  
@@ -66,25 +65,11 @@
   notify:
     - restart apache
 
-- name: Copy sample config file
-  command: mv /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php creates=/var/www/wordpress/wp-config.php
-  become: yes
 
-- name: Update WordPress config file
-  lineinfile:
-    dest=/var/www/wordpress/wp-config.php
-    regexp="{{ item.regexp }}"
-    line="{{ item.line }}"
-  with_items:
-    - {'regexp': "define\\('DB_NAME', '(.)+'\\);", 'line': "define('DB_NAME', '{{ wp_db.stdout }}');"}        
-    - {'regexp': "define\\('DB_USER', '(.)+'\\);", 'line': "define('DB_USER', '{{ wp_db_user.stdout }}');"}        
-    - {'regexp': "define\\('DB_PASSWORD', '(.)+'\\);", 'line': "define('DB_PASSWORD', '{{ wp_db_password.stdout }}');"}
-    - {'regexp': "define\\('AUTH_KEY',\\s+ '(.)+'\\);", 'line': "define('AUTH_KEY', '{{ auth_key.stdout }}');"}  
-    - {'regexp': "define\\('SECURE_AUTH_KEY',\\s+ '(.)+'\\);", 'line': "define('SECURE_AUTH_KEY', '{{ secure_auth_key.stdout }}');"}  
-    - {'regexp': "define\\('LOGGED_IN_KEY',\\s+ '(.)+'\\);", 'line': "define('LOGGED_IN_KEY', '{{ logged_in_key.stdout }}');"}  
-    - {'regexp': "define\\('NONCE_KEY',\\s+ '(.)+'\\);", 'line': "define('NONCE_KEY', '{{ nonce_key.stdout }}');"}  
-    - {'regexp': "define\\('AUTH_SALT',\\s+ '(.)+'\\);", 'line': "define('AUTH_SALT', '{{ auth_salt.stdout }}');"}  
-    - {'regexp': "define\\('SECURE_AUTH_SALT', '(.)+'\\);", 'line': "define('SECURE_AUTH_SALT', '{{ secure_auth_salt.stdout }}');"}  
-    - {'regexp': "define\\('LOGGED_IN_SALT',\\s+ '(.)+'\\);", 'line': "define('LOGGED_IN_SALT', '{{ logged_in_salt.stdout }}');"}  
-    - {'regexp': "define\\('NONCE_SALT',\\s+ '(.)+'\\);", 'line': "define('NONCE_SALT', '{{ nonce_salt.stdout }}');"}  
-  become: yes
+
+- name: Wordpress config file
+  template:
+    src: wp-config.php
+    dest: /var/www/wordpress/wp-config.php
+    owner: root
+  notify: restart apache
