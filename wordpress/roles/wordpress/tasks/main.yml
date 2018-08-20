@@ -39,7 +39,7 @@
 - name: Fetch random salts for WordPress config
   local_action: command curl https://api.wordpress.org/secret-key/1.1/salt/
   register: wp_salt
-  sudo: no
+ 
 
 - name: Copy WordPress config file
   template: src=wp-config.php dest=/var/www/html/wordpress/ force=no
