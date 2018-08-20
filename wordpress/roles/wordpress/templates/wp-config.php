@@ -42,14 +42,15 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY', '{{ auth_key.stdout }}');
-define('SECURE_AUTH_KEY', '{{ secure_auth_key.stdout }}')
-define('LOGGED_IN_KEY', '{{ logged_in_key.stdout }}'); 
-define('NONCE_KEY', '{{ nonce_key.stdout }}');  
-define('AUTH_SALT', '{{ auth_salt.stdout }}');  
-define('SECURE_AUTH_SALT', '{{ secure_auth_salt.stdout }}');  
-define('LOGGED_IN_SALT', '{{ logged_in_salt.stdout }}');  
-define('NONCE_SALT', '{{ nonce_salt.stdout }}');  
+
+define('AUTH_KEY',         '{{ auth_key.stdout }}');
+define('SECURE_AUTH_KEY',  '{{ secure_auth_key.stdout }}');
+define('LOGGED_IN_KEY',    '{{ logged_in_key.stdout }}');
+define('NONCE_KEY',        '{{ nonce_key.stdout }}');
+define('AUTH_SALT',        '{{ auth_salt.stdout }}');
+define('SECURE_AUTH_SALT', '{{ secure_auth_salt.stdout }}');
+define('LOGGED_IN_SALT',   '{{ logged_in_salt.stdout }}');
+define('NONCE_SALT',       '{{ nonce_salt.stdout }}');
 
 /**#@-*/
 
@@ -74,7 +75,7 @@ define('WP_DEBUG', false);
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+	    define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');

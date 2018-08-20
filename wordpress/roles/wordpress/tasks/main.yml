@@ -71,5 +71,4 @@
   template:
     src: wp-config.php
     dest: /var/www/wordpress/wp-config.php
-    owner: root
   notify: restart apache
