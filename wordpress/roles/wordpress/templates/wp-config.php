@@ -25,7 +25,7 @@ define('DB_USER', '{{ wp_db_user.stdout }}');
 define('DB_PASSWORD', '{{ wp_db_password.stdout }}');
 
 /** MySQL hostname */
-define('DB_HOST', '{{ wordpress_database_host }}');
+define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -62,19 +62,6 @@ define('NONCE_SALT', '{{ nonce_salt.stdout }}');
 $table_prefix  = 'wp_';
 
 /**
- * See http://make.wordpress.org/core/2013/10/25/the-definitive-guide-to-disabling-auto-updates-in-wordpress-3-7
- */
-
-/* Disable all file change, as RPM base installation are read-only */
-define('DISALLOW_FILE_MODS', true);
-
-/* Disable automatic updater, in case you want to allow
-   above FILE_MODS for plugins, themes, ... */
-define('AUTOMATIC_UPDATER_DISABLED', true);
-
-/* Core update is always disabled, WP_AUTO_UPDATE_CORE value is ignore */
-
-/**
  * For developers: WordPress debugging mode.
  *
  * Change this to true to enable the display of notices during development.
@@ -87,7 +74,7 @@ define('WP_DEBUG', false);
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', '{{ wordpress_directory }}');
+	define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
