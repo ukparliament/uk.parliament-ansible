@@ -41,5 +41,5 @@
   register: wp_salt
   sudo: no
 
-  - name: Copy WordPress config file
+- name: Copy WordPress config file
   template: src=wp-config.php dest=/var/www/html/wordpress/ force=no
