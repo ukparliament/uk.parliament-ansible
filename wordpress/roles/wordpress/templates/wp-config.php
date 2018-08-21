@@ -43,9 +43,27 @@ define('DB_COLLATE', '');
  * @since 2.6.0
  */
 
-{{ wp_salt.stdout }}
+define('AUTH_KEY',         '{{ auth_key.stdout }}');
+define('SECURE_AUTH_KEY',  '{{ secure_auth_key.stdout }}');
+define('LOGGED_IN_KEY',    '{{ logged_in_key.stdout }}');
+define('NONCE_KEY',        '{{ nonce_key.stdout }}');
+define('AUTH_SALT',        '{{ auth_salt.stdout }}');
+define('SECURE_AUTH_SALT', '{{ secure_auth_salt.stdout }}');
+define('LOGGED_IN_SALT',   '{{ logged_in_salt.stdout }}');
+define('NONCE_SALT',       '{{ nonce_salt.stdout }}');
 
 /**#@-*/
+
+define( 'FORCE_SSL_LOGIN', true );
+define( 'FORCE_SSL_ADMIN', true );
+
+define( 'FORCE_SSL_LOGIN', true );
+define( 'FORCE_SSL_ADMIN', true );
+define( 'COMPRESS_CSS',        true );
+define( 'COMPRESS_SCRIPTS',    true );
+define( 'CONCATENATE_SCRIPTS', true );
+define( 'WP_AUTO_UPDATE_CORE', true );
+
 
 /**
  * WordPress Database Table prefix.
