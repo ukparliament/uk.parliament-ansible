@@ -15,3 +15,8 @@
   apt:
     name: nodejs
     state: present
+
+- name: libreadline-dev
+  apt:
+    name: libreadline-dev
+    state: present
