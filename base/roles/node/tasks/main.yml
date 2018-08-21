@@ -20,3 +20,18 @@
   apt:
     name: libreadline-dev
     state: present
+
+- name: libyaml-dev
+  apt:
+    name: libyaml-dev
+    state: present
+
+- name: libsqlite3-dev
+  apt:
+    name: libsqlite3-dev
+    state: present
+
+- name: sqlite3
+  apt:
+    name: sqlite3
+    state: present
