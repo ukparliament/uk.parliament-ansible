@@ -54,8 +54,6 @@ define('NONCE_SALT',       '{{ nonce_salt.stdout }}');
 
 /**#@-*/
 
-define( 'FORCE_SSL_LOGIN', true );
-define( 'FORCE_SSL_ADMIN', true );
 
 define( 'FORCE_SSL_LOGIN', true );
 define( 'FORCE_SSL_ADMIN', true );
