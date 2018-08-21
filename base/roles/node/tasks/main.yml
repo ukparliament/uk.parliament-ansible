@@ -35,3 +35,28 @@
   apt:
     name: sqlite3
     state: present
+
+- name: libxml2-dev
+  apt:
+    name: libxml2-dev
+    state: present
+
+- name: libxslt1-dev
+  apt:
+    name: libxslt1-dev
+    state: present
+
+- name: libcurl4-openssl-dev
+  apt:
+    name: libcurl4-openssl-dev
+    state: present
+
+- name: python-software-properties
+  apt:
+    name: python-software-properties
+    state: present
+
+- name: python3-dev
+  apt:
+    name: python3-dev
+    state: present
