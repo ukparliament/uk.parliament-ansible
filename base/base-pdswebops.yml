@@ -63,4 +63,4 @@
   become_method: sudo
 
   roles:
-    - role: node
+    - role: nodejs
