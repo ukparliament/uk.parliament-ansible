@@ -50,7 +50,7 @@
 
   user: ubuntu
   become: yes
-  become_method: sudo
+  become_method: su
 
   roles:
     - role: npm-login
