@@ -50,7 +50,7 @@
 
   user: ubuntu
   become: yes
-  become_method: su
+  become_method: sudo
 
   roles:
     - role: npm-login
@@ -70,7 +70,7 @@
 - hosts: tag_InstallRuby_yes
   user: go
   become: yes
-  become_method: sudo
+  become_method: su
 
   roles:
     - role: ruby
