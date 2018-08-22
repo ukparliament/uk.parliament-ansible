@@ -18,16 +18,16 @@
 - name: Install RVM stable
   shell: curl -sSL https://get.rvm.io | bash -s stable
 
-- name: Install the RVM, bundler and rails
-  sudo: no
-  shell: |
-    source ~/.rvm/scripts/rvm
-    rvm install 2.4.0
-    rvm use 2.4.0 --default
-    gem install bundler
-    gem install rails
-    cat << "PROFILE" > ~/.profile
-    if [ -d "\$HOME/bin" ] ; then
-        PATH="\$HOME/bin:\$PATH"
-    fi
-    BASHRC
+#- name: Install the RVM, bundler and rails
+#  sudo: no
+#  shell: |
+#    source ~/.rvm/scripts/rvm
+#    rvm install 2.4.0
+#    rvm use 2.4.0 --default
+#    gem install bundler
+#    gem install rails
+#    cat << "PROFILE" > ~/.profile
+#    if [ -d "\$HOME/bin" ] ; then
+#        PATH="\$HOME/bin:\$PATH"
+#    fi
+#    BASHRC
