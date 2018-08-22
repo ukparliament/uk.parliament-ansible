@@ -68,9 +68,9 @@
     - role: nodejs
 
 - hosts: tag_InstallRuby_yes
-  user: ubuntu
+  user: go
   become: yes
-  become_method: sudo
+  become_method: su
 
   roles:
     - role: ruby
