@@ -55,7 +55,12 @@ define('NONCE_SALT',       '{{ nonce_salt.stdout }}');
 /**#@-*/
 
 
-
+define( 'FORCE_SSL_LOGIN', true );
+define( 'FORCE_SSL_ADMIN', true );
+define( 'COMPRESS_CSS',        true );
+define( 'COMPRESS_SCRIPTS',    true );
+define( 'CONCATENATE_SCRIPTS', true );
+define( 'WP_AUTO_UPDATE_CORE', true );
 
 
 /**
