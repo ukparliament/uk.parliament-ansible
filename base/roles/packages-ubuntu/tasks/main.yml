@@ -75,3 +75,6 @@
 - name: Remove dependencies that are no longer required
   apt:
     autoremove: yes
+- name: install AWS SSM agent using snap
+  shell: sudo snap install amazon-ssm-agent --classic
+  creates: /snap/amazon-ssm-agent/current/amazon-ssm-agent
