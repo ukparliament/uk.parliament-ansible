@@ -21,7 +21,7 @@
 - name: Install the RVM, bundler and rails
   sudo: no
   shell: |
-    . ~/.rvm/scripts/rvm
+    source ~/.rvm/scripts/rvm
     rvm install 2.4.0
     rvm use 2.4.0 --default
     gem install bundler
