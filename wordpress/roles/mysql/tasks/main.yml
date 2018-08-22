@@ -1,15 +1,15 @@
 ---
 
-- shell: credstash -r eu-west-1 get restoration/wp_db
+- shell: credstash -r eu-west-1 get wordpress/wp_db
   register: wp_db
   ignore_errors: yes  
 
-- shell: credstash -r eu-west-1 get restoration/wp_db_user
+- shell: credstash -r eu-west-1 get wordpress/wp_db_user
   register: wp_db_user
   ignore_errors: yes  
 
 
-- shell: credstash -r eu-west-1 get restoration/wp_db_password
+- shell: credstash -r eu-west-1 get wordpress/wp_db_password
   register: wp_db_password
   ignore_errors: yes  
 

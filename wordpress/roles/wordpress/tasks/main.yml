@@ -1,21 +1,49 @@
 ---
 
-- shell: credstash -r eu-west-1 get restoration/wp_db
+- shell: credstash -r eu-west-1 get wordpress/wp_db
   register: wp_db
   ignore_errors: yes  
 
-- shell: credstash -r eu-west-1 get restoration/wp_db_user
+- shell: credstash -r eu-west-1 get wordpress/wp_db_user
   register: wp_db_user
   ignore_errors: yes  
 
-
-- shell: credstash -r eu-west-1 get restoration/wp_db_password
+- shell: credstash -r eu-west-1 get wordpress/wp_db_password
   register: wp_db_password
   ignore_errors: yes  
 
-- shell: credstash -r eu-west-1 get restoration/auth_key
-  register: wp_auth_key
+- shell: credstash -r eu-west-1 get wordpress/auth_key
+  register: auth_key
   ignore_errors: yes  
+
+- shell: credstash -r eu-west-1 get wordpress/secure_auth_key
+  register: secure_auth_key
+  ignore_errors: yes 
+
+- shell: credstash -r eu-west-1 get wordpress/logged_in_key
+  register: logged_in_key
+  ignore_errors: yes  
+
+- shell: credstash -r eu-west-1 get wordpress/nonce_key
+  register: nonce_key
+  ignore_errors: yes
+
+- shell: credstash -r eu-west-1 get wordpress/auth_salt
+  register: auth_salt
+  ignore_errors: yes  
+
+- shell: credstash -r eu-west-1 get wordpress/secure_auth_salt
+  register: secure_auth_salt
+  ignore_errors: yes  
+
+- shell: credstash -r eu-west-1 get wordpress/logged_in_salt
+  register: logged_in_salt
+  ignore_errors: yes  
+
+- shell: credstash -r eu-west-1 get wordpress/nonce_salt
+  register: nonce_salt
+  ignore_errors: yes  
+
 
 - name: Download WordPress
   get_url: 
@@ -36,18 +64,9 @@
   notify:
     - restart apache
 
-- name: Copy sample config file
-  command: mv /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php creates=/var/www/wordpress/wp-config.php
-  become: yes
 
-- name: Update WordPress config file
-  lineinfile:
-    dest=/var/www/wordpress/wp-config.php
-    regexp="{{ item.regexp }}"
-    line="{{ item.line }}"
-  with_items:
-    - {'regexp': "define\\('DB_NAME', '(.)+'\\);", 'line': "define('DB_NAME', '{{ wp_db.stdout }}');"}        
-    - {'regexp': "define\\('DB_USER', '(.)+'\\);", 'line': "define('DB_USER', '{{ wp_db_user.stdout }}');"}        
-    - {'regexp': "define\\('DB_PASSWORD', '(.)+'\\);", 'line': "define('DB_PASSWORD', '{{ wp_db_password.stdout }}');"}
-    - {'regexp': "define\\('AUTH_KEY',\\s+ '(.)+'\\);", 'line': "define('AUTH_KEY', '{{wp_auth_key.stdout }}');"}  
-  become: yes
+- name: Wordpress config file
+  template:
+    src: wp-config.php
+    dest: /var/www/wordpress/wp-config.php
+  notify: restart apache

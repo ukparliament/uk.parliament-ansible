@@ -42,7 +42,7 @@
 
   roles:
     - role: packer
-    
+
 
 
 
@@ -54,3 +54,23 @@
 
   roles:
     - role: npm-login
+
+
+
+- hosts: tag_InstallNode_yes
+  vars:
+    NODEJS_VERSION: "8"
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: nodejs
+
+- hosts: tag_InstallRuby_yes
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: ruby
