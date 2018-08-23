@@ -55,6 +55,10 @@
   unarchive: src=/tmp/wordpress.tar.gz dest=/var/www/ copy=no
   become: yes
 
+- name: Change directory owner
+  file: dest=/var/www/wordpress owner=www-data group=www-data recurse=yes
+
+
 - name: Update default Apache site
   become: yes
   lineinfile: 
