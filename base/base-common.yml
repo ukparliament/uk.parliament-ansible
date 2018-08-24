@@ -54,6 +54,7 @@
      - role: users
      - role: datadog
      - role: filebeat-centos
+     - role: centos-ssm
 
 - hosts: key_ecs_instances  tag_Name_core_bastion_host tag_Name_ecs_bastion_host common-httpd-proxy-1 key_core_instances:!tag_group_freeipa_servers:!tag_Name_core_httpd_proxy_1:!tag_Name_core_nginx_proxy_1
   vars:
