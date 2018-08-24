@@ -8,5 +8,6 @@
     chdir: /tmp/ssm
 
 - name: Enable SSM service
-  service: amazon-ssm-agent
-  state: started
+  service:
+    name: amazon-ssm-agent
+    state: started
