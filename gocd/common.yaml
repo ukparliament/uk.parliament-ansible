@@ -23,6 +23,7 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
+                      - "-v"
                       - gocd-ansible/gocd-ansible-agent.yml
                       - "-f"
                       - 10
@@ -42,6 +43,7 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
+                      - "-v"
                       - elkstack/main-common.yml
                       - "-f"
                       - 10
@@ -64,6 +66,7 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
+                      - "-v"
                       - base/base-common.yml
                       - "-f"
                       - 10
@@ -87,6 +90,7 @@ pipelines:
                - exec:
                    command: ansible-playbook
                    arguments:
+                     - "-v"
                      - httpd-proxy/httpd-proxy.yml
                      - "-f"
                      - 10
