@@ -16,6 +16,11 @@
 - name: Update Ansible
   shell: apt-add-repository ppa:ansible/ansible
 
+- name: Upgrade
+  apt:
+    name: ansible
+    state: latest
+
 - name: Get official Docker KEY
   shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 

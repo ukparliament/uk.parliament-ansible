@@ -2,9 +2,6 @@
   apt:
     name: software-properties-common
     state: latest
-    
-- apt_repository:
-  repo: ppa:ansible/ansible
 
 - name: Upgrade
   apt:
