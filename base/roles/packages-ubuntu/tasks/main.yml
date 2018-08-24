@@ -84,3 +84,8 @@
   apt:
     name: snapd
     state: latest
+
+- name: install AWS SSM agent using snap
+  shell: snap install amazon-ssm-agent --classic
+  args:
+    creates: /snap/amazon-ssm-agent/current/amazon-ssm-agent
