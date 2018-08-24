@@ -87,4 +87,5 @@
 
 - name: install AWS SSM agent using snap
   shell: snap install amazon-ssm-agent --classic
-  creates: /snap/amazon-ssm-agent/current/amazon-ssm-agent
+  args:
+    creates: /snap/amazon-ssm-agent/current/amazon-ssm-agent
