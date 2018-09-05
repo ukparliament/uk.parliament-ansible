@@ -1,0 +1,13 @@
+- file:
+    path: /tmp/ssm
+    state: directory
+
+- name: Install ssm
+  shell: dnf install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+  args:
+    chdir: /tmp/ssm
+
+- name: Enable SSM service
+  service:
+    name: amazon-ssm-agent
+    state: started
