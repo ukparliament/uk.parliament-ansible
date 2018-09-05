@@ -71,6 +71,15 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
+define('FORCE_SSL_ADMIN', true);
+
+$_SERVER['SERVER_PORT'] = 443;
+
+
+define('WP_SITEURL', 'https://' . $_SERVER['HTTP_HOST'] . '/');
+define('WP_HOME', 'https://' . $_SERVER['HTTP_HOST'] . '/');
+
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
