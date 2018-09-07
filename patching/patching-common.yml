@@ -1,6 +1,14 @@
-- hosts:  tag_Name_core_bastion_host tag_Name_ecs_bastion_host common-httpd-proxy-1 common-nginx-proxy-1 key_core_instances:!tag_Name_core_nginx_proxy_1:!tag_group_freeipa_servers:!tag_Name_core_httpd_proxy_1
+- hosts:   common-httpd-proxy-1 common-nginx-proxy-1 key_core_instances:!tag_Name_core_nginx_proxy_1:!tag_group_freeipa_servers:!tag_Name_core_httpd_proxy_1
 
   user: deployer
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: ubuntu-common
+
+- hosts:  tag_Name_core_bastion_host tag_Name_ecs_bastion_host
+  user: ubuntu
   become: yes
   become_method: sudo
 
