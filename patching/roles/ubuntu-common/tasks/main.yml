@@ -2,3 +2,8 @@
   apt:
     name: unattended-upgrades
     update_cache: yes
+
+- name: Install apticron
+  apt:
+    name: apticron
+    
