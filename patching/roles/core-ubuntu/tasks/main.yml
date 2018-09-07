@@ -13,3 +13,11 @@
     owner: root
     group: root
     mode: 0644
+
+- name: Copy apticron.conf
+  copy:
+    src: files/apticron.conf
+    dest: /etc/apticron/apticron.conf
+    owner: root
+    group: root
+    mode: 0644
