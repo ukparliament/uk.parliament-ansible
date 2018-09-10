@@ -7,6 +7,7 @@ filebeat.prospectors:
     - /var/log/datadog/*.log
     - /var/log/syslog
     - /var/log/filebeat/filebeat
+    - /var/log/unattended-upgrades/unattended-upgrades.log
 
   exclude_files: []
 
