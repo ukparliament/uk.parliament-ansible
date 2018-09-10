@@ -8,11 +8,7 @@
     src: files/postfix-main.cf
     dest: /etc/postfix/main.cf
 
-- lineinfile:
-  path: /etc/postfix/master.cf
-  regexp: '^(.*)-o smtp_fallback_relay=(.*)$'
-  line: '# -o smtp_fallback_relay'
-  backrefs: yes
+
 
 - name: copy sasl_password
   copy:
