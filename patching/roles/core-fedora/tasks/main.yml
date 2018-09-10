@@ -3,6 +3,22 @@
     name: postfix
     state: latest
 
+- name: copy main.cf
+  copy:
+    src: files/postfix-main.cf
+    dest: /etc/postfix/main.cf
+
+- lineinfile:
+  path: /etc/postfix/master.cf
+  regexp: '^(.*)-o smtp_fallback_relay=(.*)$'
+  line: '# -o smtp_fallback_relay'
+  backrefs: yes
+
+- name: copy sasl_password
+  copy:
+    src: files/sasl_password
+    dest: /etc/postfix/sasl_password
+
 - name: enable and start postfix
   systemd:
     name: postfix
@@ -27,3 +43,9 @@
     name: dnf-automatic.timer
     state: started
     enabled: yes
+
+- shell: credstash -r eu-west-1 get ses/smtp-password
+  register: credstash_smtp_password_output
+
+- shell: credstash -r eu-west-1 get ses/smtp-username
+  register: credstash_smtp_username_output

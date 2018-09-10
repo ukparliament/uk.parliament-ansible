@@ -10,7 +10,9 @@
 
 
 - hosts: tag_group_freeipa_servers
-
+  vars:
+    smtp_password: "{{credstash_smtp_password_output.stdout}}"
+    smtp_username: "{{credstash_smtp_username_output.stdout}}"
   user: deployer
   become: yes
   become_method: sudo
