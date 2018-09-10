@@ -8,12 +8,23 @@
     src: files/postfix-main.cf
     dest: /etc/postfix/main.cf
 
+- shell: credstash -r eu-west-1 get ses/smtp-password
+  register: credstash_smtp_password_output
 
+- shell: credstash -r eu-west-1 get ses/smtp-username
+  register: credstash_smtp_username_output
 
-- name: copy sasl_password
-  copy:
-    src: files/sasl_password
-    dest: /etc/postfix/sasl_password
+- file:
+  path: /etc/postfix/sasl_passwd
+  owner: root
+  group: root
+  mode: 0600
+
+- lineinfile:
+  path: /etc/postfix/sasl_passwd
+  line: '[email-smtp.eu-west-1.amazonaws.com]:587 {{ smtp_username }}:{{ smtp_password }}'
+
+- shell: postmap hash:/etc/postfix/sasl_passwd
 
 - name: enable and start postfix
   systemd:
@@ -39,9 +50,3 @@
     name: dnf-automatic.timer
     state: started
     enabled: yes
-
-- shell: credstash -r eu-west-1 get ses/smtp-password
-  register: credstash_smtp_password_output
-
-- shell: credstash -r eu-west-1 get ses/smtp-username
-  register: credstash_smtp_username_output
