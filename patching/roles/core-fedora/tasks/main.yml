@@ -3,6 +3,12 @@
     name: postfix
     state: latest
 
+- name: enable and start postfix
+  systemd:
+    name: postfix
+    state: started
+    enabled: yes
+
 - name: install dnf automatic
   dnf:
     name: dnf-automatic
