@@ -11,7 +11,7 @@
 - name: dnf-automatic
   copy:
     src: files/dnf-automatic.conf
-    dest: /etc/automatic.conf
+    dest: /etc/dnf/automatic.conf
     owner: root
     group: root
     mode: 0644
@@ -20,4 +20,4 @@
   systemd:
     name: dnf-automatic.timer
     state: started
-    enabled: yes  
+    enabled: yes
