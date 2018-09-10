@@ -1,3 +1,8 @@
+- name: Install postfix to send alert emails
+  dnf:
+    name: postfix
+    state: latest
+    
 - name: install dnf automatic
   dnf:
     name: dnf-automatic
