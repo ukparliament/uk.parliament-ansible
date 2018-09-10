@@ -7,3 +7,13 @@
   roles:
     - role: ubuntu-common
     - role: core-ubuntu
+
+
+- hosts: tag_group_freeipa_servers
+
+  user: deployer
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: core-fedora

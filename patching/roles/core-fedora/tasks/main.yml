@@ -1,0 +1,12 @@
+- name: install dnf automatic
+  dnf:
+    name: dnf-automatic
+    state: latest
+
+- name: dnf-automatic
+  copy:
+    src: files/dnf-automatic.conf
+    dest: /etc/automatic.conf
+    owner: root
+    group: root
+    mode: 0644
