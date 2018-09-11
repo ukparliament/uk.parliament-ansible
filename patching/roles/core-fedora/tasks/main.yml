@@ -15,14 +15,15 @@
   register: credstash_smtp_username_output
 
 - file:
-  path: /etc/postfix/sasl_passwd
-  owner: root
-  group: root
-  mode: 0600
+    path: /etc/postfix/sasl_passwd
+    state: touch
+    owner: root
+    group: root
+    mode: 0600
 
 - lineinfile:
-  path: /etc/postfix/sasl_passwd
-  line: '[email-smtp.eu-west-1.amazonaws.com]:587 {{ smtp_username }}:{{ smtp_password }}'
+    path: /etc/postfix/sasl_passwd
+    line: '[email-smtp.eu-west-1.amazonaws.com]:587 {{ smtp_username }}:{{ smtp_password }}'
 
 - shell: postmap hash:/etc/postfix/sasl_passwd
 
