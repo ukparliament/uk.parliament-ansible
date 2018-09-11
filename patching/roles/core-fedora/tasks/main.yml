@@ -3,10 +3,7 @@
     name: postfix
     state: latest
 
-- name: copy main.cf
-  copy:
-    src: files/postfix-main.cf
-    dest: /etc/postfix/main.cf
+
 
 - shell: credstash -r eu-west-1 get ses/smtp-password
   register: credstash_smtp_password_output
