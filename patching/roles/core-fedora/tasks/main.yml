@@ -39,7 +39,7 @@
       smtp_use_tls = yes
       smtp_tls_security_level = encrypt
       smtp_tls_note_starttls_offer = yes
-      smtp_tls_CAfile = /etc/ssl/certs/ca-bundle.certs
+      smtp_tls_CAfile = /etc/ssl/certs/ca-bundle.crt
 
 
 
