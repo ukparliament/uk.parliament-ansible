@@ -9,6 +9,7 @@ filebeat.prospectors:
     - /var/log/datadog/*.log
     - /var/log/messages
     - /var/log/filebeat/filebeat
+    - /var/log/dnf.rpm.log
   exclude_files: []
 
 
