@@ -1,3 +1,7 @@
+- name: Install postfix
+  apt: postfix
+  state: latest
+  
 - name: Copy 50unattended-upgrades
   copy:
     src: files/50unattended-upgrades
