@@ -24,6 +24,22 @@
 
 - shell: postmap hash:/etc/postfix/sasl_passwd
 
+- lineinfile:
+    path: /etc/postfix/main.cf
+    insertafter: "#relayhost = [an.ip.add.ress]"
+    line: 'relayhost = [email-smtp.eu-west-1.amazonaws.com]:587'
+
+- name: insert SASL requirements
+  blockinfile:
+    path: /etc/postfix/main.cf
+    block: |
+      smtp_sasl_auth_enable = yes
+      smtp_sasl_security_options = noanonymous
+      smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+      smtp_use_tls = yes
+      smtp_tls_security_level = encrypt
+      smtp_tls_note_starttls_offer = yes
+
 - name: enable and start postfix
   systemd:
     name: postfix
