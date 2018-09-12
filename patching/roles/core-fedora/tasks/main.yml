@@ -1,0 +1,69 @@
+- name: Install postfix to send alert emails
+  dnf:
+    name: postfix
+    state: latest
+
+
+
+- shell: credstash -r eu-west-1 get ses/smtp-password
+  register: credstash_smtp_password_output
+
+- shell: credstash -r eu-west-1 get ses/smtp-username
+  register: credstash_smtp_username_output
+
+- file:
+    path: /etc/postfix/sasl_passwd
+    state: touch
+    owner: root
+    group: root
+    mode: 0600
+
+#- lineinfile:
+#    path: /etc/postfix/sasl_passwd
+  #  line: '[email-smtp.eu-west-1.amazonaws.com]:587 {{ smtp_username }}:{{ smtp_password }}'
+
+- shell: postmap hash:/etc/postfix/sasl_passwd
+
+- lineinfile:
+    path: /etc/postfix/main.cf
+    insertafter: "#relayhost = [an.ip.add.ress]"
+    line: 'relayhost = [email-smtp.eu-west-1.amazonaws.com]:587'
+
+- name: insert SASL requirements
+  blockinfile:
+    path: /etc/postfix/main.cf
+    block: |
+      smtp_sasl_auth_enable = yes
+      smtp_sasl_security_options = noanonymous
+      smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+      smtp_use_tls = yes
+      smtp_tls_security_level = encrypt
+      smtp_tls_note_starttls_offer = yes
+      smtp_tls_CAfile = /etc/ssl/certs/ca-bundle.crt
+
+
+
+- name: enable and start postfix
+  systemd:
+    name: postfix
+    state: started
+    enabled: yes
+
+- name: install dnf automatic
+  dnf:
+    name: dnf-automatic
+    state: latest
+
+- name: dnf-automatic
+  copy:
+    src: files/dnf-automatic.conf
+    dest: /etc/dnf/automatic.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: enable a timer for dnf-automatic
+  systemd:
+    name: dnf-automatic.timer
+    state: started
+    enabled: yes

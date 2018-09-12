@@ -5,6 +5,7 @@ environments:
       - elkstack
       - gocd-ansible
       - httpd-proxy
+      - patching
 
 pipelines:
   gocd-ansible:
@@ -94,3 +95,26 @@ pipelines:
                      - httpd-proxy/httpd-proxy.yml
                      - "-f"
                      - 10
+  patching:
+    group: Ansible
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/uk.parliament-ansible.git
+        branch: master
+    timer:
+      spec: "0 0 2 * * ?"
+      only_on_changes: no
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
+                    command: ansible-playbook
+                    arguments:
+                      - "-v"
+                      - patching/patching-common.yml
+                      - "-f"
+                      - 10

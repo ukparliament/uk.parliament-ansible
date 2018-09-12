@@ -1,0 +1,34 @@
+- name: Install postfix
+  apt:
+    name: postfix
+    state: latest
+
+- name: enable and start postfix
+  systemd:
+    name: postfix
+    state: started
+    enabled: yes
+
+- name: Copy 50unattended-upgrades
+  copy:
+    src: files/50unattended-upgrades
+    dest: /etc/apt/apt.conf.d/50unattended-upgrades
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy 20auto-upgrades
+  copy:
+    src: files/20auto-upgrades
+    dest: /etc/apt/apt.conf.d/20auto-upgrades
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy apticron.conf
+  copy:
+    src: files/apticron.conf
+    dest: /etc/apticron/apticron.conf
+    owner: root
+    group: root
+    mode: 0644
