@@ -1,5 +1,18 @@
 - hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_ecs_instances
 
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: packages-ubuntu
+    - role: users
+    - role: filebeat-ubuntu
+    - role: hosts
+
+
+- hosts: key_core_instances key_ecs_instances
+
   vars:
 #    shortname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
 #    domain: "parliament.uk"
@@ -14,10 +27,8 @@
   become_method: sudo
 
   roles:
-    - role: packages-ubuntu
-    - role: users
-    - role: filebeat-ubuntu
-    - role: hosts
+    - role: datadog
+
 
 - hosts: key_ecs_instances  tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances
   vars:
