@@ -1,4 +1,15 @@
 - hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_ecs_instances:!tag_aws_autoscaling_groupName_ecs_cluster
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: packages-ubuntu
+    - role: users
+    - role: filebeat-ubuntu
+    - role: hosts
+
+- hosts: key_core_instances key_ecs_instances:!tag_aws_autoscaling_groupName_ecs_cluster
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
     datadog_api_key: "{{credstash_query_output.stdout}}"
@@ -9,11 +20,9 @@
   become_method: sudo
 
   roles:
-    - role: packages-ubuntu
-    - role: users
     - role: datadog
-    - role: filebeat-ubuntu
-    - role: hosts
+
+
 
 - hosts: key_ecs_instances:!tag_Name_ecs_node
   vars:

@@ -11,24 +11,6 @@
     - role: hosts
 
 
-- hosts: key_core_instances key_ecs_instances
-
-  vars:
-#    shortname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-#    domain: "parliament.uk"
-
-    datadog_api_key: "{{credstash_query_output.stdout}}"
-    datadog_config:
-      hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
-      expvar_port: 5050
-      cmd_port: 5051
-  user: ubuntu
-  become: yes
-  become_method: sudo
-
-  roles:
-    - role: datadog
-
 
 - hosts: key_ecs_instances  tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances
   vars:

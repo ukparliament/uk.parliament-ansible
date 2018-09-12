@@ -1,4 +1,16 @@
 - hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: packages-ubuntu
+    - role: users
+    - role: filebeat-ubuntu
+    - role: hosts
+
+
+- hosts: key_core_instances 
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
     datadog_api_key: "{{credstash_query_output.stdout}}"
@@ -9,11 +21,9 @@
   become_method: sudo
 
   roles:
-    - role: packages-ubuntu
-    - role: users
     - role: datadog
-    - role: filebeat-ubuntu
-    - role: hosts
+
+
 
 
 
