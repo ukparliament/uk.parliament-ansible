@@ -16,7 +16,6 @@
   roles:
     - role: packages-ubuntu
     - role: users
-    - role: datadog
     - role: filebeat-ubuntu
     - role: hosts
 
