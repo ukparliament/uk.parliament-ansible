@@ -8,7 +8,7 @@ filebeat.prospectors:
     - /var/log/syslog
     - /var/log/filebeat/filebeat
     - /var/log/unattended-upgrades/unattended-upgrades.log
-
+    - /var/lib/docker/volumes/*/*/*.log
   exclude_files: []
 
 
