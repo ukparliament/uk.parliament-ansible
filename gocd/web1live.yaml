@@ -5,7 +5,7 @@ environments:
       - wordpress
 
 pipelines:
-  
+
   base:
     group: Ansible
     label_template: "${COUNT}"
@@ -48,3 +48,22 @@ pipelines:
                       - wordpress/wordpress.yml
                       - "-f"
                       - 10
+  patching:
+    group: Ansible
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/uk.parliament-ansible.git
+        branch: master
+    stages:
+      - build:
+        clean_workspace: true
+        jobs:
+          default:
+            tasks:
+              - exec:
+                  command: ansible-playbook
+                  arguments:
+                    - patching/patching-web1live.yml
+                    - "-f"
+                    - 10
