@@ -36,6 +36,7 @@
 
   roles:
     - role: datadog-docker
+    - role: filebeat-ecs
 
 
 - hosts: key_ecs_instances:!tag_aws_autoscaling_groupName_ecs_cluster  tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances:!tag_Application_second_reading
@@ -60,7 +61,7 @@
 
   roles:
     - role: packer
-    
+
 
 - hosts: tag_Application_second_reading
   vars:

@@ -67,7 +67,6 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - "-v"
                       - base/base-common.yml
                       - "-f"
                       - 10
@@ -102,9 +101,6 @@ pipelines:
       mygit:
         git: https://github.com/ukparliament/uk.parliament-ansible.git
         branch: master
-    timer:
-      spec: "0 0 2 * * ?"
-      only_on_changes: no
     stages:
       - build:
           clean_workspace: true

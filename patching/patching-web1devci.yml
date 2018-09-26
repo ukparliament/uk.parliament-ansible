@@ -1,0 +1,9 @@
+- hosts:   tag_Name_core_bastion_host tag_Name_ecs_bastion_host  key_core_instances key_ecs_instances
+
+  user: deployer
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: ubuntu-common
+    - role: core-ubuntu
