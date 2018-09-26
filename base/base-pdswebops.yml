@@ -58,11 +58,3 @@
 
   roles:
     - role: nodejs
-
-- hosts: tag_InstallRuby_yes
-  user: ubuntu
-  become: yes
-  become_method: sudo
-
-  roles:
-    - role: ruby
