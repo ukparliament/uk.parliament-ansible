@@ -14,5 +14,4 @@
 - name: Install nodejs
   apt:
     name: nodejs
-    upgrade: yes
-    state: present
+    state: latest
