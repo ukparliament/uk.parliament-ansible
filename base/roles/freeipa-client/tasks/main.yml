@@ -29,6 +29,12 @@
 - name: renew dhcp
   command: dhclient
 
+- name: sleep
+  command: sleep 20
+
+- name: remove dhcp processes
+  command: killall dhclient
+
 - shell: ipa-client-install -d -U  -p admin -w {{ freeipa_system_user }}  --mkhomedir --ssh-trust-dns
   args:
     creates: /etc/sssd/sssd.conf
