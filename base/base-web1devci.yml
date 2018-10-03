@@ -72,3 +72,13 @@
   roles:
     - role: filebeat-bitnami-wordpress
     - role: freeipa-client
+
+- hosts: tag_InstallNode_yes
+  vars:
+    NODEJS_VERSION: "8"
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: nodejs
