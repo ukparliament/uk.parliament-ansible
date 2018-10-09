@@ -14,13 +14,12 @@
   ignore_errors: yes  
 
 
-# place gocd notify file
-- copy:
+
+- name: Go notify config file
+  template:
     src: files/go-notify.conf
     dest: /var/go/go_notify.conf
     owner: go
     group: go
     mode: 0644
   notify: restart go-server
-
-
