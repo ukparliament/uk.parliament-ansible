@@ -1,0 +1,4 @@
+---
+- name: restart go-server
+  service: name=go-server state=restarted
+  become: yes

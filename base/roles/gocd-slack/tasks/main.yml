@@ -1,0 +1,26 @@
+---
+
+- shell: credstash -r eu-west-1 get gocd/server_host
+  register: server_host
+  ignore_errors: yes  
+
+- shell: credstash -r eu-west-1 get gocd/api_host
+  register: api_host
+  ignore_errors: yes  
+
+
+- shell: credstash -r eu-west-1 get gocd/webhook_url
+  register: webhook_url
+  ignore_errors: yes  
+
+
+# place gocd notify file
+- copy:
+    src: files/go-notify.conf
+    dest: /var/go/go_notify.conf
+    owner: go
+    group: go
+    mode: 0644
+  notify: restart go-server
+
+
