@@ -15,6 +15,7 @@
     datadog_api_key: "{{credstash_query_output.stdout}}"
     datadog_config:
       hostname: "{{ ec2_tag_Account}}-{{ ec2_tag_Name }}-{{ inventory_hostname}}"
+      tags: "devci"
   user: ubuntu
   become: yes
   become_method: sudo
@@ -71,3 +72,13 @@
   roles:
     - role: filebeat-bitnami-wordpress
     - role: freeipa-client
+
+- hosts: tag_InstallNode_yes
+  vars:
+    NODEJS_VERSION: "8"
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: nodejs

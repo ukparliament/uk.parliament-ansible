@@ -9,3 +9,9 @@
 
 - name: renew dhcp
   command: dhclient
+
+- name: sleep
+  command: sleep 20
+
+- name: remove dhcp processes
+  command: killall dhclient

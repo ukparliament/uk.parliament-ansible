@@ -59,10 +59,17 @@
   roles:
     - role: nodejs
 
-- hosts: tag_InstallRuby_yes
+
+
+- hosts: tag_Application_GoCD_server
+  vars:
+    CHANNEL: "#webops-test-2"
   user: ubuntu
   become: yes
   become_method: sudo
 
   roles:
-    - role: ruby
+    - role: gocd-slack
+
+
+
