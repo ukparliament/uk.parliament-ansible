@@ -5,11 +5,11 @@
     group: dd-agent
     mode: 0644
 
-# Excluded shm & netns mount points from DataDog agent disk monitoring.
+# Excluded overlay, nsfs & tmpfs from DataDog agent disk monitoring.
 # No metrics can be obtained from these and having them included causes excessive error logging.
 - copy:
     src: ../files/docker-disk.yaml
-    dest: /etc/datadog-agent/conf.d/disk.d/conf.yaml.default
+    dest: /etc/datadog-agent/conf.d/disk.d/disk.yaml
     owner: dd-agent
     group: dd-agent
     mode: 0644
