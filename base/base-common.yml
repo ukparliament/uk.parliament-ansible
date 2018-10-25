@@ -9,6 +9,13 @@
     - role: filebeat-ubuntu
     - role: hosts
 
+- hosts: tag_Name_core_gocd_agent_ansible_1
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: gocd-agent-ansible
 
 - hosts:  common-httpd-proxy-1 common-nginx-proxy-1 key_core_instances:!tag_Name_core_nginx_proxy_1:!tag_group_freeipa_servers:!tag_Name_core_httpd_proxy_1
   vars:

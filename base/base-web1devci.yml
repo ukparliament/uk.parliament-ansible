@@ -9,6 +9,14 @@
     - role: filebeat-ubuntu
     - role: hosts
 
+- hosts: tag_Name_core_gocd_agent_ansible_1
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: gocd-agent-ansible
+
 - hosts: key_core_instances key_ecs_instances:!tag_aws_autoscaling_groupName_ecs_cluster
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
