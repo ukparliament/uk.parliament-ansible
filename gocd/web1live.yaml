@@ -49,6 +49,7 @@ pipelines:
                       - wordpress/wordpress.yml
                       - "-f"
                       - 10
+
   patching:
     group: Ansible
     label_template: "${COUNT}"
@@ -63,8 +64,8 @@ pipelines:
             default:
               tasks:
                 - exec:
-                  command: ansible-playbook
-                  arguments:
-                    - patching/patching-web1live.yml
-                    - "-f"
-                    - 10
+                    command: ansible-playbook
+                    arguments:
+                      - patching/patching-web1devci.yml
+                      - "-f"
+                      - 10
