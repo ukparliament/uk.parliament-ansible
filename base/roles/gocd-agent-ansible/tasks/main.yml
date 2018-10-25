@@ -1,0 +1,8 @@
+- file:
+    path: /var/go/.ssh/id_rsa
+    mode: 0600
+
+
+
+- name: place private deployer key in go home directory
+  shell: credstash -r eu-west-1 get ssh/deployer_id_rsa > /var/go/.ssh/id_rsa

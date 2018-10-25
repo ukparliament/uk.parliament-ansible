@@ -9,6 +9,13 @@
     - role: filebeat-ubuntu
     - role: hosts
 
+- hosts: tag_Name_core_gocd_agent_ansible_1
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: gocd-agent-ansible
 
 - hosts: key_core_instances
   vars:
