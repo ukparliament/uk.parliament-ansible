@@ -58,11 +58,11 @@ pipelines:
         branch: master
     stages:
       - build:
-        clean_workspace: true
-        jobs:
-          default:
-            tasks:
-              - exec:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
                   command: ansible-playbook
                   arguments:
                     - patching/patching-web1live.yml
