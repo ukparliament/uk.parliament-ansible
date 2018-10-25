@@ -5,8 +5,9 @@ instances:
   # and fs metrics using mount points instead of volumes
     - use_mount: false
       excluded_filesystems:
-        - shm
-        - netns
+        - overlay
+        - nsfs
+        - tmpfs
 
     # The (optional) excluded_filesystems parameter will instruct the check to
     # ignore disks using these filesystems. Note: On some linux distributions,
