@@ -3,6 +3,7 @@ environments:
     pipelines:
       - base
       - wordpress
+      - patching
 
 pipelines:
 
