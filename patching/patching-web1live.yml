@@ -1,4 +1,4 @@
-- hosts:   tag_Name_core_bastion_host tag_Name_ecs_bastion_host  key_core_instances key_ecs_instances
+- hosts:   tag_Name_core_bastion_host:!tag_Service_Wordpress tag_Name_ecs_bastion_host  key_core_instances key_ecs_instances
 
   user: deployer
   become: yes
