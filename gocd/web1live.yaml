@@ -66,6 +66,6 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - patching/patching-web1devci.yml
+                      - patching/patching-web1live.yml
                       - "-f"
                       - 10
