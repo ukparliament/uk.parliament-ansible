@@ -90,3 +90,14 @@
 
   roles:
     - role: nodejs
+
+
+- hosts: tag_Name_core-gocd-agent
+  user: ubuntu
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: gocd-agent
+
+
