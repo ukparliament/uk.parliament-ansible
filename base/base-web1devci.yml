@@ -92,7 +92,7 @@
     - role: nodejs
 
 
-- hosts: tag_Name_core-gocd-agent
+- hosts: tag_role_core_gocd_agent
   user: ubuntu
   become: yes
   become_method: sudo
