@@ -31,7 +31,12 @@
   roles:
     - role: datadog
 
+- hosts: tag_aws_autoscaling_groupName_ecs_apps_cluster
+    user: ubuntu
+    become: yes
+    become_method: sudo
 
+    roles: datadog-nginx-router
 
 - hosts: key_ecs_instances:!tag_Name_ecs_node
   vars:
