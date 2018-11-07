@@ -1,5 +1,5 @@
 - copy:
-    src: ../files/ngin-conf.yaml
+    src: ../files/nginx-conf.yaml
     dest: /etc/datadog-agent/conf.d/nginx.d/conf.yaml
     owner: dd-agent
     group: dd-agent
