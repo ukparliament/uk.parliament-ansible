@@ -1,7 +1,7 @@
 - file:
     path: /var/go/.ssh/id_rsa
     mode: 0600
-  become_user: go
+    become_user: go
 
 
 - name: place private gocd agent key in go home directory
