@@ -1,5 +1,6 @@
 - file:
     path: /var/go/.ssh/id_rsa
+    state: touch
     mode: 0600
     owner: go
     group: go
@@ -7,4 +8,3 @@
 
 - name: place private gocd agent key in go home directory
   shell: credstash -r eu-west-1 get ssh/gocd-agent > /var/go/.ssh/id_rsa
-  
