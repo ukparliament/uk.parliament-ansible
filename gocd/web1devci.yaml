@@ -5,7 +5,7 @@ environments:
       - wordpress
       - patching
 
-
+pipelines:
   base:
     group: Ansible
     label_template: "${COUNT}"
