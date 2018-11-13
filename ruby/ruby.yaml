@@ -1,0 +1,62 @@
+---
+- hosts: tag_install-ruby_yes
+  gather_facts: yes
+  become: yes
+  tasks:
+    - name: install-packages
+      apt: name={{ item }} state=present
+      with_items:
+        - libgdbm-dev
+        - libncurses5-dev
+        - automake
+        - libtool
+        - bison
+        - libffi-dev
+        - libgmp-dev
+
+# install-packages above replaces the following individual tasks
+#     - name: Install libgdbm-dev
+#       apt:
+#         name: libgdbm-dev
+#         state: present
+#     - name: Install libncurses5-dev
+#       apt:
+#         name: libncurses5-dev
+#         state: present
+#     - name: Install automake
+#       apt:
+#         name: automake
+#         state: present
+#     - name: Install libtool
+#       apt:
+#         name: libtool
+#         state: present
+#     - name: Install bison
+#       apt:
+#         name: bison
+#         state: present
+#     - name: Install libffi-dev
+#       apt:
+#         name: libffi-dev
+#         state: present
+#     - name: Install libgmp-dev
+#       apt:
+#         name: libgmp-dev
+#         state: present
+
+    - name: Install the RVM, bundler and rails
+      become: true
+      become_user: go
+      shell: |
+        gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+        curl -sSL https://get.rvm.io | bash -s stable
+        source /usr/local/rvm/scripts/rvm
+        rvm install 2.4.0
+        rvm use 2.4.0 --default
+        gem install bundler
+        gem install rails
+        cat << "PROFILE" > ~/.profile
+        if [ -d "\$HOME/bin" ] ; then
+            PATH="\$HOME/bin:\$PATH"
+        fi
+        BASHRC

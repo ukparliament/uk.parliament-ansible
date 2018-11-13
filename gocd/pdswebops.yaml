@@ -3,6 +3,7 @@ environments:
     pipelines:
       - base
       - wordpress
+      - ruby
 
 
 pipelines:
@@ -48,5 +49,26 @@ pipelines:
                     command: ansible-playbook
                     arguments:
                       - wordpress/wordpress.yml
+                      - "-f"
+                      - 10
+
+
+  ruby:
+    group: Ansible
+    label_template: "${COUNT}"
+    materials:
+      mygit:
+        git: https://github.com/ukparliament/uk.parliament-ansible.git
+        branch: master
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            default:
+              tasks:
+                - exec:
+                    command: ansible-playbook
+                    arguments:
+                      - ruby/ruby.yml
                       - "-f"
                       - 10
