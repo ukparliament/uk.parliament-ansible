@@ -69,6 +69,6 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - ruby/ruby.yml
+                      - ruby/ruby.yaml
                       - "-f"
                       - 10
