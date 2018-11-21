@@ -28,7 +28,12 @@
   roles:
     - role: freeipa-client
 
-
+- hosts: tag_Name_core_bastion_host*
+  user: ubuntu
+  become: yes
+  become_method: sudo
+  roles:
+    - role: openvpn
 
 - hosts: tag_Name_core_gocd_agent_ansible_1
   vars:

@@ -1,0 +1,4 @@
+- name: Start openvpn service
+  service:
+    name: openvpn
+    state: started
