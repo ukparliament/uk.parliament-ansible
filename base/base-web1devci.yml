@@ -1,4 +1,4 @@
-- hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_ecs_instances:!tag_aws_autoscaling_groupName_ecs_cluster
+- hosts: key_core_instances tag_Name_core_bastion_host* tag_Name_ecs_bastion_host* key_ecs_instances:!tag_aws_autoscaling_groupName_ecs_cluster
   user: ubuntu
   become: yes
   become_method: sudo
@@ -53,7 +53,7 @@
     - role: filebeat-ecs
 
 
-- hosts: key_ecs_instances:!tag_aws_autoscaling_groupName_ecs_cluster  tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances:!tag_Application_second_reading
+- hosts: key_ecs_instances:!tag_aws_autoscaling_groupName_ecs_cluster  tag_Name_core_bastion_host* tag_Name_ecs_bastion_host* key_core_instances:!tag_Application_second_reading
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
@@ -63,7 +63,12 @@
   roles:
     - role: freeipa-client
 
-
+- hosts: tag_Name_core_bastion_host* tag_Name_ecs_bastion_host*
+  user: ubuntu
+  become: yes
+  become_method: sudo
+  roles:
+    - role: openvpn
 
 - hosts: tag_Name_core_gocd_agent_ansible_1 tag_role_core_gocd_agent
   vars:

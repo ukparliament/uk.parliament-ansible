@@ -1,4 +1,4 @@
-- hosts:  tag_Name_core_bastion_host tag_Name_ecs_bastion_host common-httpd-proxy-1 common-nginx-proxy-1 key_core_instances:!tag_Name_core_nginx_proxy_1:!tag_group_freeipa_servers:!tag_Name_core_httpd_proxy_1
+- hosts:  tag_Name_core_bastion_host* tag_Name_ecs_bastion_host* common-httpd-proxy-1 common-nginx-proxy-1 key_core_instances:!tag_Name_core_nginx_proxy_1:!tag_group_freeipa_servers:!tag_Name_core_httpd_proxy_1
   user: ubuntu
   become: yes
   become_method: sudo
@@ -69,7 +69,7 @@
      - role: filebeat-centos
      - role: centos-ssm
 
-- hosts: key_ecs_instances  tag_Name_core_bastion_host tag_Name_ecs_bastion_host common-httpd-proxy-1 key_core_instances:!tag_group_freeipa_servers:!tag_Name_core_httpd_proxy_1:!tag_Name_core_nginx_proxy_1
+- hosts: key_ecs_instances  tag_Name_core_bastion_host* tag_Name_ecs_bastion_host* common-httpd-proxy-1 key_core_instances:!tag_group_freeipa_servers:!tag_Name_core_httpd_proxy_1:!tag_Name_core_nginx_proxy_1
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
@@ -78,6 +78,13 @@
 
   roles:
     - role: freeipa-client
+
+- hosts: tag_Name_core_bastion_host* tag_Name_ecs_bastion_host*
+  user: ubuntu
+  become: yes
+  become_method: sudo
+  roles:
+    - role: openvpn
 
 - hosts: tag_Application_GoCD_agent
   vars:

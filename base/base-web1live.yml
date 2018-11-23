@@ -1,4 +1,4 @@
-- hosts: key_core_instances tag_Name_core_bastion_host tag_Name_ecs_bastion_host
+- hosts: key_core_instances tag_Name_core_bastion_host* tag_Name_ecs_bastion_host*
   user: ubuntu
   become: yes
   become_method: sudo
@@ -58,7 +58,7 @@
   roles:
     - role: packer
 
-- hosts: tag_Name_core_bastion_host tag_Name_ecs_bastion_host key_core_instances key_ecs_instances
+- hosts: tag_Name_core_bastion_host* tag_Name_ecs_bastion_host* key_core_instances key_ecs_instances
   vars:
     freeipa_system_user: "{{credstash_freeipa_output.stdout}}"
   user: ubuntu
@@ -68,7 +68,12 @@
   roles:
     - role: freeipa-client
 
-
+- hosts: tag_Name_core_bastion_host* tag_Name_ecs_bastion_host*
+  user: ubuntu
+  become: yes
+  become_method: sudo
+  roles:
+    - role: openvpn
 
 
 - hosts: tag_role_core_gocd_agent
