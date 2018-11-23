@@ -1,4 +1,4 @@
-- hosts: key_core_instances tag_Name_core_bastion_host* tag_Name_ecs_bastion_host key_ecs_instances
+- hosts: key_core_instances tag_Name_core_bastion_host* tag_Name_ecs_bastion_host* key_ecs_instances
 
   user: ubuntu
   become: yes
