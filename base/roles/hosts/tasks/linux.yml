@@ -14,7 +14,7 @@
     path: /etc/hosts
     block: |
       172.16.248.210 gocd.pdswebops.private
-      172.16.40.155 gocd.common.private
+      172.16.40.41 gocd.common.private
       172.16.136.236 gocd.web1live.private
       172.16.128.57 gocd.web1devci.private
       172.16.48.97 gocd.xfjsdevci.private
