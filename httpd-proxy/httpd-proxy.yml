@@ -40,7 +40,7 @@
         domains: ['gocd-xfjslive.parliament.uk']
         upstreams:
           - name: 'gocd-xfjslive'
-            servers: ['172.16.52.181s:8153/']
+            servers: ['172.16.52.181:8153/']
       freeipa:
         domains: ['freeipa-master.access.common-pds.org']
         upstreams:
