@@ -53,6 +53,21 @@
     dest: '/etc/apache2/sites-enabled/freeipa-saml-ssl.conf'
     state: 'link'
 
+- name: Copy visual-msoanames.conf file
+  copy:
+    src: files/visual-msoanames.conf
+    dest: /etc/apache2/sites-available/visual-msoanames.conf
+    owner: root
+    group: root
+    mode: 0644
+
+
+- name: Symlink visual-msoanames to sites-enabled
+  file:
+    src: '/etc/apache2/sites-available/visual-msoanames.conf'
+    dest: '/etc/apache2/sites-enabled/visual-msoanames.conf'
+    state: 'link'
+
 - name: Copy datadog.conf file
   copy:
     src: files/datadog.conf

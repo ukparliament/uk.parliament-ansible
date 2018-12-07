@@ -83,12 +83,7 @@
           - name: 'grafana-common-1'
             servers:
               - '172.16.40.17'
-      visual-msoanames:
-        domains: ['visual-test.parliament.uk']
-        upstreams:
-          - name: 'msoanames'
-            servers:
-              - 'msoanames.web1live.org'
+      
 
 #    proxy_pass_https:
 #      freeipa:
