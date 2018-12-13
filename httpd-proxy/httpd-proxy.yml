@@ -83,7 +83,13 @@
           - name: 'grafana-common-1'
             servers:
               - '172.16.40.17'
-      
+      docker-gocd-pdswebops:
+        domains: ['docker-gocd-pdswebops.parliament.uk']
+        upstreams:
+          - name: 'docker-gocd-pdswebops'
+            servers:
+              - '172.16.248.252:8153'
+
 
 #    proxy_pass_https:
 #      freeipa:
