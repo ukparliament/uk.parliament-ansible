@@ -22,8 +22,9 @@ pipelines:
       - build:
           clean_workspace: true
           jobs:
-            elastic_profile_id: "ansible-agent"
+
             default:
+              elastic_profile_id: "ansible-agent"
               tasks:
                 - exec:
                     command: ansible-playbook
@@ -44,8 +45,9 @@ pipelines:
       - build:
           clean_workspace: true
           jobs:
-            elastic_profile_id: "ansible-agent"
+
             default:
+              elastic_profile_id: "ansible-agent"
               tasks:
                 - exec:
                     command: ansible-playbook
@@ -66,8 +68,9 @@ pipelines:
       - build:
           clean_workspace: true
           jobs:
-            elastic_profile_id: "ansible-agent"
+
             default:
+              elastic_profile_id: "ansible-agent"
               tasks:
                 - exec:
                     command: ansible-playbook
