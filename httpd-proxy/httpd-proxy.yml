@@ -88,7 +88,7 @@
         upstreams:
           - name: 'docker-gocd-pdswebops'
             servers:
-              - '172.16.248.252:8153/'
+              - '172.16.248.40:8153/'
 
 
 #    proxy_pass_https:
