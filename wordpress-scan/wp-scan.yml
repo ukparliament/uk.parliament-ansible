@@ -26,7 +26,7 @@
       apt: package=mailutils state=present force=yes update_cache=yes cache_valid_time=3600
 
     - name: Run WPScan on restorationandrenewal.parliament.uk
-      command: wpscan --url https://restorationandrenewal.parliament.uk/ > wp-randr-scan.txt
+      shell: wpscan --url https://restorationandrenewal.parliament.uk/ > wp-randr-scan.txt
 
     - name: Wait until the scan file is present before continuing
       wait_for:
