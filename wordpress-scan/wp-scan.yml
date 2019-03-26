@@ -22,7 +22,7 @@
     - name: Install Postfix
       apt: package=postfix state=present force=yes update_cache=yes cache_valid_time=3600
 
-    - name: Install Postfix
+    - name: Install Mailutils
       apt: package=mailutils state=present force=yes update_cache=yes cache_valid_time=3600
 
     - name: Run WPScan on restorationandrenewal.parliament.uk
@@ -33,4 +33,4 @@
         path: /home/ubuntu/wp-randr-scan.txt
 
     - name: Run the command if the specified file does not exist.
-      command: echo "Please review the attached file" | mail -s "restorationandrenewal site scan" -a wp-randr-scan.txt fullerd@parliament.uk
+      shell: echo "Please review the attached file" | mail -s "restorationandrenewal site scan" -a wp-randr-scan.txt fullerd@parliament.uk
