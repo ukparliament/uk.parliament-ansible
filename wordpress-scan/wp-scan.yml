@@ -20,7 +20,17 @@
       debconf: name=postfix question="postfix/main_mailer_type" value="'Internet Site'" vtype="string"
 
     - name: Install Postfix
-      apt: package=postfix state=installed force=yes update_cache=yes cache_valid_time=3600
+      apt: package=postfix state=present force=yes update_cache=yes cache_valid_time=3600
 
     - name: Install Postfix
-      apt: package=mailutils state=installed force=yes update_cache=yes cache_valid_time=3600
+      apt: package=mailutils state=present force=yes update_cache=yes cache_valid_time=3600
+
+    - name: Run WPScan on restorationandrenewal.parliament.uk
+      command: wpscan --url https://restorationandrenewal.parliament.uk/ > wp-randr-scan.txt
+
+    - name: Wait until the scan file is present before continuing
+      wait_for:
+        path: /home/ubuntu/wp-randr-scan.txt
+
+    - name: Run the command if the specified file does not exist.
+      command: echo "Please review the attached file" | mail -s "restorationandrenewal site scan" -a wp-randr-scan.txt fullerd@parliament.uk
