@@ -20,7 +20,7 @@
       debconf: name=postfix question="postfix/main_mailer_type" value="'Internet Site'" vtype="string"
 
     - name: Install Postfix
-      apt: package={{ item }} state=installed force=yes update_cache=yes cache_valid_time=3600
-        with_items:
-          - postfix
-          - mailutils
+      apt: package=postfix state=installed force=yes update_cache=yes cache_valid_time=3600
+
+    - name: Install Postfix
+      apt: package=mailutils state=installed force=yes update_cache=yes cache_valid_time=3600
