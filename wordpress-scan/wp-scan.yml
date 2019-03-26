@@ -32,5 +32,7 @@
       wait_for:
         path: /home/ubuntu/wp-randr-scan.txt
 
-    - name: Run the command if the specified file does not exist.
+    - name: Send the scan results by email
       shell: echo "Please review the attached file" | mail -s "restorationandrenewal site scan" -a wp-randr-scan.txt fullerd@parliament.uk
+      become: true
+      become_user: ubuntu
