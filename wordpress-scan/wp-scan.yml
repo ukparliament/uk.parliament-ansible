@@ -31,16 +31,12 @@
     - name: Run WPScan on commonslibrary.parliament.uk
       shell: wpscan --url https://commonslibrary.parliament.uk/ > wp-commonslib-scan.txt
 
-    - name: Wait until the scan file is present before continuing
-      wait_for:
-        path: /home/ubuntu/wp-randr-scan.txt
-
-    - name: Send the scan results by email
+    - name: Send the Restoration and Renewal scan results by email
       shell: echo "Please review the attached file" | mail -s "Restoration and Renewal WP site scan" -a wp-randr-scan.txt fullerd@parliament.uk
       become: true
       become_user: ubuntu
 
-    - name: Send the scan results by email
+    - name: Send the Commons Library WP site scan scan results by email
       shell: echo "Please review the attached file" | mail -s "Commons Library WP site scan" -a wp-commonslib-scan.txt fullerd@parliament.uk
       become: true
       become_user: ubuntu
