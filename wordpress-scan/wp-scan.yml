@@ -29,7 +29,7 @@
       shell: wpscan --url https://restorationandrenewal.parliament.uk/ > wp-randr-scan.txt
 
     - name: Send the Restoration and Renewal scan results by email
-      shell: echo "WPScan was run on https://restorationandrenewal.parliament.uk, please review the attached file." | mail -s "Restoration and Renewal WP site scan" -a wp-randr-scan.txt fullerd@parliament.uk
+      shell: echo "WPScan was run on https://restorationandrenewal.parliament.uk, please review the attached file." | mail -s "Restoration and Renewal WP site scan" -a wp-randr-scan.txt webopsteam@parliament.uk
       become: true
       become_user: ubuntu
 
@@ -37,6 +37,6 @@
       shell: wpscan --url https://commonslibrary.parliament.uk/ > wp-commonslib-scan.txt
 
     - name: Send the Commons Library WP site scan scan results by email
-      shell: echo "WPScan was run on https://https://commonslibrary.parliament.uk, please review the attached file." | mail -s "Commons Library WP site scan" -a wp-commonslib-scan.txt fullerd@parliament.uk
+      shell: echo "WPScan was run on https://https://commonslibrary.parliament.uk, please review the attached file." | mail -s "Commons Library WP site scan" -a wp-commonslib-scan.txt webopsteam@parliament.uk
       become: true
       become_user: ubuntu

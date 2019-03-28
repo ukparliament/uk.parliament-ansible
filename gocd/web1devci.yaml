@@ -76,6 +76,9 @@ pipelines:
       mygit:
         git: https://github.com/ukparliament/uk.parliament-ansible.git
         branch: master
+    timer:
+      spec: "0 0 23 ? * SUN *"
+      only_on_changes: no
     stages:
       - build:
           clean_workspace: true
