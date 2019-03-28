@@ -14,8 +14,7 @@
         state: present
     - name: Update WPScan
       gem:
-        name: wpscan 
-        state: update
+        name: wpscan --update
 
     - name: Set Postfix option hostname
       debconf: name=postifx question="postfix/mailname" value="{{ansible_fqdn}}" vtype="string"
