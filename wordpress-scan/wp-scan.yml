@@ -7,7 +7,7 @@
     - name: Install ruby
       apt:
         name: ruby-full
-        state: present
+        state: latest
     - name: Install wpscan
       gem:
         name: wpscan
