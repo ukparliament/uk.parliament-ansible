@@ -7,11 +7,11 @@
     - name: Install ruby
       apt:
         name: ruby-full
-        state: latest
+        state: present
     - name: Install wpscan
       gem:
         name: wpscan
-        state: latest
+        state: present
 
     - name: Set Postfix option hostname
       debconf: name=postifx question="postfix/mailname" value="{{ansible_fqdn}}" vtype="string"
@@ -26,7 +26,7 @@
       apt: package=mailutils state=present force=yes update_cache=yes cache_valid_time=3600
 
     - name: Run WPScan on restorationandrenewal.parliament.uk
-      shell: wpscan --url https://restorationandrenewal.parliament.uk/ > wp-randr-scan.txt
+      shell: wpscan --update --url https://restorationandrenewal.parliament.uk/ > wp-randr-scan.txt
 
     - name: Send the Restoration and Renewal scan results by email
       shell: echo "WPScan was run on https://restorationandrenewal.parliament.uk, please review the attached file." | mail -s "Restoration and Renewal WP site scan" -a wp-randr-scan.txt webopsteam@parliament.uk
@@ -34,7 +34,7 @@
       become_user: ubuntu
 
     - name: Run WPScan on commonslibrary.parliament.uk
-      shell: wpscan --url https://commonslibrary.parliament.uk/ > wp-commonslib-scan.txt
+      shell: wpscan --update --url https://commonslibrary.parliament.uk/ > wp-commonslib-scan.txt
 
     - name: Send the Commons Library WP site scan scan results by email
       shell: echo "WPScan was run on https://https://commonslibrary.parliament.uk, please review the attached file." | mail -s "Commons Library WP site scan" -a wp-commonslib-scan.txt webopsteam@parliament.uk
