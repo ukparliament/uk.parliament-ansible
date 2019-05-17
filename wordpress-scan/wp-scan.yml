@@ -27,12 +27,18 @@
 
     - name: Run WPScan on restorationandrenewal.parliament.uk
       shell: wpscan --update --url https://restorationandrenewal.parliament.uk/ > wp-randr-scan.txt
+      ignore_errors: true
 
     - name: Send the Restoration and Renewal scan results by email
       shell: echo "WPScan was run on https://restorationandrenewal.parliament.uk, please review the attached file." | mail -s "Restoration and Renewal WP site scan" -a wp-randr-scan.txt webopsteam@parliament.uk
+      ignore_errors: true
 
     - name: Run WPScan on commonslibrary.parliament.uk
       shell: wpscan --update --url https://commonslibrary.parliament.uk/ > wp-commonslib-scan.txt
+      ignore_errors: true
 
     - name: Send the Commons Library WP site scan scan results by email
       shell: echo "WPScan was run on https://https://commonslibrary.parliament.uk, please review the attached file." | mail -s "Commons Library WP site scan" -a wp-commonslib-scan.txt webopsteam@parliament.uk
+      ignore_errors: true
+
+      
