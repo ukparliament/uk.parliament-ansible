@@ -29,6 +29,6 @@ filebeat.modules:
 
 output.logstash:
   enabled: true
-  hosts: ["internal-logstash-elb-2004546124.eu-west-1.elb.amazonaws.com:5044"]
+  hosts: ["internal-logstash-elb-104708134.eu-west-1.elb.amazonaws.com:5044"]
   worker: 1
   index: 'filebeat'
