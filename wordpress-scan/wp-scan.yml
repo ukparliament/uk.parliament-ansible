@@ -4,14 +4,14 @@
   become_method: sudo
 
   tasks:
-    - name: Install ruby
-      apt:
-        name: ruby-full
-        state: present
-    - name: Install wpscan
-      gem:
-        name: wpscan
-        state: present
+#    - name: Install ruby
+#      apt:
+#        name: ruby-full
+#        state: present
+#    - name: Install wpscan
+#      gem:
+#        name: wpscan
+#        state: present
 
     - name: Set Postfix option hostname
       debconf: name=postifx question="postfix/mailname" value="{{ansible_fqdn}}" vtype="string"
